@@ -15,15 +15,24 @@
     src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype");
 }
 
+nav {
+    background-color: black;
+    padding: 30px;
+}
+
+.nav-links {
+    @include flex-centrar($direccion: row, $content: flex-end)
+}
+
 footer {
     background-color: $fondo-navbar-footer;
     @include flex-centrar();
     padding: 30px;
+    height: 20vh;
 }
 
 .footer-social-icons {
     @include flex-centrar($direccion:row);
-    padding: $padding-botones;
 }
 .icono-redes {
     font-size: 25px;
