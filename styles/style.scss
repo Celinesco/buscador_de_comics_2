@@ -24,6 +24,8 @@ nav {
     background-color: black;
     padding: 30px;
     border-bottom: 2px solid white;
+    position: fixed;
+    width: 100%;
 }
 
 .nav-links {
@@ -86,7 +88,7 @@ footer {
     border: $bordes-tarjetas-estilo-comic;
     background-color: white;
     padding: 10px;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 .contenedor-boton-inicio {
@@ -114,6 +116,18 @@ footer {
     @include imagen-fondo();
     height: 500px;
     width: 300px;
+}
+
+#opcion-1 {
+    background-image: url(../images/fondos/fondo-tarjeta-violeta.svg);
+    background-attachment:local;
+    
+}
+
+#opcion-3 {
+    background-image: url(../images/fondos/tarjeta-amarilla-roja.svg);
+    background-attachment:local;
+    //tengo que rotar esta imagen despues con illustrator
 }
 
 .cuadro-comic {
