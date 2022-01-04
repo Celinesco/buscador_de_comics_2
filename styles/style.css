@@ -38,7 +38,8 @@ li {
   src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype"); }
 nav {
   background-color: black;
-  padding: 30px; }
+  padding: 30px;
+  border-bottom: 2px solid white; }
 
 .nav-links {
   display: flex;
@@ -53,7 +54,8 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 30px;
-  height: 20vh; }
+  height: 20vh;
+  border-top: 2px solid white; }
 
 .footer-social-icons {
   display: flex;
@@ -74,7 +76,7 @@ footer {
 .texto-comic {
   font-family: ActionManItalic; }
 
-.seccion-inicio {
+.seccion-inicio, .seccion-principal {
   background-image: url(../images/fondoBuscadorComic.svg);
   overflow: hidden;
   background-size: cover;
@@ -84,7 +86,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   transition: transform 0.8s; }
 
 .contenedor-imagen-presentacion {
@@ -101,6 +102,35 @@ footer {
   cursor: pointer;
   position: absolute;
   bottom: 0; }
+
+.contenido-seccion-principal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+
+.borde-blanco {
+  background-color: white;
+  margin: 10px;
+  box-shadow: 6px 6px 0px 0px black; }
+
+.contenedor-opcion {
+  border: 3px solid black;
+  font-family: ActionManItalic;
+  margin: 10px;
+  background-image: url(../images/tarjeta-roja-naranja.svg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 700px;
+  width: 300px; }
+
+.cuadro-comic {
+  border: 3px solid black;
+  font-family: ActionManItalic;
+  color: black;
+  background-color: #ffbf0f; }
 
 .ocultar {
   display: none; }
