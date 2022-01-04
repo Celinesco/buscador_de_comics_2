@@ -13,6 +13,13 @@ img {
     height: 100%;
 }
 
-footer {
-    background-color: $color-navbar-footer;
+
+a:link, a:active, a:visited {
+    text-decoration:none;
+    color: $color-principal-fondos-oscuros;
 }
+
+ul {
+    list-style: none;
+}
+
