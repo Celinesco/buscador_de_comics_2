@@ -1,2 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+@font-face {
+  font-family: ActionManItalic;
+  src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype"); }
+@font-face {
+  font-family: ActionManBold;
+  src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype"); }
 
 /*# sourceMappingURL=style.css.map */
