@@ -46,4 +46,20 @@ img {
   position: absolute;
   bottom: 0; }
 
+@media (min-width: 280px) {
+  .contenedor-imagen-presentacion {
+    width: 70vw; }
+
+  .texto-presentacion {
+    font-size: 20px; } }
+@media (min-width: 768px) {
+  .texto-presentacion {
+    font-size: 35px; } }
+@media (min-width: 1400px) {
+  .contenedor-boton-inicio {
+    width: 10vw; }
+
+  .contenedor-imagen-presentacion {
+    width: 30vw; } }
+
 /*# sourceMappingURL=style.css.map */
