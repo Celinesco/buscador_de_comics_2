@@ -3,6 +3,7 @@
 @import "variables";
 @import "componentes";
 
+
 @font-face {
     font-family: ActionManItalic;
     src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype");
@@ -43,3 +44,7 @@
     bottom: 0;
 
 }
+
+
+
+@import "breakpoints";
