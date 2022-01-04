@@ -43,8 +43,10 @@
     cursor: pointer;
     position: absolute;
     bottom: 0;
-
 }
 
+.ocultar {
+    display: none
+}
 
 @import "breakpoints";
