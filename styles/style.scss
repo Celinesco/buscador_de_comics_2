@@ -1,0 +1,14 @@
+@import "reset";
+@import "mixin";
+@import "variables";
+@import "componentes";
+
+@font-face {
+    font-family: ActionManItalic;
+    src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: ActionManBold;
+    src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype");
+}
