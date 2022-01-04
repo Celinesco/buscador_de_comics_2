@@ -67,6 +67,10 @@ footer {
     transition: transform 0.8s;
 }
 
+.seccion-principal {
+    height: 100%
+}
+
 .contenedor-imagen-presentacion {
     width: 40vw;
 }
@@ -100,6 +104,8 @@ footer {
 
 .contenido-seccion-principal {
     @include flex-centrar($direccion: row, $content: space-around);
+    margin-top: 5%;
+    flex-wrap: wrap;
 }
 
 .borde-blanco {

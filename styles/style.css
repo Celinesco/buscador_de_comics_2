@@ -98,6 +98,9 @@ footer {
   align-items: center;
   transition: transform 0.8s; }
 
+.seccion-principal {
+  height: 100%; }
+
 .contenedor-imagen-presentacion {
   width: 40vw; }
 
@@ -128,7 +131,9 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  margin-top: 5%;
+  flex-wrap: wrap; }
 
 .borde-blanco {
   background-color: white;
