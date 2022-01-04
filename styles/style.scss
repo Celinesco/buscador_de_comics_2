@@ -2,6 +2,7 @@
 @import "mixin";
 @import "variables";
 @import "componentes";
+@import "animaciones";
 
 
 @font-face {
@@ -24,6 +25,7 @@
     @include imagen-fondo();
     @include flex-centrar();
     height: 100vh;
+    transition: transform 0.8s;
 }
 
 .contenedor-imagen-presentacion {
