@@ -6,6 +6,7 @@
 
 section {
     padding: 110px 40px 130px;
+    height: 100vw;
 }
 
 img {
@@ -23,3 +24,6 @@ ul {
     list-style: none;
 }
 
+li {
+    padding: $padding-botones;
+}
