@@ -2,6 +2,11 @@
 @import "mixin";
 @import "variables";
 @import "componentes";
+<<<<<<< HEAD
+=======
+@import "animaciones";
+
+>>>>>>> 30c1eebda590feadd21e95f203038a6cb523b033
 
 @font-face {
     font-family: ActionManItalic;
@@ -11,4 +16,44 @@
 @font-face {
     font-family: ActionManBold;
     src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype");
+<<<<<<< HEAD
 }
+=======
+}
+
+
+.texto-comic {
+    font-family: $tipografia-principal-italic;
+}
+
+.seccion-inicio {
+    background-image: url(../images/fondoBuscadorComic.svg);
+    @include imagen-fondo();
+    @include flex-centrar();
+    height: 100vh;
+    transition: transform 0.8s;
+}
+
+.contenedor-imagen-presentacion {
+    width: 40vw;
+}
+
+.texto-presentacion {
+    font-family: $tipografia-principal-bold;
+    color: $color-principal-fondos-oscuros;
+    margin: $margen-superior;
+    text-align: center;
+}
+
+.contenedor-boton-inicio {
+    width: 15vw;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+
+}
+
+
+
+@import "breakpoints";
+>>>>>>> 30c1eebda590feadd21e95f203038a6cb523b033

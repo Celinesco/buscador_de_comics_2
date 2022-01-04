@@ -3,11 +3,76 @@
   padding: 0;
   box-sizing: border-box; }
 
+<<<<<<< HEAD
+=======
+section {
+  padding: 110px 40px 130px; }
+
+img {
+  width: 100%;
+  height: 100%; }
+
+.trasladar-hacia-arriba {
+  transform: translateY(-100%); }
+
+.trasladar-hacia-abajo {
+  transform: translateY(100%); }
+
+>>>>>>> 30c1eebda590feadd21e95f203038a6cb523b033
 @font-face {
   font-family: ActionManItalic;
   src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype"); }
 @font-face {
   font-family: ActionManBold;
   src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype"); }
+<<<<<<< HEAD
+=======
+.texto-comic {
+  font-family: ActionManItalic; }
+
+.seccion-inicio {
+  background-image: url(../images/fondoBuscadorComic.svg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: transform 0.8s; }
+
+.contenedor-imagen-presentacion {
+  width: 40vw; }
+
+.texto-presentacion {
+  font-family: ActionManBold;
+  color: white;
+  margin: 20px;
+  text-align: center; }
+
+.contenedor-boton-inicio {
+  width: 15vw;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0; }
+
+@media (min-width: 280px) {
+  .contenedor-imagen-presentacion {
+    width: 70vw; }
+
+  .texto-presentacion {
+    font-size: 20px; } }
+@media (min-width: 768px) {
+  .texto-presentacion {
+    font-size: 35px; } }
+@media (min-width: 1400px) {
+  .contenedor-boton-inicio {
+    width: 10vw; }
+
+  .contenedor-imagen-presentacion {
+    width: 30vw; } }
+>>>>>>> 30c1eebda590feadd21e95f203038a6cb523b033
 
 /*# sourceMappingURL=style.css.map */
