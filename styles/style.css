@@ -3,8 +3,6 @@
   padding: 0;
   box-sizing: border-box; }
 
-<<<<<<< HEAD
-=======
 section {
   padding: 110px 40px 130px; }
 
@@ -12,21 +10,12 @@ img {
   width: 100%;
   height: 100%; }
 
-.trasladar-hacia-arriba {
-  transform: translateY(-100%); }
-
-.trasladar-hacia-abajo {
-  transform: translateY(100%); }
-
->>>>>>> 30c1eebda590feadd21e95f203038a6cb523b033
 @font-face {
   font-family: ActionManItalic;
   src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype"); }
 @font-face {
   font-family: ActionManBold;
   src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype"); }
-<<<<<<< HEAD
-=======
 .texto-comic {
   font-family: ActionManItalic; }
 
@@ -58,6 +47,9 @@ img {
   position: absolute;
   bottom: 0; }
 
+.ocultar {
+  display: none; }
+
 @media (min-width: 280px) {
   .contenedor-imagen-presentacion {
     width: 70vw; }
@@ -73,6 +65,5 @@ img {
 
   .contenedor-imagen-presentacion {
     width: 30vw; } }
->>>>>>> 30c1eebda590feadd21e95f203038a6cb523b033
 
 /*# sourceMappingURL=style.css.map */

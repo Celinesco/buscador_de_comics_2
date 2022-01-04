@@ -3,10 +3,8 @@
     flex-direction: $direccion;
     justify-content: $content;
     align-items: $align;
-<<<<<<< HEAD
   }
-=======
-  }
+
 
 @mixin imagen-fondo {
     overflow: hidden;
@@ -14,4 +12,3 @@
     background-position: center;
     background-attachment: fixed;
 }
->>>>>>> 30c1eebda590feadd21e95f203038a6cb523b033
