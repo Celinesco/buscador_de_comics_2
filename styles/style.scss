@@ -1,6 +1,6 @@
-@import "reset";
-@import "mixin";
 @import "variables";
+@import "mixin";
+@import "reset";
 @import "componentes";
 @import "animaciones";
 
@@ -15,10 +15,32 @@
     src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype");
 }
 
+footer {
+    background-color: $fondo-navbar-footer;
+    @include flex-centrar();
+    padding: 30px;
+}
+
+.footer-social-icons {
+    @include flex-centrar($direccion:row);
+    padding: $padding-botones;
+}
+.icono-redes {
+    font-size: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.texto-footer {
+    font-family: $tipografia-secundaria;
+    color:$color-principal-fondos-oscuros;
+    font-size: 20px;
+}
 
 .texto-comic {
     font-family: $tipografia-principal-italic;
 }
+
 
 .seccion-inicio {
     background-image: url(../images/fondoBuscadorComic.svg);
@@ -49,5 +71,9 @@
 .ocultar {
     display: none
 }
+
+
+
+
 
 @import "breakpoints";
