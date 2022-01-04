@@ -12,3 +12,11 @@
     font-family: ActionManBold;
     src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype");
 }
+
+
+.seccion-inicio {
+    background-image: url(../images/fondoBuscadorComic.svg);
+    @include imagen-fondo();
+    @include flex-centrar();
+    height: 100vh;
+}
