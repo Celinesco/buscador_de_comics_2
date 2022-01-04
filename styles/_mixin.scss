@@ -12,3 +12,15 @@
     background-position: center;
     background-attachment: fixed;
 }
+
+@mixin tarjetas {
+  border: $bordes-tarjetas-estilo-comic;
+  font-family: $tipografia-principal-italic;
+}
+
+@mixin cuadroDeDialogo {
+  border: $bordes-tarjetas-estilo-comic;
+  font-family: $tipografia-principal-italic;
+  color: $color-principal-fondos-claros;
+  background-color: $fondo-tarjetas-aclaraciones;
+}

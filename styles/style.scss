@@ -18,6 +18,7 @@
 nav {
     background-color: black;
     padding: 30px;
+    border-bottom: 2px solid white;
 }
 
 .nav-links {
@@ -29,6 +30,7 @@ footer {
     @include flex-centrar();
     padding: 30px;
     height: 20vh;
+    border-top: 2px solid white;
 }
 
 .footer-social-icons {
@@ -51,11 +53,10 @@ footer {
 }
 
 
-.seccion-inicio {
+.seccion-inicio, .seccion-principal {
     background-image: url(../images/fondoBuscadorComic.svg);
     @include imagen-fondo();
     @include flex-centrar();
-    height: 100vh;
     transition: transform 0.8s;
 }
 
@@ -75,6 +76,29 @@ footer {
     cursor: pointer;
     position: absolute;
     bottom: 0;
+}
+
+.contenido-seccion-principal {
+    @include flex-centrar($direccion: row, $content: space-around);
+}
+
+.borde-blanco {
+    background-color: white;
+    margin: 10px;
+    box-shadow: $sombra-tarjetas-estilo-comic;
+}
+
+.contenedor-opcion {
+    @include tarjetas ();
+    margin: 10px;
+    background-image: url(../images/tarjeta-roja-naranja.svg);
+    @include imagen-fondo();
+    height: 700px;
+    width: 300px;
+}
+
+.cuadro-comic {
+    @include cuadroDeDialogo();
 }
 
 .ocultar {
