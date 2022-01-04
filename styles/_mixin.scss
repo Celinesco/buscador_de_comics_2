@@ -4,3 +4,10 @@
     justify-content: $content;
     align-items: $align;
   }
+
+@mixin imagen-fondo {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
