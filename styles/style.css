@@ -6,12 +6,19 @@
 section {
   padding: 110px 40px 130px; }
 
+img {
+  width: 100%;
+  height: 100%; }
+
 @font-face {
   font-family: ActionManItalic;
   src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype"); }
 @font-face {
   font-family: ActionManBold;
   src: url("tipografias/Action-Man/Action_Man_Bold.ttf") format("opentype"); }
+.texto-comic {
+  font-family: ActionManItalic; }
+
 .seccion-inicio {
   background-image: url(../images/fondoBuscadorComic.svg);
   overflow: hidden;
@@ -23,5 +30,20 @@ section {
   justify-content: center;
   align-items: center;
   height: 100vh; }
+
+.contenedor-imagen-presentacion {
+  width: 40vw; }
+
+.texto-presentacion {
+  font-family: ActionManBold;
+  color: white;
+  margin: 20px;
+  text-align: center; }
+
+.contenedor-boton-inicio {
+  width: 15vw;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */

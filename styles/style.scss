@@ -14,9 +14,32 @@
 }
 
 
+.texto-comic {
+    font-family: $tipografia-principal-italic;
+}
+
 .seccion-inicio {
     background-image: url(../images/fondoBuscadorComic.svg);
     @include imagen-fondo();
     @include flex-centrar();
     height: 100vh;
+}
+
+.contenedor-imagen-presentacion {
+    width: 40vw;
+}
+
+.texto-presentacion {
+    font-family: $tipografia-principal-bold;
+    color: $color-principal-fondos-oscuros;
+    margin: $margen-superior;
+    text-align: center;
+}
+
+.contenedor-boton-inicio {
+    width: 15vw;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+
 }
