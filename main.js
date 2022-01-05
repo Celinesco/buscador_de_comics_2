@@ -16,12 +16,29 @@ const primeraPagina = document.getElementById("first-page");
 const ultimaPagina = document.getElementById("last-page")
 
 //FUNCIONES Y VARIABLES AUXILIARES
-
+let calculoUltimaPagina = 1540;
 let offset = 0;
 
-if (offset === 0) {
-    paginaAnterior.style.backgroundColor = "grey";
+//Comienzo de pagina
+paginaAnterior.style.backgroundColor = "grey";
+primeraPagina.style.backgroundColor = "grey";
+
+
+const desactivarBotonDesplazamiento = (boton1, boton2) => {
+    boton1.disabled = true;
+    boton2.disabled = true;
+    boton1.style.backgroundColor = "grey";
+    boton2.style.backgroundColor = "grey";
 }
+
+const activarBotonesDesplazamiento = (boton1,boton2) => {
+    boton1.disabled = false;
+    boton2.disabled = false;
+    boton1.style.backgroundColor = "#ffbf0f";
+    boton2.style.backgroundColor = "#ffbf0f";
+}
+
+
 
 const ocultarSecciones = () => {
     todasLasSecciones.forEach((seccion)=> {
@@ -110,18 +127,45 @@ const personajesHTML = (personaje) => {
 
 
 
-// mostrarListaPersonajes()
+mostrarListaPersonajes()
 
 siguientePagina.onclick = () => {
-    offset += 20
-    mostrarListaPersonajes()
+    activarBotonesDesplazamiento(primeraPagina, paginaAnterior)
+    if (offset !== calculoUltimaPagina) {
+        offset += 20
+        mostrarListaPersonajes()
+        if (offset === calculoUltimaPagina) {
+            desactivarBotonDesplazamiento(siguientePagina, ultimaPagina)
+        }
+    }
+}
+
+ultimaPagina.onclick = () => {
+    activarBotonesDesplazamiento(primeraPagina,paginaAnterior)
+    if (offset !== calculoUltimaPagina) {
+        offset = calculoUltimaPagina
+        desactivarBotonDesplazamiento(siguientePagina, ultimaPagina)
+        mostrarListaPersonajes()
+    }
 }
 
 paginaAnterior.onclick = () => {
-    if (offset === 0) {
-      
-        paginaAnterior.disabled = true
+    activarBotonesDesplazamiento(siguientePagina, ultimaPagina)
+    if (offset !== 0 ) {
+         offset -= 20;
+        mostrarListaPersonajes()
+        if (offset === 0) {
+            desactivarBotonDesplazamiento(primeraPagina,paginaAnterior)
+        }
     }
-    offset -= 20
-    mostrarListaPersonajes()
+}
+
+primeraPagina.onclick = () => {
+    activarBotonesDesplazamiento(siguientePagina,ultimaPagina)
+  if (offset!== 0) {
+      offset = 0
+      desactivarBotonDesplazamiento(primeraPagina,paginaAnterior)
+      mostrarListaPersonajes()
+  }
+  
 }
