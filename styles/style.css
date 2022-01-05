@@ -7,6 +7,16 @@ section {
   padding: 110px 40px 130px;
   height: 100%; }
 
+h2 {
+  font-size: 3em;
+  margin: 10px;
+  font-family: Actionmanshadded;
+  color: black; }
+
+h4 {
+  font-family: ActionManRegular;
+  color: white; }
+
 body, html {
   height: 100%; }
 
@@ -74,6 +84,9 @@ button {
 @font-face {
   font-family: ActionManRegular;
   src: url("tipografias/Action-Man/Action_Man.ttf"); }
+@font-face {
+  font-family: Actionmanshadded;
+  src: url("tipografias/Action-Man/Action_Man_Shaded.ttf"); }
 nav {
   display: none;
   background-color: black;
@@ -241,20 +254,34 @@ footer {
 .tarjeta-personaje {
   display: flex;
   flex-direction: column;
+  background-color: black;
+  text-align: center;
   width: calc(100% / 5 - 2 * 10px);
   margin: 0 10px 40px;
-  cursor: pointer; }
+  cursor: pointer;
+  border: 4px solid black;
+  height: 220px; }
 
 .contenedor-imagen-comic {
   flex-grow: 1;
-  transition-duration: 0.5s; }
+  transition-duration: 0.5s;
+  overflow: hidden;
+  border-bottom: 3px solid black; }
 
-.imagen-personaje-comic {
-  width: 100%;
-  height: 100%;
-  box-shadow: 4px 22px 37px -20px #524c52;
+.imagen-personaje {
   margin-bottom: 20px;
   transition: 0.2s; }
+
+.nombre-personaje {
+  height: 64px;
+  margin-top: 25px; }
+
+.cuadro-titulo-seccion {
+  border: 3px solid black;
+  background-color: white;
+  box-shadow: 6px 6px 0px 0px black;
+  padding: 20px;
+  margin: 20px; }
 
 @media (min-width: 280px) {
   .contenedor-imagen-presentacion {

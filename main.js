@@ -27,6 +27,8 @@ const desvanecerSeccion = (seccion) => {
 }
 
 
+///
+
 botonDeslizarSeccionAbajo.onclick = () => {
     seccionInicio.classList.add("trasladar-hacia-arriba");
     setTimeout (()=> {
@@ -75,4 +77,27 @@ botonSeccionComics.onclick = () => {
 }
 
 
+const mostrarListaPersonajes = () => {
+    fetch("https://gateway.marvel.com:443/v1/public/characters?apikey=1fd738e2dc343485449632dfe8caffa1")
+    .then(res => res.json())
+    .then(data => {
+        personajesHTML(data.data.results)
+    })
+}
 
+const personajesHTML = (personaje) => {
+    const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
+    const html = personaje.reduce((acc,element) => {
+        return acc + `
+        <div class="tarjeta-personaje">
+            <div class="contenedor-imagen-comic">
+                <img class="imagen-personaje" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic:${element.name}">
+            </div>
+            <h4 class="nombre-personaje">${element.name}</h4>
+        </div>`
+    },"")
+
+    contenedorTarjetasPersonajes.innerHTML = html;
+}
+
+// mostrarListaPersonajes()
