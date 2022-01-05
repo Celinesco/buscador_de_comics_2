@@ -35,6 +35,7 @@ li {
   padding: 10px; }
 
 button {
+  border: none;
   background-color: transparent;
   cursor: pointer; }
 
@@ -56,6 +57,11 @@ button {
   margin: 5px;
   padding: 10px;
   font-size: 20px; }
+
+.boton-desplazamiento:active {
+  border: white;
+  color: white;
+  box-shadow: 3px 3px 0px 0px black; }
 
 @keyframes rotacion {
   from {

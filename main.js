@@ -5,19 +5,23 @@ const seccionInicio = document.getElementById("seccion-inicio");
 const seccionPrincipal = document.getElementById("seccion-principal");
 const seccionPersonajes = document.getElementById("seccion-personajes");
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
-const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
 const botonSeccionPersonajes = document.getElementById("boton-seccion-personajes");
 const botonSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
 const botonSeccionComics = document.getElementById("boton-seccion-comics");
 const todasLasSecciones = document.querySelectorAll(".secciones");
+const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
 const siguientePagina = document.getElementById("next");
 const paginaAnterior = document.getElementById("prev");
-
+const primeraPagina = document.getElementById("first-page");
+const ultimaPagina = document.getElementById("last-page")
 
 //FUNCIONES Y VARIABLES AUXILIARES
 
 let offset = 0;
 
+if (offset === 0) {
+    paginaAnterior.style.backgroundColor = "grey";
+}
 
 const ocultarSecciones = () => {
     todasLasSecciones.forEach((seccion)=> {
@@ -115,7 +119,7 @@ siguientePagina.onclick = () => {
 
 paginaAnterior.onclick = () => {
     if (offset === 0) {
-        
+      
         paginaAnterior.disabled = true
     }
     offset -= 20
