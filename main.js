@@ -1,6 +1,7 @@
 
 const seccionInicio = document.getElementById("seccion-inicio")
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
+const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
 
 
 botonDeslizarSeccionAbajo.onclick = () => {
@@ -9,3 +10,16 @@ botonDeslizarSeccionAbajo.onclick = () => {
         seccionInicio.style.display = "none"
     },900)
 }
+
+
+
+botonOnomatopeya.forEach((onomatopeya) => {
+    onomatopeya.onclick = () => {
+        onomatopeya.style.animationName = "rotacion";
+        setTimeout(() => {
+            onomatopeya.style.animationName = ""
+        }, 600)
+    }
+})
+
+
