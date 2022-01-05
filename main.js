@@ -44,9 +44,9 @@ botonSeccionPersonajes.onclick = () => {
     setTimeout (() => {
         desvanecerSeccion(seccionPrincipal)
     },800)
-
     //aparece la seccion personajes
     //llamado a la api con todos los persoanjes
+    // analogamente en las dos funciones de abajo
 }
 
 botonSeccionBusqueda.onclick = () => {
