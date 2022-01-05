@@ -1,12 +1,16 @@
-
+const nav = document.getElementById("nav");
+const main = document.querySelector("main");
+const footer = document.querySelector("footer")
 const seccionInicio = document.getElementById("seccion-inicio");
 const seccionPrincipal = document.getElementById("seccion-principal");
+const seccionPersonajes = document.getElementById("seccion-personajes");
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
 const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
 const botonSeccionPersonajes = document.getElementById("boton-seccion-personajes");
 const botonSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
 const botonSeccionComics = document.getElementById("boton-seccion-comics");
 const todasLasSecciones = document.querySelectorAll(".secciones");
+
 
 
 //FUNCIONES AUXILIARES
@@ -28,6 +32,10 @@ botonDeslizarSeccionAbajo.onclick = () => {
     setTimeout (()=> {
         seccionInicio.style.display = "none"
     },900)
+    main.classList.remove("ocultar")
+    seccionPrincipal.classList.remove("ocultar");
+   
+
 }
 
 const vibrarOnomatopeya = (onomatopeya) => {
@@ -41,9 +49,12 @@ const vibrarOnomatopeya = (onomatopeya) => {
 
 botonSeccionPersonajes.onclick = () => {
     vibrarOnomatopeya(botonSeccionPersonajes);
+    desvanecerSeccion(seccionPrincipal);
     setTimeout (() => {
-        desvanecerSeccion(seccionPrincipal)
+        seccionPrincipal.classList.add("ocultar")
     },800)
+    
+    seccionPersonajes.classList.remove("ocultar");
     //aparece la seccion personajes
     //llamado a la api con todos los persoanjes
     // analogamente en las dos funciones de abajo
