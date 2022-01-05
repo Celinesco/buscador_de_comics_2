@@ -1,3 +1,13 @@
+
+@keyframes rotacion {
+    from {
+        transform: rotate(-5deg);
+    }
+    to {
+      transform: rotate(5deg)
+    }
+  }
+
 .trasladar-hacia-arriba {
     transform: translateY(-100%);
 }
