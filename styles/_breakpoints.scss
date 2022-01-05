@@ -8,7 +8,10 @@
 }
 
 @media (min-width: 576px) {
-
+   nav {
+       display: flex;
+       justify-content: flex-end;
+   }
  }
 
 // Medium devices (tablets, 768px and up)

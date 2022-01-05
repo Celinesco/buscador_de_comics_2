@@ -22,6 +22,7 @@
 }
 
 nav {
+    display: none;
     background-color: black;
     padding: 30px;
     border-bottom: 2px solid white;
@@ -61,14 +62,17 @@ footer {
 }
 
 
-.seccion-inicio, .seccion-principal {
+.seccion-inicio {
     background-image: url(../images/fondos/fondoBuscadorComic.svg);
     @include imagen-fondo();
     @include flex-centrar();
     transition: transform 0.8s;
 }
 
-.seccion-principal {
+.secciones {
+    background-image: url(../images/fondos/fondoBuscadorComic.svg);
+    @include imagen-fondo();
+    @include flex-centrar();
     height: 100%;
 }
 
