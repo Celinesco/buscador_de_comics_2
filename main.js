@@ -11,7 +11,7 @@ const botonSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
 const botonSeccionComics = document.getElementById("boton-seccion-comics");
 const todasLasSecciones = document.querySelectorAll(".secciones");
 const siguientePagina = document.getElementById("next");
-const paginaAnterior = document.getElementById("prev")
+const paginaAnterior = document.getElementById("prev");
 
 
 //FUNCIONES Y VARIABLES AUXILIARES
@@ -113,4 +113,11 @@ siguientePagina.onclick = () => {
     mostrarListaPersonajes()
 }
 
-
+paginaAnterior.onclick = () => {
+    if (offset === 0) {
+        
+        paginaAnterior.disabled = true
+    }
+    offset -= 20
+    mostrarListaPersonajes()
+}
