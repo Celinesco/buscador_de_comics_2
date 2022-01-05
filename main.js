@@ -10,10 +10,13 @@ const botonSeccionPersonajes = document.getElementById("boton-seccion-personajes
 const botonSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
 const botonSeccionComics = document.getElementById("boton-seccion-comics");
 const todasLasSecciones = document.querySelectorAll(".secciones");
+const siguientePagina = document.getElementById("next");
 
 
+//FUNCIONES Y VARIABLES AUXILIARES
 
-//FUNCIONES AUXILIARES
+let offset = 0;
+
 
 const ocultarSecciones = () => {
     todasLasSecciones.forEach((seccion)=> {
@@ -78,7 +81,7 @@ botonSeccionComics.onclick = () => {
 
 
 const mostrarListaPersonajes = () => {
-    fetch("https://gateway.marvel.com:443/v1/public/characters?apikey=1fd738e2dc343485449632dfe8caffa1")
+    fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=1fd738e2dc343485449632dfe8caffa1&offset=${offset}`)
     .then(res => res.json())
     .then(data => {
         personajesHTML(data.data.results)
@@ -100,4 +103,11 @@ const personajesHTML = (personaje) => {
     contenedorTarjetasPersonajes.innerHTML = html;
 }
 
+
+
 // mostrarListaPersonajes()
+
+siguientePagina.onclick = () => {
+    offset += 20
+    mostrarListaPersonajes()
+}
