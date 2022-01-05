@@ -19,10 +19,13 @@ const ultimaPagina = document.getElementById("last-page")
 let calculoUltimaPagina = 1540;
 let offset = 0;
 
+
+
 //Comienzo de pagina
 paginaAnterior.style.backgroundColor = "grey";
 primeraPagina.style.backgroundColor = "grey";
 
+//
 
 const desactivarBotonDesplazamiento = (boton1, boton2) => {
     boton1.disabled = true;
@@ -82,8 +85,10 @@ botonSeccionPersonajes.onclick = () => {
     },800)
     
     seccionPersonajes.classList.remove("ocultar");
+   
     //aparece la seccion personajes
     //llamado a la api con todos los persoanjes
+    mostrarListaPersonajes()
     // analogamente en las dos funciones de abajo
 }
 
@@ -106,17 +111,27 @@ const mostrarListaPersonajes = () => {
     fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=1fd738e2dc343485449632dfe8caffa1&offset=${offset}`)
     .then(res => res.json())
     .then(data => {
-        personajesHTML(data.data.results)
+        listaPersonajesHTML(data.data.results)
+        asignarClickTarjetaPersonaje()
     })
 }
 
-const personajesHTML = (personaje) => {
+const asignarClickTarjetaPersonaje = () => {
+    const tarjetas = document.querySelectorAll(".tarjeta-personaje");
+    tarjetas.forEach((personaje)=> {
+        personaje.onclick = () => {
+
+        }
+    })
+}
+
+const listaPersonajesHTML = (personaje) => {
     const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
     const html = personaje.reduce((acc,element) => {
         return acc + `
-        <div class="tarjeta-personaje">
+        <div class="tarjeta-personaje" data-id=${element.id}>
             <div class="contenedor-imagen-comic">
-                <img class="imagen-personaje" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic:${element.name}">
+                <img class="imagen-personaje" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
             </div>
             <h4 class="nombre-personaje">${element.name}</h4>
         </div>`
@@ -127,7 +142,34 @@ const personajesHTML = (personaje) => {
 
 
 
-mostrarListaPersonajes()
+const obtenerInfoPersonaje = (id) => {
+    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=1fd738e2dc343485449632dfe8caffa1`)
+    .then(res => res.json())
+    .then(data => {
+        personajeHTML(data.data.results)
+    })
+}
+
+
+const personajeHTML = () => {
+    //maquetar esto primero 
+    const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado")  
+    // (lo tengo que crear en el HTML)
+    const html = persona.reduce((acc,element) => {
+        return acc + `
+         <div class="tarjeta-personaje" data-id=${element.id}>
+            <div class="contenedor-imagen-comic">
+                <img class="imagen-personaje" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
+            </div>
+            <h4 class="nombre-personaje">${element.name}</h4>
+        </div>`
+        
+    },"")
+
+    contenedorPersonajeSeleccionado.innerHTML = html
+}
+
+// mostrarListaPersonajes()
 
 siguientePagina.onclick = () => {
     activarBotonesDesplazamiento(primeraPagina, paginaAnterior)
