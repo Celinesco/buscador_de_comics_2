@@ -13,6 +13,11 @@ h2 {
   font-family: Actionmanshadded;
   color: black; }
 
+h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-family: ActionManBold; }
+
 h4 {
   font-family: ActionManRegular;
   color: white; }
@@ -198,6 +203,12 @@ footer {
   margin: 10px;
   box-shadow: 6px 6px 0px 0px black; }
 
+.borde-blanco-tarjeta-personaje {
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 5px;
+  box-shadow: 6px 6px 0px 0px black; }
+
 .contenedor-opcion {
   display: flex;
   flex-direction: column;
@@ -267,13 +278,32 @@ footer {
   border: 4px solid black;
   height: 220px; }
 
-.contenedor-imagen-comic {
+.contenedor-imagen-lista-personajes {
   flex-grow: 1;
   transition-duration: 0.5s;
   overflow: hidden;
   border-bottom: 3px solid black; }
 
-.imagen-personaje {
+.contenedor-personaje-seleccionado {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 900px;
+  background-color: #ebd096;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 20px; }
+
+.contenedor-imagen-personaje-seleccionado {
+  display: flex;
+  border: 3px solid black;
+  max-width: 700px; }
+
+.contenedor-nombre-descripcion {
+  padding: 20px; }
+
+.imagen-personaje-lista-personaje {
   margin-bottom: 20px;
   transition: 0.2s; }
 

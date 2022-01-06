@@ -130,8 +130,8 @@ const listaPersonajesHTML = (personaje) => {
     const html = personaje.reduce((acc,element) => {
         return acc + `
         <div class="tarjeta-personaje" data-id=${element.id}>
-            <div class="contenedor-imagen-comic">
-                <img class="imagen-personaje" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
+            <div class="contenedor-imagen-lista-personajes">
+                <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
             </div>
             <h4 class="nombre-personaje">${element.name}</h4>
         </div>`
