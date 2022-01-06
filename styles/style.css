@@ -22,6 +22,10 @@ h4 {
   font-family: ActionManRegular;
   color: white; }
 
+h5 {
+  font-family: Roboto;
+  font-size: 15px; }
+
 body, html {
   height: 100%; }
 
@@ -67,6 +71,10 @@ button {
   border: white;
   color: white;
   box-shadow: 3px 3px 0px 0px black; }
+
+.columna {
+  display: flex;
+  flex-direction: column; }
 
 @keyframes rotacion {
   from {
@@ -207,7 +215,8 @@ footer {
   background-color: white;
   border: 10px solid white;
   border-radius: 5px;
-  box-shadow: 6px 6px 0px 0px black; }
+  box-shadow: 6px 6px 0px 0px black;
+  margin: 20px; }
 
 .contenedor-opcion {
   display: flex;
@@ -310,6 +319,19 @@ footer {
 .nombre-personaje {
   height: 64px;
   margin-top: 25px; }
+
+.column {
+  display: flex; }
+
+.comic-texto {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 7px;
+  transition: transform 0.3s; }
+
+.comic-texto:hover {
+  transform: translateY(-6px); }
 
 @media (min-width: 280px) {
   .contenedor-imagen-presentacion {

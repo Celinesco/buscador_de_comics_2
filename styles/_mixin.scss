@@ -28,3 +28,12 @@
   margin: 20px;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
