@@ -298,7 +298,7 @@ footer {
 .contenedor-imagen-personaje-seleccionado {
   display: flex;
   border: 3px solid black;
-  max-width: 700px; }
+  max-width: 250px; }
 
 .contenedor-nombre-descripcion {
   padding: 20px; }
