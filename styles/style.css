@@ -24,7 +24,8 @@ h4 {
 
 h5 {
   font-family: Roboto;
-  font-size: 15px; }
+  font-size: 15px;
+  margin: 15px 0; }
 
 body, html {
   height: 100%; }
@@ -71,6 +72,9 @@ button {
   border: white;
   color: white;
   box-shadow: 3px 3px 0px 0px black; }
+
+.sombra {
+  box-shadow: 4px 22px 37px -20px #524c52; }
 
 @keyframes rotacion {
   from {
@@ -333,14 +337,19 @@ footer {
   flex-direction: column; }
 
 .row {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 700px; }
 
 .comic-texto {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 7px;
-  transition: transform 0.3s; }
+  margin: 10px 5px;
+  transition: transform 0.3s;
+  max-width: 150px;
+  max-height: 320px; }
 
 .comic-texto:hover {
   transform: translateY(-6px); }
@@ -349,6 +358,9 @@ footer {
   width: 100%;
   display: flex;
   justify-content: center; }
+
+#contenedor-comics-personaje-seleccionado {
+  overflow: scroll; }
 
 @media (min-width: 280px) {
   .contenedor-imagen-presentacion {
