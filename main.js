@@ -14,7 +14,9 @@ const siguientePagina = document.getElementById("next");
 const paginaAnterior = document.getElementById("prev");
 const primeraPagina = document.getElementById("first-page");
 const ultimaPagina = document.getElementById("last-page");
-const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado")  
+const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
+const contenedor = document.getElementById("contenedor-comics-personaje-seleccionado");
+const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco")
 
 //FUNCIONES Y VARIABLES AUXILIARES
 let calculoUltimaPagina = 1540;
@@ -121,7 +123,7 @@ const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje");
     tarjetas.forEach((personaje)=> {
         personaje.onclick = () => {
-            contenedorPersonajeSeleccionado.classList.remove("ocultar");
+            contenedorBordeBlanco.classList.remove("ocultar");
             const idPersonaje = personaje.dataset.id;
             obtenerInfoPersonaje(idPersonaje)
         }
@@ -137,7 +139,8 @@ const listaPersonajesHTML = (personaje) => {
                 <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
             </div>
             <h4 class="nombre-personaje">${element.name}</h4>
-        </div>`
+        </div>
+        `
     },"")
 
     contenedorTarjetasPersonajes.innerHTML = html;
@@ -151,25 +154,48 @@ const obtenerInfoPersonaje = (id) => {
     .then(data => {
         imprimirPersonajeHTML(data.data.results)
     })
+    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?limit=4&apikey=1fd738e2dc343485449632dfe8caffa1`)
+    .then(res => res.json())
+    .then(data => {
+        imprimirComicsDePersonaje(data.data.results)
+    })
 }
 
 
 const imprimirPersonajeHTML = (personaje) => {
     const html = personaje.reduce((acc,element) => {
         return acc + `
-        <div class="contenedor-personaje-seleccionado">
-            <div class="contenedor-imagen-personaje-seleccionado">
-                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
+        <div class="borde-blanco-tarjeta-personaje">
+            <div class="contenedor-personaje-seleccionado">
+                <div class="contenedor-imagen-personaje-seleccionado">
+                    <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
+                </div>
+                <div class="contenedor-nombre-descripcion">
+                    <h3>${element.name}</h3>
+                    <p class="texto-descripcion">${element.description}</p>
+                </div>
             </div>
-            <div class="contenedor-nombre-descripcion">
-                <h3>${element.name}</h3>
-                <p class="texto-descripcion">${element.description}</p>
-            </div>
-        `
+        </div>`
         
     },"")
-
     contenedorPersonajeSeleccionado.innerHTML = html
+}
+
+
+const imprimirComicsDePersonaje = (comic) => {
+    
+    const html = comic.reduce((acc,element)=> {
+        return acc + `
+        <div class="comic-texto">
+            <div>
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic: ${element.title}">
+            </div>
+                <h5>${element.title}</h5>
+        </div>
+        `
+    },"")
+
+    contenedor.innerHTML = html
 }
 
 

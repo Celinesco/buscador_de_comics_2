@@ -129,6 +129,7 @@ footer {
     border: 10px solid white;
     border-radius: 5px;
     box-shadow: 6px 6px 0px 0px black;
+    margin: 20px;
 }
 
 .contenedor-opcion {
@@ -214,6 +215,7 @@ footer {
     border: $bordes-tarjetas-estilo-comic;
     max-width: 250px;
     
+    
 }
 
 .contenedor-nombre-descripcion {
@@ -228,6 +230,24 @@ footer {
 .nombre-personaje {
     height: 64px;
     margin-top: 25px;
+}
+
+.column {
+    display: flex;
+
+}
+
+
+.comic-texto {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 7px;
+    transition: transform 0.3s;
+}
+
+.comic-texto:hover {
+    transform:translateY(-6px)
 }
 
 
