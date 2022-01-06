@@ -13,7 +13,8 @@ const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
 const siguientePagina = document.getElementById("next");
 const paginaAnterior = document.getElementById("prev");
 const primeraPagina = document.getElementById("first-page");
-const ultimaPagina = document.getElementById("last-page")
+const ultimaPagina = document.getElementById("last-page");
+const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado")  
 
 //FUNCIONES Y VARIABLES AUXILIARES
 let calculoUltimaPagina = 1540;
@@ -120,7 +121,9 @@ const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje");
     tarjetas.forEach((personaje)=> {
         personaje.onclick = () => {
-
+            contenedorPersonajeSeleccionado.classList.remove("ocultar");
+            const idPersonaje = personaje.dataset.id;
+            obtenerInfoPersonaje(idPersonaje)
         }
     })
 }
@@ -146,30 +149,32 @@ const obtenerInfoPersonaje = (id) => {
     fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=1fd738e2dc343485449632dfe8caffa1`)
     .then(res => res.json())
     .then(data => {
-        personajeHTML(data.data.results)
+        imprimirPersonajeHTML(data.data.results)
     })
 }
 
 
-const personajeHTML = () => {
-    //maquetar esto primero 
-    const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado")  
-    // (lo tengo que crear en el HTML)
-    const html = persona.reduce((acc,element) => {
+const imprimirPersonajeHTML = (personaje) => {
+    const html = personaje.reduce((acc,element) => {
         return acc + `
-         <div class="tarjeta-personaje" data-id=${element.id}>
-            <div class="contenedor-imagen-comic">
-                <img class="imagen-personaje" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
+        <div class="contenedor-personaje-seleccionado">
+            <div class="contenedor-imagen-personaje-seleccionado">
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
             </div>
-            <h4 class="nombre-personaje">${element.name}</h4>
-        </div>`
+            <div class="contenedor-nombre-descripcion">
+                <h3>${element.name}</h3>
+                <p class="texto-descripcion">${element.description}</p>
+            </div>
+        `
         
     },"")
 
     contenedorPersonajeSeleccionado.innerHTML = html
 }
 
-// mostrarListaPersonajes()
+
+
+mostrarListaPersonajes()
 
 siguientePagina.onclick = () => {
     activarBotonesDesplazamiento(primeraPagina, paginaAnterior)
