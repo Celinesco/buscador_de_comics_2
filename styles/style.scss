@@ -200,21 +200,28 @@ footer {
     border-bottom: 3px solid black;
 }
 
-.contenedor-personaje-seleccionado {
-    @include flex-centrar($direccion:row, $content: flex-start, $align:flex-start);
+.contenedor-elemento-seleccionado {
     max-width: 900px;
     background-color: rgb(235, 208, 150);
     border: $bordes-tarjetas-estilo-comic;
     border-radius: 5px;
     padding: 20px;
-
 }
+
+
+.personaje-seleccionado {
+    @include flex-centrar($direccion:row, $content: flex-start, $align:flex-start);
+}
+
+.comics-personaje-seleccionado {
+    @include flex-centrar()
+}
+
 
 .contenedor-imagen-personaje-seleccionado {
     display: flex;
     border: $bordes-tarjetas-estilo-comic;
     max-width: 250px;
-    
     
 }
 
@@ -233,8 +240,12 @@ footer {
 }
 
 .column {
-    display: flex;
+   display: flex;
+   flex-direction: column;
+}
 
+.row {
+    display: flex;
 }
 
 

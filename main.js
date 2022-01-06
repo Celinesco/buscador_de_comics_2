@@ -166,7 +166,7 @@ const imprimirPersonajeHTML = (personaje) => {
     const html = personaje.reduce((acc,element) => {
         return acc + `
         <div class="borde-blanco-tarjeta-personaje">
-            <div class="contenedor-personaje-seleccionado">
+            <div class="contenedor-elemento-seleccionado personaje-seleccionado">
                 <div class="contenedor-imagen-personaje-seleccionado">
                     <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
                 </div>
@@ -193,9 +193,9 @@ const imprimirComicsDePersonaje = (comic) => {
                 <h5>${element.title}</h5>
         </div>
         `
-    },"")
+    },`<h3>Comics donde se encuentra</h3><div class="row">`)
 
-    contenedor.innerHTML = html
+    contenedor.innerHTML = html + "</div>"
 }
 
 

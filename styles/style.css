@@ -14,7 +14,7 @@ h2 {
   color: black; }
 
 h3 {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 20px;
   font-family: ActionManBold; }
 
@@ -71,10 +71,6 @@ button {
   border: white;
   color: white;
   box-shadow: 3px 3px 0px 0px black; }
-
-.columna {
-  display: flex;
-  flex-direction: column; }
 
 @keyframes rotacion {
   from {
@@ -293,16 +289,24 @@ footer {
   overflow: hidden;
   border-bottom: 3px solid black; }
 
-.contenedor-personaje-seleccionado {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+.contenedor-elemento-seleccionado {
   max-width: 900px;
   background-color: #ebd096;
   border: 3px solid black;
   border-radius: 5px;
   padding: 20px; }
+
+.personaje-seleccionado {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start; }
+
+.comics-personaje-seleccionado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 .contenedor-imagen-personaje-seleccionado {
   display: flex;
@@ -321,6 +325,10 @@ footer {
   margin-top: 25px; }
 
 .column {
+  display: flex;
+  flex-direction: column; }
+
+.row {
   display: flex; }
 
 .comic-texto {
