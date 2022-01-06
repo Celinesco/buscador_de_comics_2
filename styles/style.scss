@@ -262,6 +262,12 @@ footer {
     transform:translateY(-6px)
 }
 
+.width-100 {
+    width:100%;
+    display: flex;
+    justify-content: center
+}
+
 
 
 @import "breakpoints";

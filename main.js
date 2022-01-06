@@ -154,7 +154,6 @@ const listaPersonajesHTML = (personaje) => {
 }
 
 
-
 const obtenerInfoPersonaje = (id) => {
     fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=1fd738e2dc343485449632dfe8caffa1`)
     .then(res => res.json())
@@ -190,7 +189,6 @@ const imprimirPersonajeHTML = (personaje) => {
 
 
 const imprimirComicsDePersonaje = (comic) => {
-    
     const html = comic.reduce((acc,element)=> {
         return acc + `
         <div class="comic-texto">
@@ -202,7 +200,7 @@ const imprimirComicsDePersonaje = (comic) => {
         `
     },`<h3>Comics donde se encuentra</h3><div class="row">`)
 
-    contenedor.innerHTML = html + "</div>"
+    contenedor.innerHTML = html + `</div><div class="width-100"><button type ="button" class="boton-desplazamiento" id="abajo"><i class="fas fa-angle-down"></i></button></div>`
 }
 
 
