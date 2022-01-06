@@ -116,6 +116,12 @@ const mostrarListaPersonajes = () => {
     .then(data => {
         listaPersonajesHTML(data.data.results)
         asignarClickTarjetaPersonaje()
+           const tarjetas = document.querySelectorAll(".tarjeta-personaje");
+           setTimeout (()=> {
+            tarjetas.forEach((tarjeta)=> {
+                tarjeta.classList.add("rotacion-y")
+        },500)
+        })
     })
 }
 
@@ -128,6 +134,7 @@ const asignarClickTarjetaPersonaje = () => {
             obtenerInfoPersonaje(idPersonaje)
         }
     })
+    return tarjetas
 }
 
 const listaPersonajesHTML = (personaje) => {
@@ -207,6 +214,7 @@ siguientePagina.onclick = () => {
     if (offset !== calculoUltimaPagina) {
         offset += 20
         mostrarListaPersonajes()
+     
         if (offset === calculoUltimaPagina) {
             desactivarBotonDesplazamiento(siguientePagina, ultimaPagina)
         }
