@@ -1,0 +1,22 @@
+{
+  "name": "buscador-de-comics-2",
+  "version": "1.0.0",
+  "description": "Buscador de comic de Marvel utilizando la API de Marvel",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Celinesco/buscador_de_comics_2.git"
+  },
+  "author": "Celinesco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Celinesco/buscador_de_comics_2/issues"
+  },
+  "homepage": "https://github.com/Celinesco/buscador_de_comics_2#readme",
+  "dependencies": {
+    "sass": "^1.45.2"
+  }
+}

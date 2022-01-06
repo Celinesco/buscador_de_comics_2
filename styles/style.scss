@@ -124,6 +124,13 @@ footer {
     box-shadow: $sombra-tarjetas-estilo-comic;
 }
 
+.borde-blanco-tarjeta-personaje {
+    background-color: white;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 6px 6px 0px 0px black;
+}
+
 .contenedor-opcion {
     @include flex-centrar($content: space-around);
     @include tarjetas ();
@@ -185,15 +192,35 @@ footer {
     height: 220px;
 }
 
-.contenedor-imagen-comic {
+.contenedor-imagen-lista-personajes {
     flex-grow: 1;
     transition-duration: 0.5s;
     overflow: hidden;
     border-bottom: 3px solid black;
 }
 
+.contenedor-personaje-seleccionado {
+    @include flex-centrar($direccion:row, $content: flex-start, $align:flex-start);
+    max-width: 900px;
+    background-color: rgb(235, 208, 150);
+    border: $bordes-tarjetas-estilo-comic;
+    border-radius: 5px;
+    padding: 20px;
 
-.imagen-personaje {
+}
+
+.contenedor-imagen-personaje-seleccionado {
+    display: flex;
+    border: $bordes-tarjetas-estilo-comic;
+    max-width: 700px;
+    
+}
+
+.contenedor-nombre-descripcion {
+    padding: 20px;
+}
+
+.imagen-personaje-lista-personaje {
     margin-bottom: 20px;
     transition: 0.2s;
 }
