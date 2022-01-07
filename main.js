@@ -16,7 +16,9 @@ const primeraPagina = document.getElementById("first-page");
 const ultimaPagina = document.getElementById("last-page");
 const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
 const contenedor = document.getElementById("contenedor-comics-personaje-seleccionado");
-const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco")
+const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco");
+const busquedaPesonajeInput = document.getElementById("busqueda-personaje");
+const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje")
 
 //FUNCIONES Y VARIABLES AUXILIARES
 let calculoUltimaPagina = 1540;
@@ -126,13 +128,45 @@ const mostrarListaPersonajes = () => {
     })
 }
 
+const obtenerInfoPersonajeClickeado = (id) => {
+    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=1fd738e2dc343485449632dfe8caffa1`)
+    .then(res => res.json())
+    .then(data => {
+        imprimirPersonajeHTML(data.data.results)
+    })
+}
+
+const obtenerComicsDelPersonaje = (id) => {
+    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?&apikey=1fd738e2dc343485449632dfe8caffa1&offset=${paginadoComicsOPersonajesRelacionados}`)
+    .then(res => res.json())
+    .then(data => {
+        imprimirComicsDePersonaje(data.data.results)
+    })
+}
+
+const busquedaPersonajePorNombre = (nombre) => {
+    fetch(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${nombre}&apikey=1fd738e2dc343485449632dfe8caffa1`)
+    .then(res => res.json())
+    .then(data => {
+        listaPersonajesHTML(data.data.results)
+        asignarClickTarjetaPersonaje()
+        const tarjetas = document.querySelectorAll(".tarjeta-personaje");
+        setTimeout (()=> {
+         tarjetas.forEach((tarjeta)=> {
+             tarjeta.classList.add("rotacion-y")
+     },500)
+     })
+    })
+
+}
+
 const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje");
     tarjetas.forEach((personaje)=> {
         personaje.onclick = () => {
             contenedorBordeBlanco.classList.remove("ocultar");
             const idPersonaje = personaje.dataset.id;
-            obtenerInfoPersonaje(idPersonaje)
+            obtenerInfoPersonajeClickeado(idPersonaje)
             obtenerComicsDelPersonaje(idPersonaje)
         }
     })
@@ -155,23 +189,6 @@ const listaPersonajesHTML = (personaje) => {
     contenedorTarjetasPersonajes.innerHTML = html;
 }
 
-
-const obtenerInfoPersonaje = (id) => {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=1fd738e2dc343485449632dfe8caffa1`)
-    .then(res => res.json())
-    .then(data => {
-        imprimirPersonajeHTML(data.data.results)
-    })
-}
-
-
-const obtenerComicsDelPersonaje = (id) => {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?&apikey=1fd738e2dc343485449632dfe8caffa1&offset=${paginadoComicsOPersonajesRelacionados}`)
-    .then(res => res.json())
-    .then(data => {
-        imprimirComicsDePersonaje(data.data.results)
-    })
-}
 
 const imprimirPersonajeHTML = (personaje) => {
     const html = personaje.reduce((acc,element) => {
@@ -206,8 +223,9 @@ const imprimirComicsDePersonaje = (comic) => {
     },`<h3>Comics donde se encuentra</h3><div class="row">`)
 
     contenedor.innerHTML = html + `</div><div class="width-100"><button type ="button" class="boton-desplazamiento" id="abajo"><i class="fas fa-angle-down"></i></button></div>`
-
 }
+
+
 
 // const mostrarMasComics = (elementoDelDom) => {
 //     elementoDelDom.onclick = () => 
@@ -255,6 +273,15 @@ primeraPagina.onclick = () => {
       mostrarListaPersonajes()
   }
   
+}
+
+console.log(busquedaPesonajeInput.value)
+
+
+botonBuquedaPersonaje.onclick = (e) => {
+    e.preventDefault()
+    busquedaPersonajePorNombre(busquedaPesonajeInput.value)
+
 }
 
 
