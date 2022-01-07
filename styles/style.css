@@ -49,6 +49,18 @@ button {
   background-color: transparent;
   cursor: pointer; }
 
+input {
+  border-radius: 5px;
+  border: none;
+  height: 50px;
+  width: 250px;
+  padding: 10px; }
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Roboto; }
+
 .boton-onomatopeya {
   transition-property: width;
   transition-duration: 0.1s;
@@ -75,6 +87,11 @@ button {
 
 .sombra {
   box-shadow: 4px 22px 37px -20px #524c52; }
+
+.width-100 {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
 
 @keyframes rotacion {
   from {
@@ -334,7 +351,8 @@ footer {
 
 .column {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: center; }
 
 .row {
   display: flex;
@@ -354,13 +372,26 @@ footer {
 .comic-texto:hover {
   transform: translateY(-6px); }
 
-.width-100 {
+.input-icono {
   width: 100%;
+  margin: 10px 0px;
+  position: relative;
   display: flex;
-  justify-content: center; }
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 10px; }
 
-#contenedor-comics-personaje-seleccionado {
-  overflow: scroll; }
+.fa-search {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 15px;
+  right: 0;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  height: 50px;
+  border-radius: 0px 5px 5px 0px; }
 
 @media (min-width: 280px) {
   .contenedor-imagen-presentacion {

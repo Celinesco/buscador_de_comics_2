@@ -20,7 +20,8 @@ const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco")
 
 //FUNCIONES Y VARIABLES AUXILIARES
 let calculoUltimaPagina = 1540;
-let offset = 0;
+let paginadoListasCompletas = 0;
+let paginadoComicsOPersonajesRelacionados = 0;
 
 
 
@@ -111,7 +112,7 @@ botonSeccionComics.onclick = () => {
 
 
 const mostrarListaPersonajes = () => {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=1fd738e2dc343485449632dfe8caffa1&offset=${offset}`)
+    fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=1fd738e2dc343485449632dfe8caffa1&offset=${paginadoListasCompletas}`)
     .then(res => res.json())
     .then(data => {
         listaPersonajesHTML(data.data.results)
@@ -132,6 +133,7 @@ const asignarClickTarjetaPersonaje = () => {
             contenedorBordeBlanco.classList.remove("ocultar");
             const idPersonaje = personaje.dataset.id;
             obtenerInfoPersonaje(idPersonaje)
+            obtenerComicsDelPersonaje(idPersonaje)
         }
     })
     return tarjetas
@@ -160,13 +162,16 @@ const obtenerInfoPersonaje = (id) => {
     .then(data => {
         imprimirPersonajeHTML(data.data.results)
     })
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?&apikey=1fd738e2dc343485449632dfe8caffa1`)
+}
+
+
+const obtenerComicsDelPersonaje = (id) => {
+    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?&apikey=1fd738e2dc343485449632dfe8caffa1&offset=${paginadoComicsOPersonajesRelacionados}`)
     .then(res => res.json())
     .then(data => {
         imprimirComicsDePersonaje(data.data.results)
     })
 }
-
 
 const imprimirPersonajeHTML = (personaje) => {
     const html = personaje.reduce((acc,element) => {
@@ -208,15 +213,15 @@ const imprimirComicsDePersonaje = (comic) => {
 //     elementoDelDom.onclick = () => 
 // }
 
-mostrarListaPersonajes()
+// mostrarListaPersonajes()
 
 siguientePagina.onclick = () => {
     activarBotonesDesplazamiento(primeraPagina, paginaAnterior)
-    if (offset !== calculoUltimaPagina) {
-        offset += 20
+    if (paginadoListasCompletas !== calculoUltimaPagina) {
+        paginadoListasCompletas += 20
         mostrarListaPersonajes()
      
-        if (offset === calculoUltimaPagina) {
+        if (paginadoListasCompletas === calculoUltimaPagina) {
             desactivarBotonDesplazamiento(siguientePagina, ultimaPagina)
         }
     }
@@ -224,8 +229,8 @@ siguientePagina.onclick = () => {
 
 ultimaPagina.onclick = () => {
     activarBotonesDesplazamiento(primeraPagina,paginaAnterior)
-    if (offset !== calculoUltimaPagina) {
-        offset = calculoUltimaPagina
+    if (paginadoListasCompletas !== calculoUltimaPagina) {
+        paginadoListasCompletas = calculoUltimaPagina
         desactivarBotonDesplazamiento(siguientePagina, ultimaPagina)
         mostrarListaPersonajes()
     }
@@ -233,10 +238,10 @@ ultimaPagina.onclick = () => {
 
 paginaAnterior.onclick = () => {
     activarBotonesDesplazamiento(siguientePagina, ultimaPagina)
-    if (offset !== 0 ) {
-         offset -= 20;
+    if (paginadoListasCompletas !== 0 ) {
+         paginadoListasCompletas -= 20;
         mostrarListaPersonajes()
-        if (offset === 0) {
+        if (paginadoListasCompletas === 0) {
             desactivarBotonDesplazamiento(primeraPagina,paginaAnterior)
         }
     }
@@ -244,10 +249,15 @@ paginaAnterior.onclick = () => {
 
 primeraPagina.onclick = () => {
     activarBotonesDesplazamiento(siguientePagina,ultimaPagina)
-  if (offset!== 0) {
-      offset = 0
+  if (paginadoListasCompletas!== 0) {
+      paginadoListasCompletas = 0
       desactivarBotonDesplazamiento(primeraPagina,paginaAnterior)
       mostrarListaPersonajes()
   }
   
 }
+
+
+//preguntas para Male:
+// Promesas no cumplidas como se da una respuesta
+// Hay alguna forma de que en el input de busqueda te aparezcan sugerencias?
