@@ -33,6 +33,7 @@ nav {
     border-bottom: 2px solid white;
     position: fixed;
     width: 100%;
+    z-index: 3;
 }
 
 .nav-links {
@@ -272,11 +273,16 @@ footer {
 .input-icono {
     width: 100%;
     margin: 10px 0px;
-    position: relative;
     display: flex;
     align-items: center;
     border: 3px solid black;
     border-radius: 10px;
+}
+
+#boton-busqueda-personaje {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .fa-search {
@@ -290,8 +296,6 @@ footer {
     color: white;
     height: 50px;
     border-radius: 0px 5px 5px 0px;
-    
-   
 }
 
 
