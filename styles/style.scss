@@ -243,6 +243,7 @@ footer {
 .column {
    display: flex;
    flex-direction: column;
+   justify-content: center;
 }
 
 .row {
@@ -265,6 +266,32 @@ footer {
 
 .comic-texto:hover {
     transform:translateY(-6px)
+}
+
+
+.input-icono {
+    width: 100%;
+    margin: 10px 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.fa-search {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding: 15px;
+    right: 0;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border-radius: 0px 5px 5px 0px;
+    
+   
 }
 
 
