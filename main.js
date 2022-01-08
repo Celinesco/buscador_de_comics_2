@@ -12,11 +12,14 @@ const paginaAnteriorPersonajes = document.getElementById("pagina-anterior-person
 const primeraPaginaPersonajes = document.getElementById("primera-pagina-personajes");
 const ultimaPaginaPersonajes = document.getElementById("ultima-pagina-personajes");
 const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
-const contenedor = document.getElementById("contenedor-comics-personaje-seleccionado");
+const contenedorComicOPersonajeSeleccionado = document.getElementById("contenedor-comics-personaje-seleccionado");
 const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco");
 const busquedaPesonajeInput = document.getElementById("busqueda-personaje");
 const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje");
 const formularioBusquedaPersonaje = document.getElementById("formulario-busqueda-personaje");
+const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
+const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
+const busquedaComicInput = document.getElementById("busqueda-comic");
 
 const main = document.querySelector("main");
 const footer = document.querySelector("footer");
@@ -198,6 +201,26 @@ const busquedaPersonajePorNombre = (nombre) => {
     })
 }
 
+const busquedaComicPorNombre = (nombre) => {
+    fetch(`${urlBase}/comics?titleStartsWith=${nombre}&apikey=${apiKey}`)
+    .then(res => res.json())
+    .then(data => {
+        if(data.data.results.length === 0) {
+            imprimirNoHayResultados(contenedorComicSeleccionado)
+        }
+        else {
+            listaDeComicsHTML(data.data.results)
+            asignarClickTarjetaComics()
+            const tarjetas = document.querySelectorAll(".tarjeta-personaje");
+            setTimeout (()=> {
+             tarjetas.forEach((tarjeta)=> {
+                 tarjeta.classList.add("rotacion-y")
+         },500)
+         })
+        }
+    })
+}
+
 
 
 const asignarClickTarjetaPersonaje = () => {
@@ -284,7 +307,7 @@ const imprimirPersonajeHTML = (personaje) => {
 
 
 const imprimirComicHTML = (comic) => {
-    const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado")
+    
     const html = comic.reduce((acc,element)=> {
         return acc + `
         <div class="borde-blanco-tarjeta-personaje">
@@ -318,7 +341,7 @@ const imprimirComicsDePersonaje = (comic) => {
         `
     },`<h3>Comics donde se encuentra</h3><div class="row">`)
 
-    contenedor.innerHTML = html + `</div><div class="width-100"><button type ="button" class="boton-desplazamiento" id="abajo"><i class="fas fa-angle-down"></i></button></div>`
+    contenedorComicOPersonajeSeleccionado.innerHTML = html + `</div><div class="width-100"><button type ="button" class="boton-desplazamiento" id="abajo"><i class="fas fa-angle-down"></i></button></div>`
 }
 
 
@@ -396,6 +419,11 @@ primeraPaginaPersonajes.onclick = () => {
 botonBuquedaPersonaje.onclick = (e) => {
     e.preventDefault()
     busquedaPersonajePorNombre(busquedaPesonajeInput.value)
+}
+
+botonBusquedaComic.onclick = (e) => {
+    e.preventDefault()
+    busquedaComicPorNombre(busquedaComicInput.value)
 }
 
 
