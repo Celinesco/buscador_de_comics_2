@@ -20,6 +20,10 @@ const contenedorComicSeleccionado = document.getElementById("contenedor-comic-se
 const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
 const busquedaComicInput = document.getElementById("busqueda-comic");
 
+// nav
+const volverSeccionInicio = document.getElementById("volver-seccion-inicio")
+
+
 const main = document.querySelector("main");
 
 const todasLasSecciones = document.querySelectorAll(".secciones");
@@ -40,6 +44,12 @@ paginaAnteriorPersonajes.style.backgroundColor = "grey";
 primeraPaginaPersonajes.style.backgroundColor = "grey";
 
 //
+
+
+//navegabilidad NAV 
+volverSeccionInicio.onclick = () => {
+    location.reload()
+}
 
 const desactivarBotonDesplazamiento = (boton1, boton2) => {
     boton1.disabled = true;
