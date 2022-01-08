@@ -192,28 +192,36 @@ const obtenerComicsDelPersonaje = (id) => {
 const masComicsDelPersonajeDerecha = () => {
     const botonDerecha = document.getElementById("mas-comics-del-personaje-derecha");
     botonDerecha.onclick = () => {
-        if (cantidadDeComicsASaltear === ultimaPaginaListaDeComicsOPersonajes*8) {
-            cantidadDeComicsASaltear = 0
-        }
-        else {
-            cantidadDeComicsASaltear += 8
-        }
+        cantidadDeComicsASaltear === ultimaPaginaListaDeComicsOPersonajes*8 
+        ?cantidadDeComicsASaltear = 0
+        :cantidadDeComicsASaltear += 8 
         obtenerComicsDelPersonaje(idPersonajeClickeado)
     }
+    
 }
+
+// const edad = 12
+// if (edad >= 18) {
+//   alert("Es mayor de edad!")
+// }
+// else {
+//   alert("Es menor de edad!")
+// }
+
+// //OPERADOR TERNARIO
+
+// edad >= 18 ?alert("Es mayor de edad!") :alert("Es menor de edad!")
+
 
 const masComicsDelPersonajeIzquierda = () => {
     const botonIzquierda = document.getElementById("mas-comics-del-personaje-izquierda");
     botonIzquierda.onclick = () => {
-        if (cantidadDeComicsASaltear === 0) {
-            cantidadDeComicsASaltear = ultimaPaginaListaDeComicsOPersonajes*8
-        }
-        else {
-            cantidadDeComicsASaltear -= 8
-        }
-        obtenerComicsDelPersonaje(idPersonajeClickeado)
+        cantidadDeComicsASaltear === 0
+        ?cantidadDeComicsASaltear = ultimaPaginaListaDeComicsOPersonajes*8
+        :cantidadDeComicsASaltear -= 8
+         obtenerComicsDelPersonaje(idPersonajeClickeado)
     }
-
+   
 }
 
 const busquedaPersonajePorNombre = (nombre) => {
