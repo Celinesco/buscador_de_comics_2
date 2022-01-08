@@ -23,7 +23,7 @@ const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje"
 const formularioBusquedaPersonaje = document.getElementById("formulario-busqueda-personaje")
 
 //FUNCIONES Y VARIABLES AUXILIARES
-
+const urlBase = "https://gateway.marvel.com:443/v1/public"
 const apiKey = "1fd738e2dc343485449632dfe8caffa1";
 let ultimaPaginaListaDeComics = 0;
 let cantidadDePersonajesASaltear = 0;
@@ -125,7 +125,7 @@ botonSeccionBusqueda.onclick = () => {
 
 
 const mostrarListaPersonajes = () => {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
+    fetch(`${urlBase}/characters?apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
     .then(res => res.json())
     .then(data => {
         ultimaPaginaListaDeComics = Math.floor(data.data.total/20)
@@ -142,7 +142,7 @@ const mostrarListaPersonajes = () => {
 
 
 const mostrarListaComics = () => {
-    fetch(`https://gateway.marvel.com:443/v1/public/comics?orderBy=title&apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
+    fetch(`${urlBase}/comics?orderBy=title&apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
     .then(res => res.json())
     .then(data => {
         listaDeComicsHTML(data.data.results)
@@ -173,7 +173,7 @@ const listaDeComicsHTML = (comic) => {
 }
 
 const obtenerInfoPersonajeClickeado = (id) => {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=${apiKey}`)
+    fetch(`${urlBase}/characters/${id}?apikey=${apiKey}`)
     .then(res => res.json())
     .then(data => {
         imprimirPersonajeHTML(data.data.results)
@@ -181,7 +181,7 @@ const obtenerInfoPersonajeClickeado = (id) => {
 }
 
 const obtenerInfoComicClickeado = (id) => {
-    fetch(`https://gateway.marvel.com:443/v1/public/comics/${id}?apikey=${apiKey}`)
+    fetch(`${urlBase}/comics/${id}?apikey=${apiKey}`)
     .then(res => res.json())
     .then(data => {
         imprimirComicHTML(data.data.results)
@@ -189,7 +189,7 @@ const obtenerInfoComicClickeado = (id) => {
 }
 
 const obtenerComicsDelPersonaje = (id) => {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?&apikey=${apiKey}&offset=${paginadoComicsOPersonajesRelacionados}`)
+    fetch(`${urlBase}/characters/${id}/comics?&apikey=${apiKey}&offset=${paginadoComicsOPersonajesRelacionados}`)
     .then(res => res.json())
     .then(data => {
         imprimirComicsDePersonaje(data.data.results)
@@ -200,7 +200,7 @@ const obtenerComicsDelPersonaje = (id) => {
 }
 
 const busquedaPersonajePorNombre = (nombre) => {
-    fetch(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${nombre}&apikey=${apiKey}`)
+    fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}`)
     .then(res => res.json())
     .then(data => {
         listaPersonajesHTML(data.data.results)
