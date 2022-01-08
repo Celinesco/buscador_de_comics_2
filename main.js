@@ -11,10 +11,10 @@ const botonSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
 const botonSeccionComics = document.getElementById("boton-seccion-comics");
 const todasLasSecciones = document.querySelectorAll(".secciones");
 const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
-const siguientePagina = document.getElementById("next");
-const paginaAnterior = document.getElementById("prev");
-const primeraPagina = document.getElementById("first-page");
-const ultimaPagina = document.getElementById("last-page");
+const paginaSiguientePersonajes = document.getElementById("pagina-siguiente-personajes");
+const paginaAnteriorPersonajes = document.getElementById("pagina-anterior-personajes");
+const primeraPaginaPersonajes = document.getElementById("primera-pagina-personajes");
+const ultimaPaginaPersonajes = document.getElementById("ultima-pagina-personajes");
 const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
 const contenedor = document.getElementById("contenedor-comics-personaje-seleccionado");
 const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco");
@@ -23,7 +23,7 @@ const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje"
 const formularioBusquedaPersonaje = document.getElementById("formulario-busqueda-personaje")
 
 //FUNCIONES Y VARIABLES AUXILIARES
-const urlBase = "https://gateway.marvel.com:443/v1/public"
+const urlBase = "https://gateway.marvel.com:443/v1/public";
 const apiKey = "1fd738e2dc343485449632dfe8caffa1";
 let ultimaPaginaListaDeComics = 0;
 let cantidadDePersonajesASaltear = 0;
@@ -32,8 +32,8 @@ let paginadoComicsOPersonajesRelacionados = 0;
 
 
 //Comienzo de pagina
-paginaAnterior.style.backgroundColor = "grey";
-primeraPagina.style.backgroundColor = "grey";
+paginaAnteriorPersonajes.style.backgroundColor = "grey";
+primeraPaginaPersonajes.style.backgroundColor = "grey";
 
 //
 
@@ -326,47 +326,47 @@ const imprimirComicsDePersonaje = (comic) => {
 
 // mostrarListaPersonajes()
 
-siguientePagina.onclick = () => {
-    activarBotonesDesplazamiento(primeraPagina, paginaAnterior)
+paginaSiguientePersonajes.onclick = () => {
+    activarBotonesDesplazamiento(primeraPaginaPersonajes, paginaAnteriorPersonajes)
     if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComics) {
         cantidadDePersonajesASaltear += 20
         mostrarListaPersonajes()
      
         if (cantidadDePersonajesASaltear === ultimaPaginaListaDeComics) {
-            desactivarBotonDesplazamiento(siguientePagina, ultimaPagina)
+            desactivarBotonDesplazamiento(paginaSiguientePersonajes, ultimaPaginaPersonajes)
         }
     }
 }
 
-ultimaPagina.onclick = () => {
+ultimaPaginaPersonajes.onclick = () => {
     console.log(ultimaPaginaListaDeComics)
     console.log(cantidadDePersonajesASaltear)
-    activarBotonesDesplazamiento(primeraPagina,paginaAnterior)
+    activarBotonesDesplazamiento(primeraPaginaPersonajes,paginaAnteriorPersonajes)
     if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComics) {
 
         cantidadDePersonajesASaltear = ultimaPaginaListaDeComics*20
         console.log(cantidadDePersonajesASaltear)
-        desactivarBotonDesplazamiento(siguientePagina, ultimaPagina)
+        desactivarBotonDesplazamiento(paginaSiguientePersonajes, ultimaPaginaPersonajes)
         mostrarListaPersonajes()
     }
 }
 
-paginaAnterior.onclick = () => {
-    activarBotonesDesplazamiento(siguientePagina, ultimaPagina)
+paginaAnteriorPersonajes.onclick = () => {
+    activarBotonesDesplazamiento(paginaSiguientePersonajes, ultimaPaginaPersonajes)
     if (cantidadDePersonajesASaltear !== 0 ) {
          cantidadDePersonajesASaltear -= 20;
         mostrarListaPersonajes()
         if (cantidadDePersonajesASaltear === 0) {
-            desactivarBotonDesplazamiento(primeraPagina,paginaAnterior)
+            desactivarBotonDesplazamiento(primeraPaginaPersonajes,paginaAnteriorPersonajes)
         }
     }
 }
 
-primeraPagina.onclick = () => {
-    activarBotonesDesplazamiento(siguientePagina,ultimaPagina)
+primeraPaginaPersonajes.onclick = () => {
+    activarBotonesDesplazamiento(paginaSiguientePersonajes,ultimaPaginaPersonajes)
   if (cantidadDePersonajesASaltear!== 0) {
       cantidadDePersonajesASaltear = 0
-      desactivarBotonDesplazamiento(primeraPagina,paginaAnterior)
+      desactivarBotonDesplazamiento(primeraPaginaPersonajes,paginaAnteriorPersonajes)
       mostrarListaPersonajes()
   }
   
