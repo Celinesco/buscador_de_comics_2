@@ -94,22 +94,26 @@ const vibrarOnomatopeya = (onomatopeya) => {
 
 botonSeccionPersonajes.onclick = () => {
     vibrarOnomatopeya(botonSeccionPersonajes);
-    desvanecerSeccion(seccionPrincipal);
+    setTimeout(()=> {
+        desvanecerSeccion(seccionPrincipal);
+    },800)
     setTimeout (() => {
         seccionPrincipal.classList.add("ocultar")
-    },800)
+    },1500)
     
     seccionPersonajes.classList.remove("ocultar");
     mostrarListaPersonajes()
 }
 
 botonSeccionComics.onclick = () => {
-    vibrarOnomatopeya(botonSeccionComics);
-    desvanecerSeccion(seccionPrincipal)
+    vibrarOnomatopeya(botonSeccionComics); 
+    setTimeout(() => {
+        desvanecerSeccion(seccionPrincipal)
+    },800)
     setTimeout (() => {
         seccionPrincipal.classList.add("ocultar");
         seccionComics.classList.remove("ocultar")
-    },800)
+    },1500)
 
     mostrarListaComics()
     
