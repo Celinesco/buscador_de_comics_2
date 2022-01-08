@@ -16,13 +16,11 @@ const contenedorComicOPersonajeSeleccionado = document.getElementById("contenedo
 const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco");
 const busquedaPesonajeInput = document.getElementById("busqueda-personaje");
 const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje");
-const formularioBusquedaPersonaje = document.getElementById("formulario-busqueda-personaje");
 const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
 const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
 const busquedaComicInput = document.getElementById("busqueda-comic");
 
 const main = document.querySelector("main");
-const footer = document.querySelector("footer");
 
 const todasLasSecciones = document.querySelectorAll(".secciones");
 const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
