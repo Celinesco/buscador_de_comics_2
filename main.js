@@ -177,25 +177,39 @@ const obtenerComicsDelPersonaje = (id) => {
     .then(data => {
         ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total/8)
         imprimirComicsDePersonaje(data.data.results)
-        funcionBotonHaciaAbajo()
+        masComicsDelPersonajeDerecha()
+        masComicsDelPersonajeIzquierda()
     })
     .catch(()=>{
 
     })
 }
 
-const funcionBotonHaciaAbajo = () => {
-    const botonHaciaAbajo = document.getElementById("mas-comics-del-personaje");
-    botonHaciaAbajo.onclick = () => {
+const masComicsDelPersonajeDerecha = () => {
+    const botonDerecha = document.getElementById("mas-comics-del-personaje-derecha");
+    botonDerecha.onclick = () => {
         if (cantidadDeComicsASaltear === ultimaPaginaListaDeComicsOPersonajes*8) {
             cantidadDeComicsASaltear = 0
         }
         else {
             cantidadDeComicsASaltear += 8
         }
-       
         obtenerComicsDelPersonaje(idPersonajeClickeado)
     }
+}
+
+const masComicsDelPersonajeIzquierda = () => {
+    const botonIzquierda = document.getElementById("mas-comics-del-personaje-izquierda");
+    botonIzquierda.onclick = () => {
+        if (cantidadDeComicsASaltear === 0) {
+            cantidadDeComicsASaltear = ultimaPaginaListaDeComicsOPersonajes*8
+        }
+        else {
+            cantidadDeComicsASaltear -= 8
+        }
+        obtenerComicsDelPersonaje(idPersonajeClickeado)
+    }
+
 }
 
 const busquedaPersonajePorNombre = (nombre) => {
@@ -357,7 +371,11 @@ const imprimirComicsDePersonaje = (comic) => {
         `
     },`<h3>Comics donde se encuentra</h3><div class="row">`)
 
-    contenedorComicOPersonajeSeleccionado.innerHTML = html + `</div><div class="width-100"><button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje"><i class="fas fa-angle-down"></i></button></div>`
+    contenedorComicOPersonajeSeleccionado.innerHTML = html + `</div>
+    <div class="width-100">
+        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-izquierda"><i class="fas fa-angle-left"></i></button>
+        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-derecha"><i class="fas fa-angle-right"></i></button>  
+    </div>`
 }
 
 
