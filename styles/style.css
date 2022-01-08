@@ -139,6 +139,13 @@ nav {
   justify-content: flex-end;
   align-items: center; }
 
+.boton-navegacion {
+  color: white;
+  font-family: Roboto; }
+
+li button, li a {
+  font-size: 1rem; }
+
 footer {
   background-color: black;
   display: flex;

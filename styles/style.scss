@@ -40,6 +40,15 @@ nav {
     @include flex-centrar($direccion: row, $content: flex-end)
 }
 
+.boton-navegacion {
+    color: white;
+    font-family: $tipografia-secundaria;
+}
+
+li button, li a {
+    font-size: 1rem;
+}
+
 footer {
     background-color: $fondo-navbar-footer;
     @include flex-centrar();
