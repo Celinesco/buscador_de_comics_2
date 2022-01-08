@@ -100,7 +100,7 @@ botonSeccionPersonajes.onclick = () => {
     },1500)
     
     seccionPersonajes.classList.remove("ocultar");
-    mostrarListaPersonajes()
+    // mostrarListaPersonajes()
 }
 
 botonSeccionComics.onclick = () => {
@@ -113,7 +113,7 @@ botonSeccionComics.onclick = () => {
         seccionComics.classList.remove("ocultar")
     },1500)
 
-    mostrarListaComics()
+    // mostrarListaComics()
     
 }
 
