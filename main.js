@@ -333,8 +333,8 @@ const imprimirComicsDePersonaje = (comic) => {
     const html = comic.reduce((acc,element)=> {
         return acc + `
         <div class="comic-texto">
-            <div class="sombra">
-                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic: ${element.title}">
+            <div>
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}"  class="sombra" alt="Comic: ${element.title}">
             </div>
                 <h5>${element.title}</h5>
         </div>
