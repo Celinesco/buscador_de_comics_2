@@ -200,19 +200,6 @@ const masComicsDelPersonajeDerecha = () => {
     
 }
 
-// const edad = 12
-// if (edad >= 18) {
-//   alert("Es mayor de edad!")
-// }
-// else {
-//   alert("Es menor de edad!")
-// }
-
-// //OPERADOR TERNARIO
-
-// edad >= 18 ?alert("Es mayor de edad!") :alert("Es menor de edad!")
-
-
 const masComicsDelPersonajeIzquierda = () => {
     const botonIzquierda = document.getElementById("mas-comics-del-personaje-izquierda");
     botonIzquierda.onclick = () => {
@@ -368,7 +355,6 @@ const imprimirComicHTML = (comic) => {
     },"")
 
     contenedorComicSeleccionado.innerHTML = html
-
 }
 
 const imprimirComicsDePersonaje = (comic) => {
@@ -404,13 +390,6 @@ const imprimirNoHayResultados = (contenedor) => {
     </div>`
 }
 
-
-
-// const mostrarMasComics = (elementoDelDom) => {
-//     elementoDelDom.onclick = () => 
-// }
-
-// mostrarListaPersonajes()
 
 paginaSiguientePersonajes.onclick = () => {
     activarBotonesDesplazamiento(primeraPaginaPersonajes, paginaAnteriorPersonajes)
