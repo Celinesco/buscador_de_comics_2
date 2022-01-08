@@ -195,6 +195,10 @@ footer {
 .contenedor-imagen-presentacion {
   width: 40vw; }
 
+.contenedor-imagen-sin-resultados {
+  width: 200px;
+  padding: 20px; }
+
 .texto-presentacion {
   font-family: ActionManBold;
   color: white;
@@ -396,6 +400,10 @@ footer {
   color: white;
   height: 50px;
   border-radius: 0px 5px 5px 0px; }
+
+.elemento-no-encontrado {
+  max-width: 650px;
+  background-color: white; }
 
 @media (min-width: 280px) {
   .contenedor-imagen-presentacion {

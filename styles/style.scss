@@ -86,6 +86,11 @@ footer {
     width: 40vw;
 }
 
+.contenedor-imagen-sin-resultados {
+    width: 200px;
+    padding: 20px;
+}
+
 .texto-presentacion {
     font-family: $tipografia-principal-bold;
     color: $color-principal-fondos-oscuros;
@@ -301,6 +306,10 @@ footer {
     border-radius: 0px 5px 5px 0px;
 }
 
+.elemento-no-encontrado {
+    max-width: 650px;
+    background-color:white;
+}
 
 
 
