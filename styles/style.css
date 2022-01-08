@@ -31,8 +31,7 @@ body, html {
   height: 100%; }
 
 img {
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
 
 a:link, a:active, a:visited {
   text-decoration: none;
@@ -334,7 +333,7 @@ footer {
   justify-content: center;
   align-items: center; }
 
-.contenedor-imagen-personaje-seleccionado {
+.contenedor-imagen-objeto-seleccionado {
   display: flex;
   border: 3px solid black;
   max-width: 250px; }
@@ -381,7 +380,7 @@ footer {
   border: 3px solid black;
   border-radius: 10px; }
 
-#boton-busqueda-personaje {
+#boton-busqueda-personaje, #boton-busqueda-comic {
   position: relative;
   display: flex;
   align-items: center; }
