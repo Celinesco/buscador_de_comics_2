@@ -2,6 +2,7 @@ const nav = document.getElementById("nav");
 const main = document.querySelector("main");
 const footer = document.querySelector("footer")
 const seccionInicio = document.getElementById("seccion-inicio");
+const seccionComics = document.getElementById("seccion-comics")
 const seccionPrincipal = document.getElementById("seccion-principal");
 const seccionPersonajes = document.getElementById("seccion-personajes");
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
@@ -18,7 +19,8 @@ const contenedorPersonajeSeleccionado = document.getElementById("contenedor-pers
 const contenedor = document.getElementById("contenedor-comics-personaje-seleccionado");
 const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco");
 const busquedaPesonajeInput = document.getElementById("busqueda-personaje");
-const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje")
+const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje");
+const formularioBusquedaPersonaje = document.getElementById("formulario-busqueda-personaje")
 
 //FUNCIONES Y VARIABLES AUXILIARES
 let calculoUltimaPagina = 1540;
@@ -98,6 +100,18 @@ botonSeccionPersonajes.onclick = () => {
     // analogamente en las dos funciones de abajo
 }
 
+botonSeccionComics.onclick = () => {
+    vibrarOnomatopeya(botonSeccionComics);
+    desvanecerSeccion(seccionPrincipal)
+    setTimeout (() => {
+        seccionPrincipal.classList.add("ocultar");
+        seccionComics.classList.remove("ocultar")
+    },800)
+
+    mostrarListaComics()
+    
+}
+
 botonSeccionBusqueda.onclick = () => {
     vibrarOnomatopeya(botonSeccionBusqueda);
     setTimeout (() => {
@@ -105,12 +119,7 @@ botonSeccionBusqueda.onclick = () => {
     },800)
 }
 
-botonSeccionComics.onclick = () => {
-    vibrarOnomatopeya(botonSeccionComics);
-    setTimeout (() => {
-        desvanecerSeccion(seccionPrincipal)
-    },800)
-}
+
 
 
 const mostrarListaPersonajes = () => {
@@ -128,6 +137,38 @@ const mostrarListaPersonajes = () => {
     })
 }
 
+
+const mostrarListaComics = () => {
+    fetch(`https://gateway.marvel.com:443/v1/public/comics?orderBy=title&apikey=1fd738e2dc343485449632dfe8caffa1&offset=${paginadoListasCompletas}`)
+    .then(res => res.json())
+    .then(data => {
+        listaDeComicsHTML(data.data.results)
+        asignarClickTarjetaComics()
+           const tarjetas = document.querySelectorAll(".tarjeta-personaje");
+           setTimeout (()=> {
+            tarjetas.forEach((tarjeta)=> {
+                tarjeta.classList.add("rotacion-y");
+        },500)
+        })
+    })
+}
+
+const listaDeComicsHTML = (comic) => {
+    const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
+    const html = comic.reduce((acc,element) => {
+        return acc + `
+        <div class="tarjeta-personaje" data-id=${element.id}>
+            <div class="contenedor-imagen-lista-personajes">
+                <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
+            </div>
+            <h4 class="nombre-personaje">${element.title}</h4>
+        </div>
+        `
+    },"")
+
+    contenedorTarjetasComics.innerHTML = html
+}
+
 const obtenerInfoPersonajeClickeado = (id) => {
     fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=1fd738e2dc343485449632dfe8caffa1`)
     .then(res => res.json())
@@ -136,11 +177,22 @@ const obtenerInfoPersonajeClickeado = (id) => {
     })
 }
 
+const obtenerInfoComicClickeado = (id) => {
+    fetch(`https://gateway.marvel.com:443/v1/public/comics/${id}?apikey=1fd738e2dc343485449632dfe8caffa1`)
+    .then(res => res.json())
+    .then(data => {
+        imprimirComicHTML(data.data.results)
+    })
+}
+
 const obtenerComicsDelPersonaje = (id) => {
     fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}/comics?&apikey=1fd738e2dc343485449632dfe8caffa1&offset=${paginadoComicsOPersonajesRelacionados}`)
     .then(res => res.json())
     .then(data => {
         imprimirComicsDePersonaje(data.data.results)
+    })
+    .catch(()=>{
+
     })
 }
 
@@ -157,8 +209,9 @@ const busquedaPersonajePorNombre = (nombre) => {
      },500)
      })
     })
-
 }
+
+
 
 const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -168,6 +221,19 @@ const asignarClickTarjetaPersonaje = () => {
             const idPersonaje = personaje.dataset.id;
             obtenerInfoPersonajeClickeado(idPersonaje)
             obtenerComicsDelPersonaje(idPersonaje)
+        }
+    })
+    return tarjetas
+}
+
+const asignarClickTarjetaComics = () => {
+    const tarjetas = document.querySelectorAll(".tarjeta-personaje");
+    tarjetas.forEach((comic)=> {
+        comic.onclick = () => {
+            contenedorBordeBlanco.classList.remove("ocultar");
+            const idComic = comic.dataset.id;
+            obtenerInfoComicClickeado(idComic)
+         
         }
     })
     return tarjetas
@@ -191,11 +257,12 @@ const listaPersonajesHTML = (personaje) => {
 
 
 const imprimirPersonajeHTML = (personaje) => {
+    //if array vacio
     const html = personaje.reduce((acc,element) => {
         return acc + `
         <div class="borde-blanco-tarjeta-personaje">
             <div class="contenedor-elemento-seleccionado personaje-seleccionado">
-                <div class="contenedor-imagen-personaje-seleccionado">
+                <div class="contenedor-imagen-objeto-seleccionado">
                     <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
                 </div>
                 <div class="contenedor-nombre-descripcion">
@@ -209,6 +276,29 @@ const imprimirPersonajeHTML = (personaje) => {
     contenedorPersonajeSeleccionado.innerHTML = html
 }
 
+
+const imprimirComicHTML = (comic) => {
+    const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado")
+    const html = comic.reduce((acc,element)=> {
+        return acc + `
+        <div class="borde-blanco-tarjeta-personaje">
+        <div class="contenedor-elemento-seleccionado personaje-seleccionado">
+            <div class="contenedor-imagen-objeto-seleccionado">
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.title}">
+            </div>
+            <div class="contenedor-nombre-descripcion">
+                <h3>${element.title}</h3>
+                <p class="texto-descripcion">${element.description}</p>
+                <h4>ISBN</h4>
+                <p>${element.isbn}</p>
+            </div>
+        </div>
+    </div>`
+    },"")
+
+    contenedorComicSeleccionado.innerHTML = html
+
+}
 
 const imprimirComicsDePersonaje = (comic) => {
     const html = comic.reduce((acc,element)=> {
@@ -275,10 +365,11 @@ primeraPagina.onclick = () => {
   
 }
 
-console.log(busquedaPesonajeInput.value)
 
 
-botonBuquedaPersonaje.onclick = (e) => {
+
+
+formularioBusquedaPersonaje.onclick = (e) => {
     e.preventDefault()
     busquedaPersonajePorNombre(busquedaPesonajeInput.value)
 
@@ -286,5 +377,7 @@ botonBuquedaPersonaje.onclick = (e) => {
 
 
 //preguntas para Male:
+// Hay alguna forma de juntar esos multiples fetch que hice?
 // Promesas no cumplidas como se da una respuesta
 // Hay alguna forma de que en el input de busqueda te aparezcan sugerencias?
+//

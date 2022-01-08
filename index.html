@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<!-- seccion presentacion -->
+    <!-- seccion presentacion -->
     <section class="seccion-inicio" id="seccion-inicio">
         <div class="contenedor-imagen-presentacion">
             <img src="images/Marvel_Logo.svg" class="" alt="Logo de Marvel">
@@ -25,14 +25,15 @@
                 id="boton-deslizar-seccion-abajo">
         </div>
     </section>
-    <main class="">
+    <main class="ocultar">
         <nav>
             <ul class="nav-links">
-                <li><a href="#seccion-inicio" aria-label= "Volver a la seccion bienvenida">INICIO</a></li>
+                <li><a href="#seccion-inicio" aria-label="Volver a la seccion bienvenida">INICIO</a></li>
                 <li><a href="#seccion-personajes" aria-label="seccion listado de personajes">PERSONAJES</a></li>
                 <li><a href="#seccion-comics" aria-label="seccion listado de comics">COMICS</a></li>
                 <li><a href="#seccion-busqueda" aria-label="seccion busqueda">BUSCAR</a></li>
-                <li><a href="https://www.marvel.com/" target="_blank" aria-label="Página oficial de Marvel">MARVEL</a></li>
+                <li><a href="https://www.marvel.com/" target="_blank" aria-label="Página oficial de Marvel">MARVEL</a>
+                </li>
             </ul>
         </nav>
 
@@ -43,29 +44,37 @@
                     <div class="contenedor-opcion" id="opcion-1">
                         <div class="cuadro-comic">Sección Personajes...</div>
                         <div class="cuadro-comic-dialogo">
-                            <p class="texto-descripcion">En esta sección podrás acceder a todos los personajes Marvel. Clickeando en ellos
-                                tendrás acceso a una breve descripción y podrás averiguar en qué comics se encuentran.</p>
+                            <p class="texto-descripcion">En esta sección podrás acceder a todos los personajes Marvel.
+                                Clickeando en ellos
+                                tendrás acceso a una breve descripción y podrás averiguar en qué comics se encuentran.
+                            </p>
                         </div>
-                        <button class="boton-onomatopeya" type="button" id="boton-seccion-personajes"><img src="images/botones/onomatopeyaOMG.svg" alt="Onomatopeya OMG"></button>
+                        <button class="boton-onomatopeya" type="button" id="boton-seccion-personajes"><img
+                                src="images/botones/onomatopeyaOMG.svg" alt="Onomatopeya OMG"></button>
                     </div>
-                    </div>
+                </div>
                 <div class="borde-blanco">
                     <div class="contenedor-opcion" id="opcion-2">
                         <div class="cuadro-comic">Haz tu propia búsqueda...</div>
                         <div class="cuadro-comic-dialogo">
-                            <p class="texto-descripcion">¿No encontraste el villano o superheroe que buscabas? Quizas no sea de Marvel...</p>
+                            <p class="texto-descripcion">¿No encontraste el villano o superheroe que buscabas? Quizas no
+                                sea de Marvel, no te des por vencido...</p>
                         </div>
-                        <button class="boton-onomatopeya" type="button" id="boton-seccion-busqueda"><img src="images/botones/onomatopeyaYES.svg" alt="Onomatopeya YES"></button>
+                        <button class="boton-onomatopeya" type="button" id="boton-seccion-busqueda"><img
+                                src="images/botones/onomatopeyaYES.svg" alt="Onomatopeya YES"></button>
                     </div>
                 </div>
                 <div class="borde-blanco">
                     <div class="contenedor-opcion" id="opcion-3">
                         <div class="cuadro-comic">Sección Comics...</div>
                         <div class="cuadro-comic-dialogo">
-                            <p class="texto-descripcion">En esta sección podrás acceder a todos los títulos publicados por Marvel. Clickeando
-                                en ellos tendrás acceso a información y podrás averiguar cuáles personajes se encuentran en los mismos.</p>
+                            <p class="texto-descripcion">En esta sección podrás acceder a todos los títulos publicados
+                                por Marvel. Clickeando
+                                en ellos tendrás acceso a información y podrás averiguar cuáles personajes se encuentran
+                                en los mismos.</p>
                         </div>
-                        <button class="boton-onomatopeya" type="button" id="boton-seccion-comics"><img src="images/botones/onomatopeyaWOW.svg" alt="Onomatopeya WOW"></button>
+                        <button class="boton-onomatopeya" type="button" id="boton-seccion-comics"><img
+                                src="images/botones/onomatopeyaWOW.svg" alt="Onomatopeya WOW"></button>
                     </div>
                 </div>
         </section>
@@ -74,37 +83,74 @@
             <div class="row">
                 <div class="cuadro-comic">
                     <h2>Personajes</h2>
-                    </div>
-                    <div class="column">
-                        <form>
-                            <label for="busqueda-personaje">Ingresa el nombre</label>
-                            <div class="input-icono">
-                                <input type="text" id="busqueda-personaje">
-                                <button id="boton-busqueda-personaje" type="button"><i class="fas fa-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                    </div>
+                </div>
+                <div class="column">
+                    <form id="formulario-busqueda-personaje">
+                        <label for="busqueda-personaje">Ingresa el nombre</label>
+                        <div class="input-icono">
+                            <input type="text" id="busqueda-personaje">
+                            <button id="boton-busqueda-personaje"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div id="contenedor-personaje-seleccionado"></div>
             <div class="borde-blanco-tarjeta-personaje ocultar" id="contenedor-borde-blanco">
-               
-                    <div class="contenedor-elemento-seleccionado" id="contenedor-comics-personaje-seleccionado">
-                      
-                    </div>
-              
+
+                <div class="contenedor-elemento-seleccionado" id="contenedor-comics-personaje-seleccionado">
+
+                </div>
+
             </div>
             <div class="contenedor-tarjetas-y-flechas">
-                <div class="contenedor-tarjetas" id="contenedor-tarjetas-personajes">
-                </div>
+                <div class="contenedor-tarjetas" id="contenedor-tarjetas-personajes"></div>
                 <div class="contenedor-desplazamientos-horizontales">
-                    <button type="button" class="boton-desplazamiento" id="first-page"><i class="fas fa-angle-double-left"></i></button>
-                    <button type ="button" class="boton-desplazamiento" id="prev"><i class="fas fa-angle-left"></i></button>
-                    <button type="button" class="boton-desplazamiento" id="next"><i class="fas fa-angle-right"></i></button>
-                    <button type="button" class="boton-desplazamiento" id="last-page"><i class="fas fa-angle-double-right"></i></button>
+                    <button type="button" class="boton-desplazamiento" id="first-page"><i
+                            class="fas fa-angle-double-left"></i></button>
+                    <button type="button" class="boton-desplazamiento" id="prev"><i
+                            class="fas fa-angle-left"></i></button>
+                    <button type="button" class="boton-desplazamiento" id="next"><i
+                            class="fas fa-angle-right"></i></button>
+                    <button type="button" class="boton-desplazamiento" id="last-page"><i
+                            class="fas fa-angle-double-right"></i></button>
                 </div>
             </div>
         </section>
-        
+        <!-- Seccion Comics -->
+        <section class="seccion-comics secciones ocultar" id="seccion-comics">
+            <div class="row">
+                <div class="cuadro-comic">
+                    <h2>Comics</h2>
+                </div>
+                <div class="column">
+                    <form id="formulario-busqueda-comic">
+                        <label for="busqueda-comic">Ingresa el nombre</label>
+                        <div class="input-icono">
+                            <input type="text" id="busqueda-comic">
+                            <button id="boton-busqueda-comic" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="contenedor-comic-seleccionado"></div>
+            <div class="borde-blanco-tarjeta-personaje ocultar" id="contenedor-borde-blanco">
+                <div class="contenedor-elemento-seleccionado" id="contenedor-comics-personaje-seleccionado">
+                </div>
+            </div>
+            <div class="contenedor-tarjetas-y-flechas">
+                <div class="contenedor-tarjetas" id="contenedor-tarjetas-comics"></div>
+                <div class="contenedor-desplazamientos-horizontales">
+                    <button type="button" class="boton-desplazamiento" id="first-page"><i
+                            class="fas fa-angle-double-left"></i></button>
+                    <button type="button" class="boton-desplazamiento" id="prev"><i
+                            class="fas fa-angle-left"></i></button>
+                    <button type="button" class="boton-desplazamiento" id="next"><i
+                            class="fas fa-angle-right"></i></button>
+                    <button type="button" class="boton-desplazamiento" id="last-page"><i
+                            class="fas fa-angle-double-right"></i></button>
+                </div>
+            </div>
+        </section>
         <footer>
             <p class="texto-footer">Hecho por Celinesco</p>
             <ul class="footer-social-icons">

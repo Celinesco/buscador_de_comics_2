@@ -202,6 +202,7 @@ footer {
     border-bottom: 3px solid black;
 }
 
+
 .contenedor-elemento-seleccionado {
     max-width: 900px;
     background-color: rgb(235, 208, 150);
@@ -220,7 +221,7 @@ footer {
 }
 
 
-.contenedor-imagen-personaje-seleccionado {
+.contenedor-imagen-objeto-seleccionado {
     display: flex;
     border: $bordes-tarjetas-estilo-comic;
     max-width: 250px;
@@ -279,11 +280,13 @@ footer {
     border-radius: 10px;
 }
 
-#boton-busqueda-personaje {
+#boton-busqueda-personaje, #boton-busqueda-comic {
     position: relative;
     display: flex;
     align-items: center;
 }
+
+
 
 .fa-search {
     display: flex;
