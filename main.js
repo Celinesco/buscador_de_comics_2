@@ -547,9 +547,7 @@ const imprimirComicHTML = (comic) => {
                 </div>
                 <div class="contenedor-nombre-descripcion">
                     <h3>${element.title}</h3>
-                    <p class="texto-descripcion">${element.description}</p>
-                    <h4>ISBN</h4>
-                    <p>${element.isbn}</p>
+                    <p class="texto-descripcion">${element.description !== null ? element.description : "" }</p>
                 </div>
             </div>
         </div>`
