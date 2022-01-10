@@ -27,6 +27,12 @@ const pagAnteriorPersonajesBusquedaInput = document.getElementById("pagina-anter
 const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input");
 
 
+const primerPagListaComics = document.getElementById("primer-pag-lista-comics")
+const pagPrevListaComics = document.getElementById("pag-previa-lista-comics");
+const pagSgteListaComics = document.getElementById("pag-sgte-lista-comics");
+const ultimaPagListaComics = document.getElementById("ultima-pag-lista-comics");
+
+
 // nav
 const volverSeccionPrincipal = document.getElementById("volver-seccion-principal");
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
@@ -114,6 +120,8 @@ const funcionAbrirSeccionBusqueda = () => {
 //Comienzo de pagina
 pagPrevListaPersonajes.style.backgroundColor = "grey";
 primeraPaginaListaPersonajes.style.backgroundColor = "grey";
+pagPrevListaComics.style.backgroundColor = "grey";
+primerPagListaComics.style.background = "grey";
 
 //
 
@@ -348,9 +356,10 @@ pagSiguientePersonajesBusuqedaInput.onclick = () => {
 
 
 const mostrarListaComics = () => {
-    fetch(`${urlBase}/comics?orderBy=title&apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
+    fetch(`${urlBase}/comics?orderBy=title&apikey=${apiKey}&offset=${cantidadDeComicsASaltear}`)
         .then(res => res.json())
         .then(data => {
+            ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 20)
             listaDeComicsHTML(data.data.results)
             asignarClickTarjetaComics()
             const tarjetas = document.querySelectorAll(".tarjeta-personaje")
@@ -361,6 +370,7 @@ const mostrarListaComics = () => {
             })
         })
 }
+
 
 
 const obtenerInfoComicClickeado = (id) => {
@@ -393,6 +403,42 @@ const busquedaComicPorNombre = (nombre) => {
         })
 }
 
+primerPagListaComics.onclick = () => {
+    activarBotonesDesplazamiento(pagSgteListaComics, ultimaPagListaComics)
+    if (cantidadDeComicsASaltear !== 0) {
+        cantidadDeComicsASaltear = 0
+        desactivarBotonDesplazamiento(primerPagListaComics,pagPrevListaComics)
+        mostrarListaComics()
+    }
+}
+
+pagPrevListaComics.onclick = () => {
+    activarBotonesDesplazamiento(pagSgteListaComics, ultimaPagListaComics)
+    if (cantidadDeComicsASaltear !== 0) {
+        cantidadDeComicsASaltear -= 20
+        mostrarListaComics()
+        cantidadDeComicsASaltear === 0 && desactivarBotonDesplazamiento(primerPagListaComics, pagPrevListaComics)
+    }
+}
+
+pagSgteListaComics.onclick = () => {
+    activarBotonesDesplazamiento(primerPagListaComics, pagPrevListaComics)
+    if (cantidadDeComicsASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
+        cantidadDeComicsASaltear += 20
+        mostrarListaComics()
+        cantidadDeComicsASaltear === 0 && desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
+    }
+}
+
+
+ultimaPagListaComics.onclick = () => {
+    activarBotonesDesplazamiento(primerPagListaComics, pagPrevListaComics)
+    if(cantidadDeComicsASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
+        cantidadDeComicsASaltear = ultimaPaginaListaDeComicsOPersonajes * 20
+        desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
+        mostrarListaComics()
+    }
+}
 
 
 
