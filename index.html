@@ -28,17 +28,21 @@
     <main class="ocultar">
         <nav>
             <ul class="nav-links">
-                <li><a href="#seccion-inicio" aria-label="Volver a la seccion bienvenida">INICIO</a></li>
-                <li><a href="#seccion-personajes" aria-label="seccion listado de personajes">PERSONAJES</a></li>
-                <li><a href="#seccion-comics" aria-label="seccion listado de comics">COMICS</a></li>
-                <li><a href="#seccion-busqueda" aria-label="seccion busqueda">BUSCAR</a></li>
+                <li><button type="button" class="boton-navegacion" id="volver-seccion-principal"
+                        aria-label="Volver a la seccion bienvenida">INICIO</button></li>
+                <li><button type="button" class="boton-navegacion" id="abrir-seccion-personajes"
+                        aria-label="seccion listado de personajes">PERSONAJES</button></li>
+                <li><button type="button" class="boton-navegacion" id="abrir-seccion-comics"
+                        aria-label="seccion listado de comics">COMICS</button></li>
+                <li><button type="button" class="boton-navegacion" id="abrir-seccion-busqueda"
+                        aria-label="seccion busqueda">BUSCAR</button></li>
                 <li><a href="https://www.marvel.com/" target="_blank" aria-label="Página oficial de Marvel">MARVEL</a>
                 </li>
             </ul>
         </nav>
 
         <!-- Seccion PRINCIPAL -->
-        <section class="seccion-principal secciones ocultar" id="seccion-principal">
+        <section class="seccion-principal secciones" id="seccion-principal">
             <div class="contenido-seccion-principal">
                 <div class="borde-blanco">
                     <div class="contenedor-opcion" id="opcion-1">
@@ -78,15 +82,20 @@
                     </div>
                 </div>
         </section>
+
+        <section class= "secciones ocultar" id="seccion-busqueda">
+            
+        </section>
+
         <!-- Seccion PERSONAJES -->
-        <section class="seccion-personajes secciones ocultar" id="seccion-personajes">
+        <section class="secciones ocultar" id="seccion-personajes">
             <div class="row">
                 <div class="cuadro-comic">
                     <h2>Personajes</h2>
                 </div>
                 <div class="column">
                     <form id="formulario-busqueda-personaje">
-                        <label for="busqueda-personaje">Ingresa el nombre</label>
+                        <label for="busqueda-personaje">Ingresa tu búsqueda</label>
                         <div class="input-icono">
                             <input type="text" id="busqueda-personaje">
                             <button id="boton-busqueda-personaje"><i class="fas fa-search"></i></button>
@@ -94,14 +103,20 @@
                     </form>
                 </div>
             </div>
-            <div id="contenedor-personaje-seleccionado"></div>
-            <div class="borde-blanco-tarjeta-personaje ocultar" id="contenedor-borde-blanco">
-
-                <div class="contenedor-elemento-seleccionado" id="contenedor-comics-personaje-seleccionado">
-
-                </div>
-
+            <div class="ocultar" id="box-resultado-busqueda-usuario">
+                <div id="contenedor-personaje-seleccionado"></div>
+                <div id="contenedor-comics-personaje-seleccionado"></div>
             </div>
+            <div class="elemento-no-encontrado ocultar" id="busqueda-sin-resultados">
+                <div class="contenedor-imagen-sin-resultados">
+                    <img src="images/SinResultados.png" alt="Fantasma del espacio">
+                </div>
+                <div class="contenedor-nombre-descripcion">
+                    <div class="cuadro-comic">Lo sentimos...</div>
+                    <p class= "texto-descripcion">No se encontraron resultados para tu busqueda. Intenta de otra forma</p>
+                 </div>
+            </div>
+
             <div class="contenedor-tarjetas-y-flechas">
                 <div class="contenedor-tarjetas" id="contenedor-tarjetas-personajes"></div>
                 <div class="botones-paginado">
@@ -117,23 +132,24 @@
             </div>
         </section>
         <!-- Seccion COMICS -->
-        <section class="seccion-comics secciones ocultar" id="seccion-comics">
+        <section class="secciones ocultar" id="seccion-comics">
             <div class="row">
                 <div class="cuadro-comic">
                     <h2>Comics</h2>
                 </div>
                 <div class="column">
-                    <form id="formulario-busqueda-comic">
-                        <label for="busqueda-comic">Ingresa el nombre</label>
+                    <form>
+                        <label for="busqueda-comic">Ingresa tu búsqueda</label>
                         <div class="input-icono">
                             <input type="text" id="busqueda-comic">
-                            <button id="boton-busqueda-comic" type="button"><i class="fas fa-search"></i></button>
+                            <button id="boton-busqueda-comic"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
             </div>
             <div id="contenedor-comic-seleccionado"></div>
             <div class="borde-blanco-tarjeta-personaje ocultar" id="contenedor-borde-blanco">
+                <!-- ESTO LO TENGO QUE DEJAR IGUAL DEL DE ARRIBA -->
                 <div class="contenedor-elemento-seleccionado" id="contenedor-comics-personaje-seleccionado">
                 </div>
             </div>
