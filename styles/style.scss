@@ -301,7 +301,6 @@ footer {
 }
 
 
-
 .fa-search {
     display: flex;
     align-items: center;
@@ -316,8 +315,16 @@ footer {
 }
 
 .elemento-no-encontrado {
+    display: flex;
     max-width: 650px;
-    background-color:white;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.ocultar {
+    display: none
 }
 
 

@@ -13,12 +13,13 @@ const primeraPaginaPersonajes = document.getElementById("primera-pagina-personaj
 const ultimaPaginaPersonajes = document.getElementById("ultima-pagina-personajes");
 const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
 const contenedorComicOPersonajeSeleccionado = document.getElementById("contenedor-comics-personaje-seleccionado");
-const contenedorBordeBlanco = document.getElementById("contenedor-borde-blanco");
 const busquedaPesonajeInput = document.getElementById("busqueda-personaje");
 const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje");
 const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
 const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
 const busquedaComicInput = document.getElementById("busqueda-comic");
+const boxInformacionAMostrar = document.getElementById("box-resultado-busqueda-usuario")
+const boxBusquedaSinResultados = document.getElementById("busqueda-sin-resultados")
 
 // nav
 const volverSeccionInicio = document.getElementById("volver-seccion-inicio");
@@ -55,8 +56,6 @@ const desactivarBotonesNavTemporalmente = () => {
             boton.disabled = false;
         },1550)
     })
-    
-
 }
 
 
@@ -75,7 +74,7 @@ const funcionAbrirSeccionPersonajes = () => {
     }, 1500)
 
     seccionPersonajes.classList.remove("ocultar");
-    // mostrarListaPersonajes()
+    mostrarListaPersonajes()
 }
 
 const funcionAbrirSeccionComics = () => {
@@ -91,7 +90,7 @@ const funcionAbrirSeccionComics = () => {
 
     }, 1500)
     seccionComics.classList.remove("ocultar")
-    // mostrarListaComics()
+    mostrarListaComics()
 }
 
 //Comienzo de pagina
@@ -260,17 +259,20 @@ const masComicsDelPersonajeIzquierda = () => {
             : cantidadDeComicsASaltear -= 8
         obtenerComicsDelPersonaje(idPersonajeClickeado)
     }
-
 }
 
+
+//Si hago lo de los inputs.. podria reducir esto (creo)
 const busquedaPersonajePorNombre = (nombre) => {
     fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}`)
         .then(res => res.json())
         .then(data => {
+            boxInformacionAMostrar.classList.add("ocultar");
             if (data.data.results.length === 0) {
-                imprimirNoHayResultados(contenedorPersonajeSeleccionado)
+                boxBusquedaSinResultados.classList.remove("ocultar");
             }
             else {
+                boxBusquedaSinResultados.classList.add("ocultar")
                 listaPersonajesHTML(data.data.results)
                 asignarClickTarjetaPersonaje()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -288,9 +290,11 @@ const busquedaComicPorNombre = (nombre) => {
         .then(res => res.json())
         .then(data => {
             if (data.data.results.length === 0) {
-                imprimirNoHayResultados(contenedorComicSeleccionado)
+                boxInformacionAMostrar.classList.add("ocultar")
+                boxBusquedaSinResultados.classList.remove("ocultar")
             }
             else {
+                boxBusquedaSinResultados.classList.add("ocultar")
                 listaDeComicsHTML(data.data.results)
                 asignarClickTarjetaComics()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -308,9 +312,10 @@ const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje");
     tarjetas.forEach((personaje) => {
         personaje.onclick = () => {
-            contenedorBordeBlanco.classList.remove("ocultar");
+            boxInformacionAMostrar.classList.remove("ocultar");
+            boxBusquedaSinResultados.classList.add("ocultar")
             const idPersonaje = personaje.dataset.id;
-            idPersonajeClickeado = idPersonaje
+            idPersonajeClickeado = idPersonaje;
             obtenerInfoPersonajeClickeado(idPersonaje)
             obtenerComicsDelPersonaje(idPersonaje)
         }
@@ -322,7 +327,7 @@ const asignarClickTarjetaComics = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje");
     tarjetas.forEach((comic) => {
         comic.onclick = () => {
-            contenedorBordeBlanco.classList.remove("ocultar");
+            boxInformacionAMostrar.classList.remove("ocultar");
             const idComic = comic.dataset.id;
             obtenerInfoComicClickeado(idComic)
 
@@ -364,6 +369,7 @@ const listaPersonajesHTML = (personaje) => {
         `
     }, "")
 
+  
     contenedorTarjetasPersonajes.innerHTML = html;
 }
 
@@ -384,6 +390,7 @@ const imprimirPersonajeHTML = (personaje) => {
         </div>`
 
     }, "")
+
     contenedorPersonajeSeleccionado.innerHTML = html
 }
 
@@ -392,18 +399,18 @@ const imprimirComicHTML = (comic) => {
     const html = comic.reduce((acc, element) => {
         return acc + `
         <div class="borde-blanco-tarjeta-personaje">
-        <div class="contenedor-elemento-seleccionado personaje-seleccionado">
-            <div class="contenedor-imagen-objeto-seleccionado">
-                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.title}">
+            <div class="contenedor-elemento-seleccionado personaje-seleccionado">
+                <div class="contenedor-imagen-objeto-seleccionado">
+                    <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.title}">
+                </div>
+                <div class="contenedor-nombre-descripcion">
+                    <h3>${element.title}</h3>
+                    <p class="texto-descripcion">${element.description}</p>
+                    <h4>ISBN</h4>
+                    <p>${element.isbn}</p>
+                </div>
             </div>
-            <div class="contenedor-nombre-descripcion">
-                <h3>${element.title}</h3>
-                <p class="texto-descripcion">${element.description}</p>
-                <h4>ISBN</h4>
-                <p>${element.isbn}</p>
-            </div>
-        </div>
-    </div>`
+        </div>`
     }, "")
 
     contenedorComicSeleccionado.innerHTML = html
@@ -414,33 +421,34 @@ const imprimirComicsDePersonaje = (comic) => {
         return acc + `
         <div class="comic-texto">
             <div>
-                <img src="${element.thumbnail.path}.${element.thumbnail.extension}"  class="sombra" alt="Comic: ${element.title}">
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" class="sombra" alt="Comic: ${element.title}">
             </div>
                 <h5>${element.title}</h5>
         </div>
         `
-    }, `<h3>Comics donde se encuentra</h3><div class="row">`)
+    }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Comics donde se encuentra</h3><div class="row">`)
 
     contenedorComicOPersonajeSeleccionado.innerHTML = html + `</div>
     <div class="width-100">
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-izquierda"><i class="fas fa-angle-left"></i></button>
-        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-derecha"><i class="fas fa-angle-right"></i></button>  
+        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-derecha"><i class="fas fa-angle-right"></i></button></div>
+    </div>
     </div>`
 }
 
 
-const imprimirNoHayResultados = (contenedor) => {
-    contenedor.innerHTML = `
-    <div class="contenedor-elemento-seleccionado personaje-seleccionado elemento-no-encontrado">
-        <div class="contenedor-imagen-sin-resultados">
-            <img src="images/SinResultados.png" alt="Fantasma del espacio">
-        </div>
-        <div class="contenedor-nombre-descripcion">
-            <div class="cuadro-comic">Lo sentimos...</div>
-            <p class= "texto-descripcion">No se encontraron resultados para tu busqueda. Intenta de otra forma</p>
-         </div>
-    </div>`
-}
+// const imprimirNoHayResultados = (contenedor) => {
+//     contenedor.innerHTML = `
+//     <div class="contenedor-elemento-seleccionado personaje-seleccionado elemento-no-encontrado">
+//         <div class="contenedor-imagen-sin-resultados">
+//             <img src="images/SinResultados.png" alt="Fantasma del espacio">
+//         </div>
+//         <div class="contenedor-nombre-descripcion">
+//             <div class="cuadro-comic">Lo sentimos...</div>
+//             <p class= "texto-descripcion">No se encontraron resultados para tu busqueda. Intenta de otra forma</p>
+//          </div>
+//     </div>`
+// }
 
 
 paginaSiguientePersonajes.onclick = () => {
@@ -497,7 +505,8 @@ primeraPaginaPersonajes.onclick = () => {
 
 botonBuquedaPersonaje.onclick = (e) => {
     e.preventDefault()
-    busquedaPersonajePorNombre(busquedaPesonajeInput.value)
+    busquedaPersonajePorNombre(busquedaPesonajeInput.value);
+
 }
 
 botonBusquedaComic.onclick = (e) => {
