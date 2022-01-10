@@ -75,7 +75,6 @@ const funcionAbrirSeccionPersonajes = () => {
         seccionBusqueda.classList.add("ocultar");
 
     }, 1500)
-
     seccionPersonajes.classList.remove("ocultar");
     mostrarListaPersonajes()
 }
@@ -90,7 +89,6 @@ const funcionAbrirSeccionComics = () => {
         seccionPrincipal.classList.add("ocultar");
         seccionPersonajes.classList.add("ocultar");
         seccionBusqueda.classList.add("ocultar");
-
     }, 1500)
     seccionComics.classList.remove("ocultar")
     mostrarListaComics()
@@ -175,8 +173,6 @@ botonDeslizarSeccionAbajo.onclick = () => {
     }, 900)
     main.classList.remove("ocultar")
     seccionPrincipal.classList.remove("ocultar");
-
-
 }
 
 const vibrarOnomatopeya = (onomatopeya) => {
@@ -286,7 +282,6 @@ const masComicsDelPersonajeIzquierda = () => {
             : cantidadDeComicsASaltear -= 8
         obtenerComicsDelPersonaje(idPersonajeClickeado)
     }
-
 }
 
 
@@ -348,7 +343,6 @@ const asignarClickTarjetaPersonaje = () => {
             obtenerComicsDelPersonaje(idPersonaje)
         }
     })
-
 }
 
 const asignarClickTarjetaComics = () => {
@@ -358,7 +352,6 @@ const asignarClickTarjetaComics = () => {
             boxInformacionAMostrar.classList.remove("ocultar");
             const idComic = comic.dataset.id;
             obtenerInfoComicClickeado(idComic)
-
         }
     })
 }
@@ -396,8 +389,6 @@ const listaPersonajesHTML = (personaje) => {
         </div>
         `
     }, "")
-
-  
     contenedorTarjetasPersonajes.innerHTML = html;
 }
 
@@ -418,7 +409,6 @@ const imprimirPersonajeHTML = (personaje) => {
         </div>`
 
     }, "")
-
     contenedorPersonajeSeleccionado.innerHTML = html
 }
 
@@ -440,7 +430,6 @@ const imprimirComicHTML = (comic) => {
             </div>
         </div>`
     }, "")
-
     contenedorComicSeleccionado.innerHTML = html
 }
 
@@ -504,7 +493,6 @@ primeraPaginaPersonajes.onclick = () => {
         desactivarBotonDesplazamiento(primeraPaginaPersonajes, paginaAnteriorPersonajes)
         mostrarListaPersonajes()
     }
-
 }
 
 
