@@ -22,7 +22,7 @@ const boxInformacionAMostrar = document.getElementById("box-resultado-busqueda-u
 const boxBusquedaSinResultados = document.getElementById("busqueda-sin-resultados")
 
 // nav
-const volverSeccionInicio = document.getElementById("volver-seccion-inicio");
+const volverSeccionPrincipal = document.getElementById("volver-seccion-principal");
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
 const abrirSeccionComics = document.getElementById("abrir-seccion-comics")
 
@@ -101,8 +101,11 @@ primeraPaginaPersonajes.style.backgroundColor = "grey";
 
 
 //navegabilidad NAV 
-volverSeccionInicio.onclick = () => {
-    location.reload()
+volverSeccionPrincipal.onclick = () => {
+    seccionComics.classList.add("ocultar");
+    seccionPersonajes.classList.add("ocultar");
+    seccionPrincipal.classList.remove("ocultar");
+    seccionPrincipal.style.opacity = "100"
 }
 
 abrirSeccionPersonajes.onclick = () => {
