@@ -3,10 +3,11 @@ const seccionInicio = document.getElementById("seccion-inicio");
 const seccionComics = document.getElementById("seccion-comics")
 const seccionPrincipal = document.getElementById("seccion-principal");
 const seccionPersonajes = document.getElementById("seccion-personajes");
+const seccionBusqueda = document.getElementById("seccion-busqueda");
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
-const botonSeccionPersonajes = document.getElementById("boton-seccion-personajes");
-const botonSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
-const botonSeccionComics = document.getElementById("boton-seccion-comics");
+const botonOnomatopeyaSeccionPersonajes = document.getElementById("boton-seccion-personajes");
+const botonOnomatopeyaSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
+const botonOnomatopeyaSeccionComics = document.getElementById("boton-seccion-comics");
 const paginaSiguientePersonajes = document.getElementById("pagina-siguiente-personajes");
 const paginaAnteriorPersonajes = document.getElementById("pagina-anterior-personajes");
 const primeraPaginaPersonajes = document.getElementById("primera-pagina-personajes");
@@ -18,20 +19,22 @@ const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje"
 const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
 const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
 const busquedaComicInput = document.getElementById("busqueda-comic");
-const boxInformacionAMostrar = document.getElementById("box-resultado-busqueda-usuario")
-const boxBusquedaSinResultados = document.getElementById("busqueda-sin-resultados")
+const boxInformacionAMostrar = document.getElementById("box-resultado-busqueda-usuario");
+const boxBusquedaSinResultados = document.getElementById("busqueda-sin-resultados");
+
 
 // nav
 const volverSeccionPrincipal = document.getElementById("volver-seccion-principal");
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
-const abrirSeccionComics = document.getElementById("abrir-seccion-comics")
+const abrirSeccionComics = document.getElementById("abrir-seccion-comics");
+const abrirSeccionBusqueda = document.getElementById("abrir-seccion-busqueda");
 
 
 const main = document.querySelector("main");
 
 const todasLasSecciones = document.querySelectorAll(".secciones");
 const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
-const botonesNavegacion = document.querySelectorAll(".boton-navegacion")
+const botonesNavegacion = document.querySelectorAll(".boton-navegacion");
 
 //FUNCIONES Y VARIABLES AUXILIARES
 const urlBase = "https://gateway.marvel.com:443/v1/public";
@@ -62,14 +65,14 @@ const desactivarBotonesNavTemporalmente = () => {
 
 const funcionAbrirSeccionPersonajes = () => {
     resetearVariablesPaginado()
-    vibrarOnomatopeya(botonSeccionPersonajes);
+    vibrarOnomatopeya(botonOnomatopeyaSeccionPersonajes);
     setTimeout(() => {
         desvanecerSeccion(seccionPrincipal);
     }, 800)
     setTimeout(() => {
-        seccionPrincipal.classList.add("ocultar")
+        seccionPrincipal.classList.add("ocultar");
         seccionComics.classList.add("ocultar");
-        // falta seccion busqueda
+        seccionBusqueda.classList.add("ocultar");
 
     }, 1500)
 
@@ -79,18 +82,31 @@ const funcionAbrirSeccionPersonajes = () => {
 
 const funcionAbrirSeccionComics = () => {
     resetearVariablesPaginado()
-    vibrarOnomatopeya(botonSeccionComics);
+    vibrarOnomatopeya(botonOnomatopeyaSeccionComics);
     setTimeout(() => {
         desvanecerSeccion(seccionPrincipal)
     }, 800)
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
         seccionPersonajes.classList.add("ocultar");
-        //falta seccion busqueda
+        seccionBusqueda.classList.add("ocultar");
 
     }, 1500)
     seccionComics.classList.remove("ocultar")
     mostrarListaComics()
+}
+
+const funcionAbrirSeccionBusqueda = () => {
+    vibrarOnomatopeya(botonOnomatopeyaSeccionBusqueda);
+    setTimeout(() => {
+        desvanecerSeccion(seccionPrincipal)
+    }, 800)
+    setTimeout(() => {
+        seccionPrincipal.classList.add("ocultar");
+        seccionPersonajes.classList.add("ocultar");
+        seccionComics.classList.add("ocultar")
+    }, 1500)
+    seccionBusqueda.classList.remove("ocultar")
 }
 
 //Comienzo de pagina
@@ -111,13 +127,22 @@ volverSeccionPrincipal.onclick = () => {
 abrirSeccionPersonajes.onclick = () => {
     desactivarBotonesNavTemporalmente()
     seccionComics.classList.add("ocultar")
+    seccionBusqueda.classList.add("ocultar")
     funcionAbrirSeccionPersonajes()
 }
 
 abrirSeccionComics.onclick = () => {
     desactivarBotonesNavTemporalmente()
-    seccionPersonajes.classList.add("ocultar")
+    seccionPersonajes.classList.add("ocultar");
+    seccionBusqueda.classList.add("ocultar")
     funcionAbrirSeccionComics()
+}
+
+abrirSeccionBusqueda.onclick = () => {
+    seccionComics.classList.add("ocultar");
+    seccionPersonajes.classList.add("ocultar");
+    desactivarBotonesNavTemporalmente()
+    funcionAbrirSeccionBusqueda()
 }
 
 const desactivarBotonDesplazamiento = (boton1, boton2) => {
@@ -163,24 +188,24 @@ const vibrarOnomatopeya = (onomatopeya) => {
 
 
 
-botonSeccionPersonajes.onclick = () => {
+botonOnomatopeyaSeccionPersonajes.onclick = () => {
     desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionPersonajes()
 }
 
-botonSeccionComics.onclick = () => {
+botonOnomatopeyaSeccionComics.onclick = () => {
     desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionComics()
 }
 
-botonSeccionBusqueda.onclick = () => {
-    vibrarOnomatopeya(botonSeccionBusqueda);
-    setTimeout(() => {
-        desvanecerSeccion(seccionPrincipal)
-    }, 800)
+botonOnomatopeyaSeccionBusqueda.onclick = () => {
+   desactivarBotonesNavTemporalmente()
+   funcionAbrirSeccionBusqueda()
 }
 
-//FETCH
+
+
+///////////////  FETCH   ///////////////  FETCH  /////////////// FETCH  ///////////////
 
 const mostrarListaPersonajes = () => {
     fetch(`${urlBase}/characters?apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
