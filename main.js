@@ -304,17 +304,6 @@ const asignarClickTarjetaPersonaje = () => {
     })
 };
 
-const asignarClickTarjetaComics = () => {
-    const tarjetas = document.querySelectorAll(".tarjeta-personaje")
-    tarjetas.forEach((comic) => {
-        comic.onclick = () => {
-            boxInformacionAMostrar.classList.remove("ocultar")
-            const idComic = comic.dataset.id;
-            obtenerInfoComicClickeado(idComic)
-        }
-    })
-};
-
 const masComicsDelPersonajeDerecha = () => {
     const botonDerecha = document.getElementById("mas-comics-del-personaje-derecha")
     botonDerecha.onclick = () => {
@@ -335,6 +324,44 @@ const masComicsDelPersonajeIzquierda = () => {
     }
 };
 
+
+pagSgteListaPersonajes.onclick = () => {
+    activarBotonesDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
+    if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
+        cantidadDePersonajesASaltear += 20
+        mostrarListaPersonajes()
+        cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20 && desactivarBotonDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
+    }
+}
+
+ultimaPaginaListaPersonajes.onclick = () => {
+    activarBotonesDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
+    if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
+        cantidadDePersonajesASaltear = ultimaPaginaListaDeComicsOPersonajes * 20
+        desactivarBotonDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
+        mostrarListaPersonajes()
+    }
+}
+
+pagPrevListaPersonajes.onclick = () => {
+    activarBotonesDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
+    if (cantidadDePersonajesASaltear !== 0) {
+        cantidadDePersonajesASaltear -= 20;
+        mostrarListaPersonajes()
+        cantidadDePersonajesASaltear === 0 && desactivarBotonDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
+    }
+}
+
+primeraPaginaListaPersonajes.onclick = () => {
+    activarBotonesDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
+    if (cantidadDePersonajesASaltear !== 0) {
+        cantidadDePersonajesASaltear = 0
+        desactivarBotonDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
+        mostrarListaPersonajes()
+    }
+}
+
+
 pagAnteriorPersonajesBusquedaInput.onclick = () => {
     cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20
     ? cantidadDePersonajesASaltear = 0
@@ -352,7 +379,7 @@ pagSiguientePersonajesBusuqedaInput.onclick = () => {
 
 
 
-///////////////seccion Comics//////////////////////
+///////////////  SECCION COMICS  ///////////////////////////////////  SECCION COMICS  ////////////////////
 
 
 const mostrarListaComics = () => {
@@ -370,8 +397,6 @@ const mostrarListaComics = () => {
             })
         })
 }
-
-
 
 const obtenerInfoComicClickeado = (id) => {
     fetch(`${urlBase}/comics/${id}?apikey=${apiKey}`)
@@ -401,6 +426,22 @@ const busquedaComicPorNombre = (nombre) => {
                 })
             }
         })
+}
+
+const asignarClickTarjetaComics = () => {
+    const tarjetas = document.querySelectorAll(".tarjeta-personaje")
+    tarjetas.forEach((comic) => {
+        comic.onclick = () => {
+            boxInformacionAMostrar.classList.remove("ocultar")
+            const idComic = comic.dataset.id;
+            obtenerInfoComicClickeado(idComic)
+        }
+    })
+};
+
+botonBusquedaComic.onclick = (e) => {
+    e.preventDefault()
+    busquedaComicPorNombre(busquedaComicInput.value)
 }
 
 primerPagListaComics.onclick = () => {
@@ -459,7 +500,6 @@ const listaDeComicsHTML = (comic) => {
 
     contenedorTarjetasComics.innerHTML = html
 }
-
 
 const listaPersonajesHTML = (personaje) => {
     const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
@@ -539,45 +579,6 @@ const imprimirComicsDePersonaje = (comic) => {
 
 
 
-pagSgteListaPersonajes.onclick = () => {
-    activarBotonesDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
-    if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
-        cantidadDePersonajesASaltear += 20
-        mostrarListaPersonajes()
-        if (cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20) {
-            desactivarBotonDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
-        }
-    }
-}
-
-ultimaPaginaListaPersonajes.onclick = () => {
-    activarBotonesDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
-    if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
-        cantidadDePersonajesASaltear = ultimaPaginaListaDeComicsOPersonajes * 20
-        desactivarBotonDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
-        mostrarListaPersonajes()
-    }
-}
-
-pagPrevListaPersonajes.onclick = () => {
-    activarBotonesDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
-    if (cantidadDePersonajesASaltear !== 0) {
-        cantidadDePersonajesASaltear -= 20;
-        mostrarListaPersonajes()
-        if (cantidadDePersonajesASaltear === 0) {
-            desactivarBotonDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
-        }
-    }
-}
-
-primeraPaginaListaPersonajes.onclick = () => {
-    activarBotonesDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
-    if (cantidadDePersonajesASaltear !== 0) {
-        cantidadDePersonajesASaltear = 0
-        desactivarBotonDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
-        mostrarListaPersonajes()
-    }
-}
 
 
 // const botonHaciaAbajo = (boton) => {
@@ -590,15 +591,3 @@ primeraPaginaListaPersonajes.onclick = () => {
 
 
 
-
-botonBusquedaComic.onclick = (e) => {
-    e.preventDefault()
-    busquedaComicPorNombre(busquedaComicInput.value)
-}
-
-
-//preguntas para Male:
-// Hay alguna forma de juntar esos multiples fetch que hice?
-// Promesas no cumplidas como se da una respuesta
-// Hay alguna forma de que en el input de busqueda te aparezcan sugerencias?
-//
