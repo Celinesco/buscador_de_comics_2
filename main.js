@@ -21,6 +21,7 @@ const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
 const busquedaComicInput = document.getElementById("busqueda-comic");
 const boxInformacionAMostrar = document.getElementById("box-resultado-busqueda-usuario");
 const boxBusquedaSinResultados = document.getElementById("busqueda-sin-resultados");
+const botonesPaginadoListaPersonajes = document.getElementById("botones-paginado-lista-de-personajes");
 
 
 // nav
@@ -207,6 +208,7 @@ const mostrarListaPersonajes = () => {
     fetch(`${urlBase}/characters?apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
         .then(res => res.json())
         .then(data => {
+            botonesPaginadoListaPersonajes.classList.remove("ocultar");
             ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 20)
             listaPersonajesHTML(data.data.results)
             asignarClickTarjetaPersonaje()
@@ -295,7 +297,8 @@ const busquedaPersonajePorNombre = (nombre) => {
                 boxBusquedaSinResultados.classList.remove("ocultar");
             }
             else {
-                boxBusquedaSinResultados.classList.add("ocultar")
+                botonesPaginadoListaPersonajes.classList.add("ocultar");
+                boxBusquedaSinResultados.classList.add("ocultar");
                 listaPersonajesHTML(data.data.results)
                 asignarClickTarjetaPersonaje()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
