@@ -24,7 +24,7 @@ const boxBusquedaSinResultados = document.getElementById("busqueda-sin-resultado
 const botonesPaginadoListaPersonajes = document.getElementById("botones-paginado-lista-de-personajes");
 const botonesPaginadoPersonajesBusquedaPorInput = document.getElementById("botones-paginado-personajes-busqueda-por-input");
 const pagAnteriorPersonajesBusquedaInput = document.getElementById("pagina-anterior-personajes-por-busqueda-input");
-const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input")
+const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input");
 
 
 // nav
@@ -293,7 +293,7 @@ const masComicsDelPersonajeIzquierda = () => {
 
 //Si hago lo de los inputs.. podria reducir esto (creo)
 const busquedaPersonajePorNombre = (nombre) => {
-    fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}`)
+    fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
         .then(res => res.json())
         .then(data => {
             boxInformacionAMostrar.classList.add("ocultar");
