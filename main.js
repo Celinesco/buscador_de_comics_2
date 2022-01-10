@@ -14,7 +14,7 @@ const primeraPaginaListaPersonajes = document.getElementById("primera-pagina-per
 const ultimaPaginaListaPersonajes = document.getElementById("ultima-pagina-personajes");
 const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
 const contenedorComicOPersonajeSeleccionado = document.getElementById("contenedor-comics-personaje-seleccionado");
-const busquedaPesonajeInput = document.getElementById("busqueda-personaje");
+const busquedaPersonajeInput = document.getElementById("busqueda-personaje");
 const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje");
 const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
 const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
@@ -278,8 +278,9 @@ const busquedaPersonajePorNombre = (nombre) => {
 
 botonBuquedaPersonaje.onclick = (e) => {
     e.preventDefault()
-    busquedaPersonajePorNombre(busquedaPesonajeInput.value);
-}
+    resetearVariablesPaginado()
+    busquedaPersonajePorNombre(busquedaPersonajeInput.value)
+};
 
 const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje")
@@ -330,7 +331,14 @@ pagAnteriorPersonajesBusquedaInput.onclick = () => {
     cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20
     ? cantidadDePersonajesASaltear = 0
     : cantidadDePersonajesASaltear +=20
-    busquedaPersonajePorNombre(busquedaPesonajeInput.value)
+    busquedaPersonajePorNombre(busquedaPersonajeInput.value)
+}
+
+pagSiguientePersonajesBusuqedaInput.onclick = () => {
+    cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20
+    ? cantidadDePersonajesASaltear = 0
+    : cantidadDePersonajesASaltear += 20
+    busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 }
 
 
