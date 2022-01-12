@@ -162,6 +162,19 @@ footer {
     
 }
 
+.fondo-texto {
+    background-color: black;
+    color: white;
+    height: 50px;
+    position: relative;
+    top: 0px;
+    height: 80px;
+    padding: 10px 0px;
+    border-top: 6px solid red;
+    padding: 10px;
+    text-align: center;
+}
+
 #opcion-3 {
     background-image: url(../images/fondos/tarjeta-amarilla-roja.svg);
     background-attachment:local;
@@ -193,7 +206,7 @@ footer {
     background-color: white;
     border: $bordes-tarjetas-estilo-comic;
     box-shadow: $sombra-tarjetas-estilo-comic;
-    max-width: 950px;
+    max-width: 1200px;
 }
 
 .contenedor-tarjetas {
@@ -202,38 +215,54 @@ footer {
 }
 
 .tarjeta-personaje {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(0, 0, 0);
-    text-align: center;
-    width: calc(100% / 5 - 2 * 15px);
-    margin: 0 10px 40px;
+    // display: flex;
+    // flex-direction: column;
+    // background-color: rgb(0, 0, 0);
+    // text-align: center;
+    // width: calc(100% / 5 - 2 * 15px);
+    margin: 10px 5px;
     cursor: pointer;
-    height: 240px;
-    transition: transform 2.5s;
+    // height: 240px;
+    // transition: transform 2.5s;
+    width: 200px;
+    position: relative;
+
+    
 }
 
 .tarjeta-comic {
     height: 350px;
+    width: 249px;
+    margin:  0px 10px 130px 10px;
+    cursor: pointer;
 }
 
+
+
 .contenedor-imagen-lista-personajes {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    transition-duration: 0.5s;
+    height: 240px;
     overflow: hidden;
-    border-bottom: 3px solid #ffbf0f;
-    height: 220px;
+    position: relative;
+}
+
+.imagen-personaje-lista-comics {
+    height: 100%;
 }
 
 .imagen-personaje-lista-personajes {
     height: 100%;
-    width: -webkit-fill-available;
+    width: auto;
+    position: relative;
+    right: 8px;
 }
 
 .nombre-elemento {
     margin-bottom: 0;
+}
+
+.contenedor-imagen-lista-comics {
+    height: 380px;
+    position: relative;
 }
 
 .contenedor-elemento-seleccionado {
@@ -270,10 +299,6 @@ footer {
     transition: 0.2s;
 }
 
-.nombre-personaje {
-    height: 90px;
-    margin-top: 40px;
-}
 
 .column {
    display: flex;

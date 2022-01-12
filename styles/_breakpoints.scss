@@ -8,6 +8,9 @@
 
 
  @media (max-width: 991.98px) {
+    .contenedor-tarjetas-y-botones-paginado {
+        max-width: 800px;
+    }
 
   }
 
@@ -17,10 +20,18 @@
     .tarjeta-personaje {
         width: calc(100% / 3 - 2 * 10px)
      }
+
+     .contenedor-tarjetas-y-botones-paginado {
+        max-width: 770px;
+    }
  }
 
 
 @media (max-width: 575.98px) { 
+
+    .contenedor-tarjetas-y-botones-paginado {
+        max-width: 570px;
+    }
     nav {
         display: none;
     }
@@ -43,10 +54,23 @@
     .contenedor-imagen-objeto-seleccionado {
         margin-bottom: 30px;
     }
+    .imagen-personaje-lista-personajes {
+        width: -webkit-fill-available;
+        right: 0px;
+    }
  }
 
 
  @media (max-width: 361px) {
+
+    .imagen-personaje-lista-personajes {
+        width: -webkit-fill-available;
+        right: 0px;
+    }
+
+    .contenedor-tarjetas-y-botones-paginado {
+        max-width: 360px;
+    }
    
     .tarjeta-personaje {
         width: calc(100% - 2 * 10px);

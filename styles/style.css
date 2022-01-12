@@ -265,6 +265,18 @@ footer {
   background-image: url(../images/fondos/fondo-tarjeta-violeta.svg);
   background-attachment: local; }
 
+.fondo-texto {
+  background-color: black;
+  color: white;
+  height: 50px;
+  position: relative;
+  top: 0px;
+  height: 80px;
+  padding: 10px 0px;
+  border-top: 6px solid red;
+  padding: 10px;
+  text-align: center; }
+
 #opcion-3 {
   background-image: url(../images/fondos/tarjeta-amarilla-roja.svg);
   background-attachment: local; }
@@ -299,7 +311,7 @@ footer {
   background-color: white;
   border: 3px solid black;
   box-shadow: 6px 6px 0px 0px black;
-  max-width: 950px; }
+  max-width: 1200px; }
 
 .contenedor-tarjetas {
   display: flex;
@@ -309,34 +321,37 @@ footer {
   flex-wrap: wrap; }
 
 .tarjeta-personaje {
-  display: flex;
-  flex-direction: column;
-  background-color: black;
-  text-align: center;
-  width: calc(100% / 5 - 2 * 15px);
-  margin: 0 10px 40px;
+  margin: 10px 5px;
   cursor: pointer;
-  height: 240px;
-  transition: transform 2.5s; }
+  width: 200px;
+  position: relative; }
 
 .tarjeta-comic {
-  height: 350px; }
+  height: 350px;
+  width: 249px;
+  margin: 0px 10px 130px 10px;
+  cursor: pointer; }
 
 .contenedor-imagen-lista-personajes {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  transition-duration: 0.5s;
+  height: 240px;
   overflow: hidden;
-  border-bottom: 3px solid #ffbf0f;
-  height: 220px; }
+  position: relative; }
+
+.imagen-personaje-lista-comics {
+  height: 100%; }
 
 .imagen-personaje-lista-personajes {
   height: 100%;
-  width: -webkit-fill-available; }
+  width: auto;
+  position: relative;
+  right: 8px; }
 
 .nombre-elemento {
   margin-bottom: 0; }
+
+.contenedor-imagen-lista-comics {
+  height: 380px;
+  position: relative; }
 
 .contenedor-elemento-seleccionado {
   max-width: 900px;
@@ -368,10 +383,6 @@ footer {
 .imagen-personaje-lista-personaje {
   margin-bottom: 20px;
   transition: 0.2s; }
-
-.nombre-personaje {
-  height: 90px;
-  margin-top: 40px; }
 
 .column {
   display: flex;
@@ -432,10 +443,19 @@ footer {
 .ocultar {
   display: none; }
 
+@media (max-width: 991.98px) {
+  .contenedor-tarjetas-y-botones-paginado {
+    max-width: 800px; } }
 @media (max-width: 767.98px) {
   .tarjeta-personaje {
-    width: calc(100% / 3 - 2 * 10px); } }
+    width: calc(100% / 3 - 2 * 10px); }
+
+  .contenedor-tarjetas-y-botones-paginado {
+    max-width: 770px; } }
 @media (max-width: 575.98px) {
+  .contenedor-tarjetas-y-botones-paginado {
+    max-width: 570px; }
+
   nav {
     display: none; }
 
@@ -451,8 +471,19 @@ footer {
     align-items: center; }
 
   .contenedor-imagen-objeto-seleccionado {
-    margin-bottom: 30px; } }
+    margin-bottom: 30px; }
+
+  .imagen-personaje-lista-personajes {
+    width: -webkit-fill-available;
+    right: 0px; } }
 @media (max-width: 361px) {
+  .imagen-personaje-lista-personajes {
+    width: -webkit-fill-available;
+    right: 0px; }
+
+  .contenedor-tarjetas-y-botones-paginado {
+    max-width: 360px; }
+
   .tarjeta-personaje {
     width: calc(100% - 2 * 10px); }
 
