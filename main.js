@@ -290,6 +290,7 @@ botonBuquedaPersonaje.onclick = (e) => {
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 };
 
+
 const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje")
     tarjetas.forEach((personaje) => {
@@ -489,7 +490,7 @@ const listaDeComicsHTML = (comic) => {
     const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
     const html = comic.reduce((acc, element) => {
         return acc + `
-        <div class="tarjeta-personaje" data-id=${element.id}>
+        <div class="tarjeta-personaje tarjeta-comic" data-id=${element.id}>
             <div class="contenedor-imagen-lista-personajes">
                 <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
             </div>

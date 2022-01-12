@@ -122,7 +122,6 @@ label {
   font-family: Actionmanshadded;
   src: url("tipografias/Action-Man/Action_Man_Shaded.ttf"); }
 nav {
-  display: none;
   background-color: black;
   padding: 30px;
   border-bottom: 2px solid white;
@@ -292,10 +291,10 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 900px;
   background-color: white;
   border: 3px solid black;
-  box-shadow: 6px 6px 0px 0px black; }
+  box-shadow: 6px 6px 0px 0px black;
+  max-width: 950px; }
 
 .contenedor-tarjetas {
   display: flex;
@@ -309,18 +308,27 @@ footer {
   flex-direction: column;
   background-color: black;
   text-align: center;
-  width: calc(100% / 5 - 2 * 10px);
+  width: calc(100% / 5 - 2 * 15px);
   margin: 0 10px 40px;
   cursor: pointer;
-  border: 4px solid black;
-  height: 220px;
+  height: 240px;
   transition: transform 2.5s; }
 
+.tarjeta-comic {
+  height: 350px; }
+
 .contenedor-imagen-lista-personajes {
+  display: flex;
+  justify-content: center;
   flex-grow: 1;
   transition-duration: 0.5s;
   overflow: hidden;
-  border-bottom: 3px solid black; }
+  border-bottom: 3px solid #ffbf0f;
+  height: 220px; }
+
+.imagen-personaje-lista-personajes {
+  height: 100%;
+  width: -webkit-fill-available; }
 
 .contenedor-elemento-seleccionado {
   max-width: 900px;
@@ -354,8 +362,8 @@ footer {
   transition: 0.2s; }
 
 .nombre-personaje {
-  height: 64px;
-  margin-top: 25px; }
+  height: 90px;
+  margin-top: 40px; }
 
 .column {
   display: flex;
@@ -416,24 +424,29 @@ footer {
 .ocultar {
   display: none; }
 
-@media (min-width: 280px) {
-  .contenedor-imagen-presentacion {
-    width: 70vw; }
-
-  .texto-presentacion {
-    font-size: 20px; } }
-@media (min-width: 576px) {
+@media (max-width: 767.98px) {
+  .tarjeta-personaje {
+    width: calc(100% / 3 - 2 * 10px); } }
+@media (max-width: 575.98px) {
   nav {
-    display: flex;
-    justify-content: flex-end; } }
-@media (min-width: 768px) {
-  .texto-presentacion {
-    font-size: 35px; } }
-@media (min-width: 1400px) {
-  .contenedor-boton-inicio {
-    width: 10vw; }
+    display: none; }
 
-  .contenedor-imagen-presentacion {
-    width: 30vw; } }
+  .contenedor-tarjetas {
+    flex-direction: column; }
+
+  .tarjeta-personaje {
+    width: 75%;
+    height: 340px; } }
+@media (max-width: 361px) {
+  .tarjeta-personaje {
+    width: calc(100% - 2 * 10px); }
+
+  .tarjeta-personaje {
+    width: 75%;
+    height: auto; } }
+@media (max-width: 279.98px) {
+  .tarjeta-personaje {
+    width: 90%;
+    height: 263px; } }
 
 /*# sourceMappingURL=style.css.map */
