@@ -491,24 +491,26 @@ ultimaPagListaComics.onclick = () => {
 }
 
 
-
 //Funciones que imprimen en HTML //
 
 const listaDeComicsHTML = (comic) => {
     const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
     const html = comic.reduce((acc, element) => {
         return acc + `
-        <div class="tarjeta-personaje tarjeta-comic" data-id=${element.id}>
-            <div class="contenedor-imagen-lista-personajes">
-                <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
+        <div class="tarjeta-comic" data-id=${element.id}>
+            <div class="contenedor-imagen-lista-comics">
+                <img class="imagen-personaje-lista-comics" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
             </div>
-            <h4 class="nombre-personaje">${element.title}</h4>
+            <div class= "fondo-texto row-centrar">
+                <h4 class="nombre-personaje">${element.title}</h4>
+            </div>
         </div>
         `
     }, "")
 
     contenedorTarjetasComics.innerHTML = html
 }
+
 
 const listaPersonajesHTML = (personaje) => {
     const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
@@ -518,7 +520,9 @@ const listaPersonajesHTML = (personaje) => {
             <div class="contenedor-imagen-lista-personajes">
                 <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
             </div>
-            <h4 class="nombre-personaje">${element.name}</h4>
+            <div class="fondo-texto row-centrar">
+                <h4 class="nombre-personaje">${element.name}</h4>
+            </div>
         </div>
         `
     }, "")
