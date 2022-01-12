@@ -76,45 +76,53 @@ const desactivarBotonesNavTemporalmente = () => {
 const funcionAbrirSeccionPersonajes = () => {
     resetearVariablesPaginado()
     vibrarOnomatopeya(botonOnomatopeyaSeccionPersonajes);
-    setTimeout(() => {
-        desvanecerSeccion(seccionPrincipal);
-    }, 800)
+    desvanecerSeccion(seccionPrincipal);
+
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
         seccionComics.classList.add("ocultar");
         seccionBusqueda.classList.add("ocultar");
+    }, 900)
 
-    }, 1500)
-    seccionPersonajes.classList.remove("ocultar");
+    setTimeout(() => {
+        seccionPersonajes.classList.remove("ocultar");
+    }, 1000)
+    
     mostrarListaPersonajes()
 }
 
 const funcionAbrirSeccionComics = () => {
     resetearVariablesPaginado()
     vibrarOnomatopeya(botonOnomatopeyaSeccionComics);
-    setTimeout(() => {
-        desvanecerSeccion(seccionPrincipal)
-    }, 800)
+    desvanecerSeccion(seccionPrincipal)
+
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
         seccionPersonajes.classList.add("ocultar");
         seccionBusqueda.classList.add("ocultar");
-    }, 1500)
-    seccionComics.classList.remove("ocultar")
+    }, 900)
+
+    setTimeout (() => {
+        seccionComics.classList.remove("ocultar")
+    }, 1000)
+    
     mostrarListaComics()
 }
 
 const funcionAbrirSeccionBusqueda = () => {
     vibrarOnomatopeya(botonOnomatopeyaSeccionBusqueda);
-    setTimeout(() => {
-        desvanecerSeccion(seccionPrincipal)
-    }, 800)
+    desvanecerSeccion(seccionPrincipal)
+
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
         seccionPersonajes.classList.add("ocultar");
         seccionComics.classList.add("ocultar")
-    }, 1500)
-    seccionBusqueda.classList.remove("ocultar")
+    }, 900)
+
+    setTimeout(() => {
+        seccionBusqueda.classList.remove("ocultar")
+    }, 1000)
+    
 }
 
 //Comienzo de pagina
@@ -527,7 +535,7 @@ const imprimirPersonajeHTML = (personaje) => {
                     <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
                 </div>
                 <div class="contenedor-nombre-descripcion">
-                    <h3>${element.name}</h3>
+                    <h3 class="nombre-elemento">${element.name}</h3>
                     <p class="texto-descripcion">${element.description}</p>
                 </div>
             </div>
@@ -566,7 +574,7 @@ const imprimirComicsDePersonaje = (comic) => {
                 <h5>${element.title}</h5>
         </div>
         `
-    }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Comics donde se encuentra</h3><div class="row">`)
+    }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Comics donde se encuentra</h3><div class="row-centrar">`)
 
     contenedorComicOPersonajeSeleccionado.innerHTML = html + `</div>
     <div class="width-100">

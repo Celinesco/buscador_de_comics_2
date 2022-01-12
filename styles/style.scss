@@ -180,6 +180,12 @@ footer {
    width: 80%
 }
 
+.row-centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .contenedor-tarjetas-y-botones-paginado {
     margin-top: 40px;
     padding: 20px;
@@ -224,6 +230,10 @@ footer {
 .imagen-personaje-lista-personajes {
     height: 100%;
     width: -webkit-fill-available;
+}
+
+.nombre-elemento {
+    margin-bottom: 0;
 }
 
 .contenedor-elemento-seleccionado {

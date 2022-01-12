@@ -284,6 +284,11 @@ footer {
 .boton-onomatopeya {
   width: 80%; }
 
+.row-centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .contenedor-tarjetas-y-botones-paginado {
   margin-top: 40px;
   padding: 20px;
@@ -329,6 +334,9 @@ footer {
 .imagen-personaje-lista-personajes {
   height: 100%;
   width: -webkit-fill-available; }
+
+.nombre-elemento {
+  margin-bottom: 0; }
 
 .contenedor-elemento-seleccionado {
   max-width: 900px;
@@ -436,14 +444,30 @@ footer {
 
   .tarjeta-personaje {
     width: 75%;
-    height: 340px; } }
+    height: 340px; }
+
+  .personaje-seleccionado {
+    flex-direction: column-reverse;
+    align-items: center; }
+
+  .contenedor-imagen-objeto-seleccionado {
+    margin-bottom: 30px; } }
 @media (max-width: 361px) {
   .tarjeta-personaje {
     width: calc(100% - 2 * 10px); }
 
   .tarjeta-personaje {
     width: 75%;
-    height: auto; } }
+    height: auto; }
+
+  .cuadro-comic {
+    max-width: 255px; }
+
+  h2 {
+    font-size: 35px; }
+
+  .contenedor-elemento-seleccionado {
+    width: 260px; } }
 @media (max-width: 279.98px) {
   .tarjeta-personaje {
     width: 90%;
