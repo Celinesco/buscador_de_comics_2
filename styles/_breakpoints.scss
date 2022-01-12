@@ -1,42 +1,118 @@
-@media (min-width: 280px) {
-    .contenedor-imagen-presentacion {
-        width: 70vw;
-    }
-    .texto-presentacion {
-        font-size: 20px;
-    }
+@media (max-width: 1399.98px) { 
+   
 }
 
-@media (min-width: 576px) {
-   nav {
-       display: flex;
-       justify-content: flex-end;
-   }
+@media (max-width: 1199.98px) { 
+  
  }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-    .texto-presentacion {
-        font-size: 35px;
+
+ @media (max-width: 991.98px) {
+
+  }
+
+
+
+@media (max-width: 767.98px) { 
+    .tarjeta-personaje {
+        width: calc(100% / 3 - 2 * 10px)
+     }
+ }
+
+
+@media (max-width: 575.98px) { 
+    nav {
+        display: none;
+    }
+
+    .contenedor-tarjetas {
+        flex-direction: column;
+    }
+
+
+    .tarjeta-personaje {
+        width: 75%;
+        height: 340px;
     }
  }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
 
- }
-
-// X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { 
-
- }
-
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) { 
-    .contenedor-boton-inicio {
-        width: 10vw;
-    };
-    .contenedor-imagen-presentacion {
-        width: 30vw;
+ @media (max-width: 361px) {
+   
+    .tarjeta-personaje {
+        width: calc(100% - 2 * 10px);
     }
+
+   
+    .tarjeta-personaje {
+        width: 75%;
+        height: auto
+    }
+          
+ }
+
+
+ @media (max-width: 279.98px) {
+    .tarjeta-personaje {
+        width: 90%;
+        height: 263px;
+    }
+    
 }
+
+// Small devices (landscape phones, less than 768px)
+
+
+
+
+// Medium devices (tablets, less than 992px)
+
+
+
+
+// Large devices (desktops, less than 1200px)
+
+
+
+// X-Large devices (large desktops, less than 1400px)
+
+
+
+  
+//   @media (max-width: 750px) {
+//     .comic-section,
+//     .character-section {
+//       flex-direction: column;
+//     }
+  
+//     .comic-details,
+//     .character-details {
+//       margin-top: 40px;
+//     }
+//   }
+  
+//   @media (max-width: 640px) {
+//     .comic {
+//       width: calc(100% / 3 - 2 * 10px);
+//     }
+  
+//  
+//   }
+  
+//   @media (max-width: 430px) {
+//     .character {
+//       width: calc(100% / 2 - 2 * 10px);
+//     }
+//   }
+  
+//   @media (max-width: 360px) {
+//     .comic {
+//       width: calc(100% - 2 * 10px);
+//     }
+  
+//    
+//     .character-img-container {
+//       height: auto;
+//     }
+//   }
+  
