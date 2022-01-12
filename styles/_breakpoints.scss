@@ -34,6 +34,15 @@
         width: 75%;
         height: 340px;
     }
+
+    .personaje-seleccionado {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .contenedor-imagen-objeto-seleccionado {
+        margin-bottom: 30px;
+    }
  }
 
 
@@ -47,6 +56,18 @@
     .tarjeta-personaje {
         width: 75%;
         height: auto
+    }
+
+    .cuadro-comic  {
+        max-width: 255px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    .contenedor-elemento-seleccionado {
+        width: 260px;
     }
           
  }
