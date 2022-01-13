@@ -518,14 +518,16 @@ const listaDeComicsHTML = (comic) => {
     const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
     const html = comic.reduce((acc, element) => {
         return acc + `
-        <div class="tarjeta-comic" data-id=${element.id}>
-            <div class="contenedor-imagen-lista-comics">
-                <img class="imagen-personaje-lista-comics" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
+        <a href="#seccion-comics">
+            <div class="tarjeta-comic" data-id=${element.id}>
+                <div class="contenedor-imagen-lista-comics">
+                    <img class="imagen-personaje-lista-comics" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
+                </div>
+                <div class= "fondo-texto row-centrar">
+                    <h4 class="nombre-personaje">${element.title}</h4>
+                </div>
             </div>
-            <div class= "fondo-texto row-centrar">
-                <h4 class="nombre-personaje">${element.title}</h4>
-            </div>
-        </div>
+        </a>
         `
     }, "")
 
@@ -557,14 +559,16 @@ const listaPersonajesHTML = (personaje) => {
     const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
     const html = personaje.reduce((acc, element) => {
         return acc + `
-        <div class="tarjeta-personaje" data-id=${element.id}>
-            <div class="contenedor-imagen-lista-personajes">
-                <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
+        <a href="#seccion-personajes">
+            <div class="tarjeta-personaje" data-id=${element.id}>
+                <div class="contenedor-imagen-lista-personajes">
+                    <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
+                </div>
+                <div class="fondo-texto row-centrar">
+                    <h4 class="nombre-personaje">${element.name}</h4>
+                </div>
             </div>
-            <div class="fondo-texto row-centrar">
-                <h4 class="nombre-personaje">${element.name}</h4>
-            </div>
-        </div>
+        </a>
         `
     }, "")
     contenedorTarjetasPersonajes.innerHTML = html;
