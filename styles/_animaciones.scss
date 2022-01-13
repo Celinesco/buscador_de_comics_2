@@ -21,7 +21,12 @@
     transform: rotateY(360deg);
 }
 
-.fondo-texto:hover {
-    background-color: #ffbf0f;
-    color: black;
+.tarjeta-comic:hover, .tarjeta-personaje:hover {
+    .fondo-texto {
+        background-color: #ffbf0f;
+        color: black;
+    }
 }
+
+
+

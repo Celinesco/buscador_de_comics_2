@@ -19,8 +19,7 @@ h3 {
   font-family: ActionManBold; }
 
 h4 {
-  font-family: ActionManRegular;
-  color: white; }
+  font-family: ActionManRegular; }
 
 h5 {
   font-family: Roboto;
@@ -106,7 +105,7 @@ label {
 .rotacion-y {
   transform: rotateY(360deg); }
 
-.fondo-texto:hover {
+.tarjeta-comic:hover .fondo-texto, .tarjeta-personaje:hover .fondo-texto {
   background-color: #ffbf0f;
   color: black; }
 
@@ -277,7 +276,7 @@ footer {
   top: 0px;
   height: 80px;
   padding: 10px 0px;
-  border-top: 6px solid red;
+  border-top: 6px solid #ffbf0f;
   padding: 10px;
   text-align: center; }
 
