@@ -302,7 +302,8 @@ footer {
 .row-centrar {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex-wrap: wrap; }
 
 .contenedor-tarjetas-y-botones-paginado {
   margin-top: 40px;
@@ -398,7 +399,7 @@ footer {
   justify-content: center;
   max-width: 700px; }
 
-.comic-texto {
+.personajes-del-comic, .comics-del-personaje {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -407,8 +408,11 @@ footer {
   max-width: 150px;
   max-height: 320px; }
 
-.comic-texto:hover {
+.comics-del-personaje:hover {
   transform: translateY(-6px); }
+
+.personajes-del-comic {
+  height: 200px; }
 
 .input-icono {
   width: 100%;

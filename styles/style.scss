@@ -197,6 +197,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .contenedor-tarjetas-y-botones-paginado {
@@ -307,7 +308,7 @@ footer {
 }
 
 
-.comic-texto {
+.personajes-del-comic, .comics-del-personaje  {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -317,8 +318,13 @@ footer {
     max-height: 320px;
 }
 
-.comic-texto:hover {
+
+.comics-del-personaje:hover {
     transform:translateY(-6px)
+}
+
+.personajes-del-comic {
+    height: 200px;
 }
 
 
