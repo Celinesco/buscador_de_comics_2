@@ -53,16 +53,21 @@ const urlBase = "https://gateway.marvel.com:443/v1/public";
 const apiKey = "1fd738e2dc343485449632dfe8caffa1";
 
 let ultimaPaginaListaDeComicsOPersonajes = 0;
-let cantidadDePersonajesASaltear = 0;
-let cantidadDeComicsASaltear = 0;
+let ultimaPaginaComics = 0;
+let ultimaPaginaPersonajes = 0;
+let personajesASaltear = 0;
+
+let comicsASaltear = 0;
+
 let idElementoClickeado = 0;
 
 
 
 const resetearVariablesPaginado = () => {
-    ultimaPaginaListaDeComicsOPersonajes = 0;
-    cantidadDePersonajesASaltear = 0;
-    cantidadDeComicsASaltear = 0;
+    ultimaPaginaComics = 0;
+    ultimaPaginaPersonajes
+    personajesASaltear = 0;
+    comicsASaltear = 0;
 }
 
 const desactivarBotonesNavTemporalmente = () => {
@@ -187,6 +192,9 @@ const desvanecerSeccion = (seccion) => {
 }
 
 
+
+
+
 ///
 
 botonDeslizarSeccionAbajo.onclick = () => {
@@ -229,12 +237,12 @@ botonOnomatopeyaSeccionBusqueda.onclick = () => {
 ////////////// seccion Personajes
 
 const mostrarListaPersonajes = () => {
-    fetch(`${urlBase}/characters?apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
+    fetch(`${urlBase}/characters?apikey=${apiKey}&offset=${personajesASaltear}`)
         .then(res => res.json())
         .then(data => {
             botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar")
             botonesPaginadoListaPersonajes.classList.remove("ocultar");
-            ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 20)
+            ultimaPaginaPersonajes = Math.floor(data.data.total / 20)
             listaPersonajesHTML(data.data.results)
             asignarClickTarjetaPersonaje()
             const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -255,13 +263,13 @@ const obtenerInfoPersonajeClickeado = (id) => {
 }
 
 const obtenerComicsDelPersonaje = (id) => {
-    fetch(`${urlBase}/characters/${id}/comics?&apikey=${apiKey}&limit=8&offset=${cantidadDeComicsASaltear}`)
+    fetch(`${urlBase}/characters/${id}/comics?&apikey=${apiKey}&limit=8&offset=${comicsASaltear}`)
         .then(res => res.json())
         .then(data => {
-            ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 8)
+            ultimaPaginaComics = Math.floor(data.data.total / 8)
             imprimirComicsDePersonaje(data.data.results)
-            masComicsDelPersonajeDerecha()
-            masComicsDelPersonajeIzquierda()
+            comicsDelPersonajeAtras()
+            comicsDelPersonajeAdelante()
         })
         .catch(() => {
 
@@ -270,7 +278,7 @@ const obtenerComicsDelPersonaje = (id) => {
 
 //Si hago lo de los inputs.. podria reducir esto (creo)
 const busquedaPersonajePorNombre = (nombre) => {
-    fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}&offset=${cantidadDePersonajesASaltear}`)
+    fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}&offset=${personajesASaltear}`)
         .then(res => res.json())
         .then(data => {
             infoPersonaje.classList.add("ocultar");
@@ -281,7 +289,7 @@ const busquedaPersonajePorNombre = (nombre) => {
                 botonesPaginadoListaPersonajes.classList.add("ocultar");
                 botonesPaginadoPersonajesBusquedaPorInput.classList.remove("ocultar")
                 boxBusquedaSinResultados.classList.add("ocultar");
-                ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 20)
+                ultimaPaginaPersonajes = Math.floor(data.data.total / 20)
                 listaPersonajesHTML(data.data.results)
                 asignarClickTarjetaPersonaje()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -316,22 +324,23 @@ const asignarClickTarjetaPersonaje = () => {
     })
 };
 
-const masComicsDelPersonajeDerecha = () => {
-    const botonDerecha = document.getElementById("mas-comics-del-personaje-derecha")
+
+const comicsDelPersonajeAdelante = () => {
+    const botonDerecha = document.getElementById("mas-comics-del-personaje-adelante")
     botonDerecha.onclick = () => {
-        cantidadDeComicsASaltear === ultimaPaginaListaDeComicsOPersonajes * 8
-            ? cantidadDeComicsASaltear = 0
-            : cantidadDeComicsASaltear += 8
+        comicsASaltear === ultimaPaginaComics * 8
+            ? comicsASaltear = 0
+            : comicsASaltear += 8
         obtenerComicsDelPersonaje(idElementoClickeado)
     }
 };
 
-const masComicsDelPersonajeIzquierda = () => {
-    const botonIzquierda = document.getElementById("mas-comics-del-personaje-izquierda")
+const comicsDelPersonajeAtras = () => {
+    const botonIzquierda = document.getElementById("mas-comics-del-personaje-atras")
     botonIzquierda.onclick = () => {
-        cantidadDeComicsASaltear === 0
-            ? cantidadDeComicsASaltear = ultimaPaginaListaDeComicsOPersonajes * 8
-            : cantidadDeComicsASaltear -= 8
+        comicsASaltear === 0
+            ? comicsASaltear = ultimaPaginaComics * 8
+            : comicsASaltear -= 8
         obtenerComicsDelPersonaje(idElementoClickeado)
     }
 };
@@ -339,17 +348,17 @@ const masComicsDelPersonajeIzquierda = () => {
 
 pagSgteListaPersonajes.onclick = () => {
     activarBotonesDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
-    if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
-        cantidadDePersonajesASaltear += 20
+    if (personajesASaltear !== ultimaPaginaPersonajes) {
+        personajesASaltear += 20
         mostrarListaPersonajes()
-        cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20 && desactivarBotonDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
+        personajesASaltear === ultimaPaginaPersonajes * 20 && desactivarBotonDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
     }
 }
 
 ultimaPaginaListaPersonajes.onclick = () => {
     activarBotonesDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
-    if (cantidadDePersonajesASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
-        cantidadDePersonajesASaltear = ultimaPaginaListaDeComicsOPersonajes * 20
+    if (personajesASaltear !== ultimaPaginaPersonajes) {
+        personajesASaltear = ultimaPaginaPersonajes * 20
         desactivarBotonDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
         mostrarListaPersonajes()
     }
@@ -357,17 +366,17 @@ ultimaPaginaListaPersonajes.onclick = () => {
 
 pagPrevListaPersonajes.onclick = () => {
     activarBotonesDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
-    if (cantidadDePersonajesASaltear !== 0) {
-        cantidadDePersonajesASaltear -= 20;
+    if (personajesASaltear !== 0) {
+        personajesASaltear -= 20;
         mostrarListaPersonajes()
-        cantidadDePersonajesASaltear === 0 && desactivarBotonDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
+        personajesASaltear === 0 && desactivarBotonDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
     }
 }
 
 primeraPaginaListaPersonajes.onclick = () => {
     activarBotonesDesplazamiento(pagSgteListaPersonajes, ultimaPaginaListaPersonajes)
-    if (cantidadDePersonajesASaltear !== 0) {
-        cantidadDePersonajesASaltear = 0
+    if (personajesASaltear !== 0) {
+        personajesASaltear = 0
         desactivarBotonDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
         mostrarListaPersonajes()
     }
@@ -375,16 +384,16 @@ primeraPaginaListaPersonajes.onclick = () => {
 
 
 pagAnteriorPersonajesBusquedaInput.onclick = () => {
-    cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20
-    ? cantidadDePersonajesASaltear = 0
-    : cantidadDePersonajesASaltear +=20
+    personajesASaltear === ultimaPaginaPersonajes * 20
+    ? personajesASaltear = 0
+    : personajesASaltear +=20
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 }
 
 pagSiguientePersonajesBusuqedaInput.onclick = () => {
-    cantidadDePersonajesASaltear === ultimaPaginaListaDeComicsOPersonajes * 20
-    ? cantidadDePersonajesASaltear = 0
-    : cantidadDePersonajesASaltear += 20
+    personajesASaltear === ultimaPaginaPersonajes * 20
+    ? personajesASaltear = 0
+    : personajesASaltear += 20
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 }
 
@@ -395,10 +404,10 @@ pagSiguientePersonajesBusuqedaInput.onclick = () => {
 
 
 const mostrarListaComics = () => {
-    fetch(`${urlBase}/comics?orderBy=title&apikey=${apiKey}&offset=${cantidadDeComicsASaltear}`)
+    fetch(`${urlBase}/comics?orderBy=title&apikey=${apiKey}&offset=${comicsASaltear}`)
         .then(res => res.json())
         .then(data => {
-            ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 20)
+            ultimaPaginaComics = Math.floor(data.data.total / 20)
             listaDeComicsHTML(data.data.results)
             asignarClickTarjetaComics()
             const tarjetas = document.querySelectorAll(".tarjeta-personaje")
@@ -442,13 +451,13 @@ const busquedaComicPorNombre = (nombre) => {
 
 
 const obtenerPersonajesDelComicClickeado = (id) => {
-    fetch(`${urlBase}/comics/${id}/characters?&apikey=${apiKey}&limit=8&offset=${cantidadDePersonajesASaltear}`)
+    fetch(`${urlBase}/comics/${id}/characters?&apikey=${apiKey}&limit=8&offset=${personajesASaltear}`)
     .then (res => res.json())
     .then(data => {
-        ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 8)
+        ultimaPaginaPersonajes = Math.floor(data.data.total / 8)
         imprimirPersonajesDelComic(data.data.results)
-        // masComicsDelPersonajeDerecha()
-        // masComicsDelPersonajeIzquierda()
+        personajesDelComicAdelante()
+        personajesDelComicAtras()
     })
 }
 
@@ -468,16 +477,37 @@ const asignarClickTarjetaComics = () => {
 };
 
 
-
 botonBusquedaComic.onclick = (e) => {
     e.preventDefault()
     busquedaComicPorNombre(busquedaComicInput.value)
 }
 
+
+
+const personajesDelComicAdelante = () => {
+    const botonAdelante = document.getElementById("mas-personajes-del-comic-adelante")
+    botonAdelante.onclick = () => {
+        personajesASaltear === ultimaPaginaPersonajes * 8
+            ? personajesASaltear = 0
+            : personajesASaltear += 8
+        obtenerPersonajesDelComicClickeado(idElementoClickeado)
+    }
+};
+
+const personajesDelComicAtras = () => {
+    const botonAtras = document.getElementById("mas-personajes-del-comic-atras")
+    botonAtras.onclick = () => {
+        personajesASaltear === 0
+            ? personajesASaltear = ultimaPaginaPersonajes * 8
+            : personajesASaltear -= 8
+        obtenerPersonajesDelComicClickeado(idElementoClickeado)
+    }
+};
+
 primerPagListaComics.onclick = () => {
     activarBotonesDesplazamiento(pagSgteListaComics, ultimaPagListaComics)
-    if (cantidadDeComicsASaltear !== 0) {
-        cantidadDeComicsASaltear = 0
+    if (comicsASaltear !== 0) {
+        comicsASaltear = 0
         desactivarBotonDesplazamiento(primerPagListaComics,pagPrevListaComics)
         mostrarListaComics()
     }
@@ -485,31 +515,32 @@ primerPagListaComics.onclick = () => {
 
 pagPrevListaComics.onclick = () => {
     activarBotonesDesplazamiento(pagSgteListaComics, ultimaPagListaComics)
-    if (cantidadDeComicsASaltear !== 0) {
-        cantidadDeComicsASaltear -= 20
+    if (comicsASaltear !== 0) {
+        comicsASaltear -= 20
         mostrarListaComics()
-        cantidadDeComicsASaltear === 0 && desactivarBotonDesplazamiento(primerPagListaComics, pagPrevListaComics)
+        comicsASaltear === 0 && desactivarBotonDesplazamiento(primerPagListaComics, pagPrevListaComics)
     }
 }
 
 pagSgteListaComics.onclick = () => {
     activarBotonesDesplazamiento(primerPagListaComics, pagPrevListaComics)
-    if (cantidadDeComicsASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
-        cantidadDeComicsASaltear += 20
+    if (comicsASaltear !== ultimaPaginaComics) {
+        comicsASaltear += 20
         mostrarListaComics()
-        cantidadDeComicsASaltear === 0 && desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
+        comicsASaltear === 0 && desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
     }
 }
 
 
 ultimaPagListaComics.onclick = () => {
     activarBotonesDesplazamiento(primerPagListaComics, pagPrevListaComics)
-    if(cantidadDeComicsASaltear !== ultimaPaginaListaDeComicsOPersonajes) {
-        cantidadDeComicsASaltear = ultimaPaginaListaDeComicsOPersonajes * 20
+    if(comicsASaltear !== ultimaPaginaComics) {
+        comicsASaltear = ultimaPaginaComics * 20
         desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
         mostrarListaComics()
     }
 }
+
 
 
 //Funciones que imprimen en HTML //
@@ -548,8 +579,8 @@ const imprimirPersonajesDelComic = (comic) => {
 
     contenedorPersonajesDelComicSeleccionado.innerHTML = html + `</div>
     <div class="width-100">
-        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-izquierda"><i class="fas fa-angle-left"></i></button>
-        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-derecha"><i class="fas fa-angle-right"></i></button></div>
+        <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-atras"><i class="fas fa-angle-left"></i></button>
+        <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-adelante"><i class="fas fa-angle-right"></i></button></div>
     </div>
     </div>`
 }
@@ -628,8 +659,8 @@ const imprimirComicsDePersonaje = (comic) => {
 
     contenedorComicsDePersonajeSeleccionado.innerHTML = html + `</div>
     <div class="width-100">
-        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-izquierda"><i class="fas fa-angle-left"></i></button>
-        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-derecha"><i class="fas fa-angle-right"></i></button></div>
+        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-atras"><i class="fas fa-angle-left"></i></button>
+        <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-adelante"><i class="fas fa-angle-right"></i></button></div>
     </div>
     </div>`
 }
