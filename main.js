@@ -535,7 +535,7 @@ const listaDeComicsHTML = (comic) => {
 const imprimirPersonajesDelComic = (comic) => {
     const html = comic.reduce((acc, element) => {
         return acc + `
-        <div class="comic-texto">
+        <div class="personajes-del-comic">
             <div>
                 <img src="${element.thumbnail.path}.${element.thumbnail.extension}" class="sombra" alt="Comic: ${element.name}">
             </div>
@@ -613,7 +613,7 @@ const imprimirComicHTML = (comic) => {
 const imprimirComicsDePersonaje = (comic) => {
     const html = comic.reduce((acc, element) => {
         return acc + `
-        <div class="comic-texto">
+        <div class="comics-del-personaje">
             <div>
                 <img src="${element.thumbnail.path}.${element.thumbnail.extension}" class="sombra" alt="Comic: ${element.title}">
             </div>
