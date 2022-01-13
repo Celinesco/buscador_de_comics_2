@@ -13,7 +13,8 @@ const pagPrevListaPersonajes = document.getElementById("pagina-previa-personajes
 const primeraPaginaListaPersonajes = document.getElementById("primera-pagina-personajes");
 const ultimaPaginaListaPersonajes = document.getElementById("ultima-pagina-personajes");
 const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
-const contenedorComicOPersonajeSeleccionado = document.getElementById("contenedor-comics-personaje-seleccionado");
+const contenedorComicsDePersonajeSeleccionado = document.getElementById("contenedor-comics-personaje-seleccionado");
+const contenedorPersonajesDelComicSeleccionado = document.getElementById("contenedor-personajes-comic-seleccionado")
 const busquedaPersonajeInput = document.getElementById("busqueda-personaje");
 const botonBuquedaPersonaje = document.getElementById("boton-busqueda-personaje");
 const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
@@ -54,7 +55,8 @@ const apiKey = "1fd738e2dc343485449632dfe8caffa1";
 let ultimaPaginaListaDeComicsOPersonajes = 0;
 let cantidadDePersonajesASaltear = 0;
 let cantidadDeComicsASaltear = 0;
-let idPersonajeClickeado = 0;
+let idElementoClickeado = 0;
+
 
 
 const resetearVariablesPaginado = () => {
@@ -248,7 +250,7 @@ const obtenerInfoPersonajeClickeado = (id) => {
     fetch(`${urlBase}/characters/${id}?apikey=${apiKey}`)
         .then(res => res.json())
         .then(data => {
-            imprimirPersonajeOComic(data.data.results)
+            imprimirPersonaje(data.data.results)
         })
 }
 
@@ -307,7 +309,7 @@ const asignarClickTarjetaPersonaje = () => {
             infoPersonaje.classList.remove("ocultar")
             boxBusquedaSinResultados.classList.add("ocultar")
             const idPersonaje = personaje.dataset.id;
-            idPersonajeClickeado = idPersonaje;
+            idElementoClickeado = idPersonaje;
             obtenerInfoPersonajeClickeado(idPersonaje)
             obtenerComicsDelPersonaje(idPersonaje)
         }
@@ -320,7 +322,7 @@ const masComicsDelPersonajeDerecha = () => {
         cantidadDeComicsASaltear === ultimaPaginaListaDeComicsOPersonajes * 8
             ? cantidadDeComicsASaltear = 0
             : cantidadDeComicsASaltear += 8
-        obtenerComicsDelPersonaje(idPersonajeClickeado)
+        obtenerComicsDelPersonaje(idElementoClickeado)
     }
 };
 
@@ -330,7 +332,7 @@ const masComicsDelPersonajeIzquierda = () => {
         cantidadDeComicsASaltear === 0
             ? cantidadDeComicsASaltear = ultimaPaginaListaDeComicsOPersonajes * 8
             : cantidadDeComicsASaltear -= 8
-        obtenerComicsDelPersonaje(idPersonajeClickeado)
+        obtenerComicsDelPersonaje(idElementoClickeado)
     }
 };
 
@@ -421,7 +423,7 @@ const busquedaComicPorNombre = (nombre) => {
         .then(res => res.json())
         .then(data => {
             if (data.data.results.length === 0) {
-                infoPersonaje.classList.add("ocultar")
+                infoComic.classList.add("ocultar")
                 boxBusquedaSinResultados.classList.remove("ocultar")
             }
             else {
@@ -439,9 +441,9 @@ const busquedaComicPorNombre = (nombre) => {
 }
 
 
-const obtenerPersonajesDelComicClickeado = () => {
+const obtenerPersonajesDelComicClickeado = (id) => {
     fetch(`${urlBase}/comics/${id}/characters?&apikey=${apiKey}&limit=8&offset=${cantidadDePersonajesASaltear}`)
-    .the (res => res.json())
+    .then (res => res.json())
     .then(data => {
         ultimaPaginaListaDeComicsOPersonajes = Math.floor(data.data.total / 8)
         imprimirPersonajesDelComic(data.data.results)
@@ -450,13 +452,17 @@ const obtenerPersonajesDelComicClickeado = () => {
     })
 }
 
+
 const asignarClickTarjetaComics = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-comic")
     tarjetas.forEach((comic) => {
         comic.onclick = () => {
-            infoPersonaje.classList.remove("ocultar")
+            infoComic.classList.remove("ocultar")
+            boxBusquedaSinResultados.classList.add("ocultar")
             const idComic = comic.dataset.id;
+            idElementoClickeado = idComic;
             obtenerInfoComicClickeado(idComic)
+            obtenerPersonajesDelComicClickeado(idComic)
         }
     })
 };
@@ -536,9 +542,9 @@ const imprimirPersonajesDelComic = (comic) => {
                 <h5>${element.name}</h5>
         </div>
         `
-    }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Comics donde se encuentra</h3><div class="row-centrar">`)
+    }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Personajes presentes en este comic</h3><div class="row-centrar">`)
 
-    contenedorComicOPersonajeSeleccionado.innerHTML = html + `</div>
+    contenedorPersonajesDelComicSeleccionado.innerHTML = html + `</div>
     <div class="width-100">
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-izquierda"><i class="fas fa-angle-left"></i></button>
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-derecha"><i class="fas fa-angle-right"></i></button></div>
@@ -565,7 +571,8 @@ const listaPersonajesHTML = (personaje) => {
 }
 
 
-const imprimirPersonajeOComic = (personaje) => {
+
+const imprimirPersonaje = (personaje) => {
     const html = personaje.reduce((acc, element) => {
         return acc + `
         <div class="borde-blanco-tarjeta-personaje">
@@ -615,7 +622,7 @@ const imprimirComicsDePersonaje = (comic) => {
         `
     }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Comics donde se encuentra</h3><div class="row-centrar">`)
 
-    contenedorComicOPersonajeSeleccionado.innerHTML = html + `</div>
+    contenedorComicsDePersonajeSeleccionado.innerHTML = html + `</div>
     <div class="width-100">
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-izquierda"><i class="fas fa-angle-left"></i></button>
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-derecha"><i class="fas fa-angle-right"></i></button></div>
