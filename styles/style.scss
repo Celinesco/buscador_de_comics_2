@@ -319,12 +319,16 @@ footer {
 }
 
 
-.comics-del-personaje:hover {
+.comics-del-personaje:hover, .personajes-del-comic:hover {
     transform:translateY(-6px)
 }
 
 .personajes-del-comic {
     height: 200px;
+}
+
+.comics-del-personaje {
+    height: 330px;
 }
 
 
