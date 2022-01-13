@@ -446,6 +446,9 @@ footer {
 .ocultar {
   display: none; }
 
+.texto-derechos-reservados {
+  margin: 20px 0; }
+
 @media (max-width: 991.98px) {
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 800px; } }
