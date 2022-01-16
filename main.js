@@ -1,4 +1,5 @@
 const nav = document.getElementById("nav");
+const actualizarPagina = document.getElementById("boton-actualizar-pagina");
 const seccionInicio = document.getElementById("seccion-inicio");
 const seccionComics = document.getElementById("seccion-comics")
 const seccionPrincipal = document.getElementById("seccion-principal");
@@ -143,6 +144,11 @@ primerPagListaComics.style.background = "grey";
 
 
 //navegabilidad NAV 
+
+actualizarPagina.onclick = () => {
+    location.reload()
+}
+
 volverSeccionPrincipal.onclick = () => {
     seccionComics.classList.add("ocultar");
     seccionPersonajes.classList.add("ocultar");
