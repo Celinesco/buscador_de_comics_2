@@ -125,12 +125,17 @@ label {
   font-family: Actionmanshadded;
   src: url("tipografias/Action-Man/Action_Man_Shaded.ttf"); }
 nav {
+  display: flex;
+  justify-content: space-between;
   background-color: black;
   padding: 30px;
   border-bottom: 2px solid white;
   position: fixed;
   width: 100%;
   z-index: 3; }
+
+h1 {
+  margin-right: 20px; }
 
 .nav-links {
   display: flex;
