@@ -168,6 +168,8 @@ abrirSeccionPersonajes.onclick = () => {
 }
 
 abrirSeccionComics.onclick = () => {
+    botonesPaginadoComicsBusquedaInput.classList.add("ocultar");
+    botonesPaginadoListaComics.classList.remove("ocultar")
     desactivarBotonesNavTemporalmente()
     seccionPersonajes.classList.add("ocultar");
     seccionBusqueda.classList.add("ocultar")
