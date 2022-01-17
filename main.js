@@ -408,8 +408,8 @@ pagSiguientePersonajesBusuqedaInput.onclick = () => {
 }
 
 pagAnteriorComicsBusquedaInput.onclick = () => {
-    comicsASaltear === ultimaPaginaComics * 20
-    ? comicsASaltear = 0
+    comicsASaltear === 0 
+    ? comicsASaltear = ultimaPaginaComics * 20
     : comicsASaltear -= 20
     busquedaComicPorNombre(busquedaComicInput.value)
 }
@@ -459,6 +459,7 @@ const busquedaComicPorNombre = (nombre) => {
             }
             else {
                 boxBusquedaSinResultados.classList.add("ocultar")
+                ultimaPaginaComics = Math.floor(data.data.total / 20)
                 listaDeComicsHTML(data.data.results)
                 asignarClickTarjetaComics()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
