@@ -26,7 +26,8 @@
         </div>
     </section>
     <main class="ocultar">
-        <nav>
+        <nav class="">
+            <!-- acordate una vez deployado el sitio, poner el link aca -->
             <a href="#"><strong>BUSCADOR DE COMICS</strong></a>
             <ul class="nav-links">
                 <li><button type="button" class="boton-navegacion" id="volver-seccion-principal"
@@ -44,6 +45,24 @@
             data-target="navbarBasicExample">
                 <i class="fas fa-bars" id="open-menu-hamburguesa" aria-hidden="true"></i>
             </div>
+        </nav>
+        <nav class="nav-menu-hamburguesa">
+            <div class="contenedor-boton-cerrar">
+                <a href="#"><strong>BUSCADOR DE COMICS</strong></a>
+                <button type="button" class="boton-navegacion" id="cerrar-menu-hamburugesa"><i class="fas fa-times"></i></button>
+            </div>
+            <ul class="nav-links-hamburguesa">
+                <li><button type="button" class="boton-navegacion" id="volver-seccion-principal"
+                        aria-label="Volver a la seccion bienvenida">INICIO</button></li>
+                <li><button type="button" class="boton-navegacion" id="abrir-seccion-personajes"
+                        aria-label="seccion listado de personajes">PERSONAJES</button></li>
+                <li><button type="button" class="boton-navegacion" id="abrir-seccion-comics"
+                        aria-label="seccion listado de comics">COMICS</button></li>
+                <li><button type="button" class="boton-navegacion" id="abrir-seccion-busqueda"
+                        aria-label="seccion busqueda">BUSCAR</button></li>
+                <li><a href="https://www.marvel.com/" target="_blank" aria-label="Página oficial de Marvel">MARVEL</a>
+                </li>
+            </ul>
         </nav>
 
         <!-- Seccion PRINCIPAL -->

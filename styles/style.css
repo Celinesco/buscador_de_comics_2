@@ -127,6 +127,7 @@ label {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: black;
   padding: 30px;
   border-bottom: 2px solid white;
@@ -150,6 +151,24 @@ h1 {
 .boton-navegacion {
   color: white;
   font-family: Roboto; }
+
+.nav-menu-hamburguesa {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  left: -300%;
+  height: 100vh;
+  width: 100%;
+  padding: 50px 30px;
+  transition-property: left;
+  transition-duration: 0.6s; }
+  .nav-menu-hamburguesa ul li {
+    margin: 10px 0px; }
+
+.nav-links-hamburguesa {
+  margin-top: 20px; }
 
 li button, li a {
   font-size: 1rem; }
@@ -313,6 +332,11 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap; }
+
+.contenedor-boton-cerrar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
 
 .contenedor-tarjetas-y-botones-paginado {
   margin-top: 40px;
