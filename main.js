@@ -161,6 +161,8 @@ volverSeccionPrincipal.onclick = () => {
 }
 
 abrirSeccionPersonajes.onclick = () => {
+    botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar");
+    botonesPaginadoListaPersonajes.classList.remove("ocultar");
     desactivarBotonesNavTemporalmente()
     seccionComics.classList.add("ocultar")
     seccionBusqueda.classList.add("ocultar")
@@ -174,34 +176,34 @@ abrirSeccionComics.onclick = () => {
     seccionPersonajes.classList.add("ocultar");
     seccionBusqueda.classList.add("ocultar")
     funcionAbrirSeccionComics()
-}
+};
 
 abrirSeccionBusqueda.onclick = () => {
     seccionComics.classList.add("ocultar");
     seccionPersonajes.classList.add("ocultar");
     desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionBusqueda()
-}
+};
 
 const desactivarBotonDesplazamiento = (boton1, boton2) => {
     boton1.disabled = true;
     boton2.disabled = true;
     boton1.style.backgroundColor = "grey";
     boton2.style.backgroundColor = "grey";
-}
+};
 
 const activarBotonesDesplazamiento = (boton1, boton2) => {
     boton1.disabled = false;
     boton2.disabled = false;
     boton1.style.backgroundColor = "#ffbf0f";
     boton2.style.backgroundColor = "#ffbf0f";
-}
+};
 
 
 const desvanecerSeccion = (seccion) => {
     seccion.style.transitionProperty = "opacity";
     seccion.style.opacity = "0";
-}
+};
 
 
 ///
