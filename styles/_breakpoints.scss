@@ -1,5 +1,5 @@
 @media (max-width: 1399.98px) { 
-   
+
 }
 
 @media (max-width: 1199.98px) { 
@@ -24,6 +24,8 @@
      .contenedor-tarjetas-y-botones-paginado {
         max-width: 770px;
     }
+
+   
  }
 
 
@@ -32,8 +34,12 @@
     .contenedor-tarjetas-y-botones-paginado {
         max-width: 570px;
     }
-    nav {
+    .nav-links {
         display: none;
+    }
+
+    .icon-menu-burger {
+        display: flex;
     }
 
     .contenedor-tarjetas {
