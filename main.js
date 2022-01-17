@@ -4,7 +4,7 @@ const seccionComics = document.getElementById("seccion-comics");
 const seccionPrincipal = document.getElementById("seccion-principal");
 const seccionPersonajes = document.getElementById("seccion-personajes");
 const seccionBusqueda = document.getElementById("seccion-busqueda");
-
+const navHamburguesa = document.querySelector(".nav-menu-hamburguesa")
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
 const botonOnomatopeyaSeccionPersonajes = document.getElementById("boton-seccion-personajes");
 const botonOnomatopeyaSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
@@ -183,7 +183,7 @@ abrirSeccionBusqueda.onclick = () => {
 };
 
 desplegarMenuHamburguesa.onclick = () => {
-    
+    navHamburguesa.style.left = "0";
 }
 
 const desactivarBotonDesplazamiento = (boton1, boton2) => {
