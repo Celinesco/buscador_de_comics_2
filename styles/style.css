@@ -143,6 +143,10 @@ h1 {
   justify-content: flex-end;
   align-items: center; }
 
+.icon-menu-burger {
+  color: white;
+  display: none; }
+
 .boton-navegacion {
   color: white;
   font-family: Roboto; }
@@ -474,8 +478,11 @@ footer {
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 570px; }
 
-  nav {
+  .nav-links {
     display: none; }
+
+  .icon-menu-burger {
+    display: flex; }
 
   .contenedor-tarjetas {
     flex-direction: column; }

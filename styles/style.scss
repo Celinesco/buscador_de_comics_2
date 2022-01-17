@@ -45,6 +45,11 @@ h1 {
     @include flex-centrar($direccion: row, $content: flex-end)
 }
 
+.icon-menu-burger {
+    color: white;
+    display: none;
+}
+
 .boton-navegacion {
     color: white;
     font-family: $tipografia-secundaria;
