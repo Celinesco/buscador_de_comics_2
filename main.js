@@ -1,10 +1,10 @@
-const nav = document.getElementById("nav");
-const actualizarPagina = document.getElementById("boton-actualizar-pagina");
+
 const seccionInicio = document.getElementById("seccion-inicio");
 const seccionComics = document.getElementById("seccion-comics");
 const seccionPrincipal = document.getElementById("seccion-principal");
 const seccionPersonajes = document.getElementById("seccion-personajes");
 const seccionBusqueda = document.getElementById("seccion-busqueda");
+
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
 const botonOnomatopeyaSeccionPersonajes = document.getElementById("boton-seccion-personajes");
 const botonOnomatopeyaSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
@@ -45,7 +45,7 @@ const volverSeccionPrincipal = document.getElementById("volver-seccion-principal
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
 const abrirSeccionComics = document.getElementById("abrir-seccion-comics");
 const abrirSeccionBusqueda = document.getElementById("abrir-seccion-busqueda");
-
+const desplegarMenuHamburguesa = document.getElementById("desplegar-menu-hamburguesa");
 
 const main = document.querySelector("main");
 
@@ -149,9 +149,6 @@ primerPagListaComics.style.background = "grey";
 
 //navegabilidad NAV 
 
-actualizarPagina.onclick = () => {
-    location.reload()
-}
 
 volverSeccionPrincipal.onclick = () => {
     seccionComics.classList.add("ocultar");
@@ -184,6 +181,10 @@ abrirSeccionBusqueda.onclick = () => {
     desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionBusqueda()
 };
+
+desplegarMenuHamburguesa.onclick = () => {
+    
+}
 
 const desactivarBotonDesplazamiento = (boton1, boton2) => {
     boton1.disabled = true;

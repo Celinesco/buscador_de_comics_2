@@ -29,6 +29,7 @@
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: black;
     padding: 30px;
     border-bottom: 2px solid white;
@@ -53,6 +54,13 @@ h1 {
 .boton-navegacion {
     color: white;
     font-family: $tipografia-secundaria;
+}
+
+.nav-links-hamburguesa {
+    display: flex;
+    flex-direction: column;
+    height: 100vw;
+    width: 300px;
 }
 
 li button, li a {
