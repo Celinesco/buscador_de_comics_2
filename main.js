@@ -6,7 +6,7 @@ const seccionPersonajes = document.getElementById("seccion-personajes");
 const seccionBusqueda = document.getElementById("seccion-busqueda");
 const navHamburguesa = document.querySelector(".nav-menu-hamburguesa")
 const nav = document.querySelector("nav");
-const botonMenuHamburguesa = document.getElementById("boton-menu-hamburguesa")
+const botonMenuHamburguesa = document.getElementById("boton-menu-hamburguesa");
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
 const botonOnomatopeyaSeccionPersonajes = document.getElementById("boton-seccion-personajes");
 const botonOnomatopeyaSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
@@ -34,7 +34,9 @@ const pagAnteriorPersonajesBusquedaInput = document.getElementById("pagina-anter
 const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input");
 const pagAnteriorComicsBusquedaInput = document.getElementById("pagina-anterior-comics-por-busqueda-input");
 const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguiente-comics-por-busqueda-input");
-const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa")
+const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa");
+const imagenesDeCarga = document.querySelector(".contenedor-cargando");
+const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
 
 
 const primerPagListaComics = document.getElementById("primer-pag-lista-comics");
@@ -457,6 +459,7 @@ pagSiguientesComicsBusquedaInput.onclick = () => {
 
 
 const mostrarListaComics = () => {
+    imprimirCargando(contenedorTarjetasComics)
     fetch(`${urlBase}/comics?orderBy=title&apikey=${apiKey}&offset=${comicsASaltear}`)
         .then(res => res.json())
         .then(data => {
@@ -473,6 +476,7 @@ const mostrarListaComics = () => {
 }
 
 const obtenerInfoComicClickeado = (id) => {
+    imprimirCargando(contenedorComicSeleccionado)
     fetch(`${urlBase}/comics/${id}?apikey=${apiKey}`)
         .then(res => res.json())
         .then(data => {
@@ -605,7 +609,6 @@ ultimaPagListaComics.onclick = () => {
 //Funciones que imprimen en HTML //
 
 const listaDeComicsHTML = (comic) => {
-    const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
     const html = comic.reduce((acc, element) => {
         return acc + `
         <a href="#seccion-comics">
@@ -727,6 +730,14 @@ const imprimirComicsDePersonaje = (comic) => {
 
 
 
+const imprimirCargando = (elementoDom) => {
+     elementoDom.innerHTML = `
+     <div class = "contenedor-cargando">
+        <img src="https://media.giphy.com/media/2pT3cHQSJB4tpFTYeX/giphy.gif" style= "width:80%" alt="superheroe volando">
+        <img src="https://media.giphy.com/media/559nyYPxdHpJDlex5V/giphy.gif" style= "width:20%" alt="cargando-contenido">
+    </div>
+    `
+}
 
 // const botonHaciaAbajo = (boton) => {
 //     boton.onclick = () => {
