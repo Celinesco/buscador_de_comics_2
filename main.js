@@ -5,6 +5,8 @@ const seccionPrincipal = document.getElementById("seccion-principal");
 const seccionPersonajes = document.getElementById("seccion-personajes");
 const seccionBusqueda = document.getElementById("seccion-busqueda");
 const navHamburguesa = document.querySelector(".nav-menu-hamburguesa")
+const nav = document.querySelector("nav");
+const botonMenuHamburguesa = document.getElementById("boton-menu-hamburguesa")
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
 const botonOnomatopeyaSeccionPersonajes = document.getElementById("boton-seccion-personajes");
 const botonOnomatopeyaSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
@@ -32,6 +34,7 @@ const pagAnteriorPersonajesBusquedaInput = document.getElementById("pagina-anter
 const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input");
 const pagAnteriorComicsBusquedaInput = document.getElementById("pagina-anterior-comics-por-busqueda-input");
 const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguiente-comics-por-busqueda-input");
+const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa")
 
 
 const primerPagListaComics = document.getElementById("primer-pag-lista-comics");
@@ -182,8 +185,14 @@ abrirSeccionBusqueda.onclick = () => {
     funcionAbrirSeccionBusqueda()
 };
 
-desplegarMenuHamburguesa.onclick = () => {
-    navHamburguesa.style.left = "0";
+const ulNav = document.getElementById("ul-nav")
+
+botonMenuHamburguesa.onclick = () => {
+    nav.classList.remove("nav-menu")
+    nav.classList.add("nav-menu-hamburguesa")
+    iconoMenuHamburguesa.classList.toggle("fa-bars")
+    iconoMenuHamburguesa.classList.toggle("fa-times")
+
 }
 
 const desactivarBotonDesplazamiento = (boton1, boton2) => {
