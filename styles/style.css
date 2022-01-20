@@ -369,6 +369,7 @@ footer {
   height: 350px;
   width: 249px;
   margin: 0px 10px 130px 10px;
+  transition: 2s;
   cursor: pointer; }
 
 .contenedor-imagen-lista-personajes {

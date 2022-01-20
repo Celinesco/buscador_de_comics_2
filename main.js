@@ -469,7 +469,7 @@ const mostrarListaComics = () => {
             ultimaPaginaComics = Math.floor(data.data.total / 20)
             listaDeComicsHTML(data.data.results)
             asignarClickTarjetaComics()
-            const tarjetas = document.querySelectorAll(".tarjeta-personaje")
+            const tarjetas = document.querySelectorAll(".tarjeta-comic")
             setTimeout(() => {
                 tarjetas.forEach((tarjeta) => {
                     tarjeta.classList.add("rotacion-y")
@@ -615,14 +615,12 @@ ultimaPagListaComics.onclick = () => {
 const listaDeComicsHTML = (comic) => {
     const html = comic.reduce((acc, element) => {
         return acc + `
-        <a href="#seccion-comics">
-            <div class="tarjeta-comic" data-id=${element.id}>
-                <div class="contenedor-imagen-lista-comics">
-                    <img class="imagen-personaje-lista-comics" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
-                </div>
-                <div class= "fondo-texto row-centrar">
-                    <h4 class="nombre-personaje">${element.title}</h4>
-                </div>
+        <a href="#seccion-comics" class="tarjeta-comic" data-id=${element.id}>
+            <div class="contenedor-imagen-lista-comics">
+                <img class="imagen-personaje-lista-comics" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
+            </div>
+            <div class= "fondo-texto row-centrar">
+                <h4 class="nombre-personaje">${element.title}</h4>
             </div>
         </a>
         `
