@@ -164,8 +164,8 @@ footer {
 }
 
 .contenido-seccion-principal {
-    @include flex-centrar($direccion: row, $content: space-around);
-    margin-top: 5%;
+    @include flex-centrar($direccion: column, $content: space-around);
+    margin: 5%;
     flex-wrap: wrap;
 }
 

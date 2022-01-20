@@ -256,10 +256,10 @@ footer {
 
 .contenido-seccion-principal {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 5%;
+  margin: 5%;
   flex-wrap: wrap; }
 
 .borde-blanco {
