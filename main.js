@@ -188,8 +188,16 @@ abrirSeccionBusqueda.onclick = () => {
 const ulNav = document.getElementById("ul-nav")
 
 botonMenuHamburguesa.onclick = () => {
-    nav.classList.remove("nav-menu")
-    nav.classList.add("nav-menu-hamburguesa")
+    const estadoDelMenu = iconoMenuHamburguesa.getAttribute("class")
+    if (estadoDelMenu === "fas fa-bars" ) {
+        nav.classList.remove("nav-menu")
+        nav.classList.add("nav-menu-hamburguesa")
+    }
+    else {
+        nav.classList.add("nav-menu")
+        nav.classList.remove("nav-menu-hamburguesa")
+    }
+   
     iconoMenuHamburguesa.classList.toggle("fa-bars")
     iconoMenuHamburguesa.classList.toggle("fa-times")
 
