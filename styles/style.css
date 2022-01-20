@@ -311,7 +311,7 @@ footer {
   text-align: center; }
 
 #opcion-3 {
-  background-image: url(../images/fondos/tarjeta-amarilla-roja.svg);
+  background-image: url(../images/fondos/tarjeta-amarilla-punteada.svg);
   background-attachment: local; }
 
 .cuadro-comic {
@@ -363,7 +363,8 @@ footer {
   margin: 10px 5px;
   cursor: pointer;
   width: 200px;
-  position: relative; }
+  position: relative;
+  transition: 2s; }
 
 .tarjeta-comic {
   height: 350px;
