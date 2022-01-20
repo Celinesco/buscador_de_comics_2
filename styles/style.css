@@ -495,15 +495,13 @@ footer {
     width: calc(100% / 3 - 2 * 10px); }
 
   .contenedor-tarjetas-y-botones-paginado {
-    max-width: 770px; } }
+    max-width: 770px; }
+
+  .nav-menu ul {
+    display: none; } }
 @media (max-width: 575.98px) {
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 570px; }
-
-  .nav-menu ul {
-    position: absolute;
-    top: -300%;
-    transition: top 0.6s; }
 
   .contenedor-tarjetas {
     flex-direction: column; }
@@ -549,5 +547,8 @@ footer {
   .tarjeta-personaje {
     width: 90%;
     height: 263px; } }
+@media (min-width: 767.98px) {
+  .contenedor-boton-cerrar button {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */
