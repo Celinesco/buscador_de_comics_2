@@ -491,9 +491,6 @@ footer {
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 800px; } }
 @media (max-width: 767.98px) {
-  .tarjeta-personaje {
-    width: calc(100% / 3 - 2 * 10px); }
-
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 770px; }
 
@@ -519,7 +516,12 @@ footer {
 
   .imagen-personaje-lista-personajes {
     width: -webkit-fill-available;
-    right: 0px; } }
+    right: 0px; }
+
+  .contenedor-tarjetas a {
+    display: flex;
+    justify-content: center;
+    width: calc(100% / 1 - 2 * 15px); } }
 @media (max-width: 361px) {
   .imagen-personaje-lista-personajes {
     width: -webkit-fill-available;
