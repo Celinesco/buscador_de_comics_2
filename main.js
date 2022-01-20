@@ -37,7 +37,7 @@ const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguien
 const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa");
 const imagenesDeCarga = document.querySelector(".contenedor-cargando");
 const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
-
+const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
 
 const primerPagListaComics = document.getElementById("primer-pag-lista-comics");
 const pagPrevListaComics = document.getElementById("pag-previa-lista-comics");
@@ -277,6 +277,7 @@ botonOnomatopeyaSeccionBusqueda.onclick = () => {
 ////////////// seccion Personajes
 
 const mostrarListaPersonajes = () => {
+    imprimirCargando(contenedorTarjetasPersonajes)
     fetch(`${urlBase}/characters?apikey=${apiKey}&offset=${personajesASaltear}`)
         .then(res => res.json())
         .then(data => {
@@ -295,6 +296,7 @@ const mostrarListaPersonajes = () => {
 }
 
 const obtenerInfoPersonajeClickeado = (id) => {
+    imprimirCargando(contenedorPersonajeSeleccionado)
     fetch(`${urlBase}/characters/${id}?apikey=${apiKey}`)
         .then(res => res.json())
         .then(data => {
@@ -318,6 +320,7 @@ const obtenerComicsDelPersonaje = (id) => {
 
 //Si hago lo de los inputs.. podria reducir esto (creo)
 const busquedaPersonajePorNombre = (nombre) => {
+    imprimirCargando(contenedorTarjetasComics)
     fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}&offset=${personajesASaltear}`)
         .then(res => res.json())
         .then(data => {
@@ -473,7 +476,7 @@ const mostrarListaComics = () => {
                 }, 500)
             })
         })
-}
+};
 
 const obtenerInfoComicClickeado = (id) => {
     imprimirCargando(contenedorComicSeleccionado)
@@ -482,9 +485,10 @@ const obtenerInfoComicClickeado = (id) => {
         .then(data => {
             imprimirComicHTML(data.data.results)
         })
-}
+};
 
 const busquedaComicPorNombre = (nombre) => {
+    imprimirCargando(contenedorTarjetasComics)
     fetch(`${urlBase}/comics?titleStartsWith=${nombre}&apikey=${apiKey}&offset=${comicsASaltear}`)
         .then(res => res.json())
         .then(data => {
@@ -505,7 +509,7 @@ const busquedaComicPorNombre = (nombre) => {
                 })
             }
         })
-}
+};
 
 
 const obtenerPersonajesDelComicClickeado = (id) => {
@@ -517,7 +521,7 @@ const obtenerPersonajesDelComicClickeado = (id) => {
         personajesDelComicAdelante()
         personajesDelComicAtras()
     })
-}
+};
 
 
 const asignarClickTarjetaComics = () => {
@@ -543,7 +547,7 @@ botonBusquedaComic.onclick = (e) => {
     botonesPaginadoListaComics.classList.add("ocultar")
     botonesPaginadoComicsBusquedaInput.classList.remove("ocultar")
     busquedaComicPorNombre(busquedaComicInput.value)
-}
+};
 
 
 
@@ -583,7 +587,7 @@ pagPrevListaComics.onclick = () => {
         mostrarListaComics()
         comicsASaltear === 0 && desactivarBotonDesplazamiento(primerPagListaComics, pagPrevListaComics)
     }
-}
+};
 
 pagSgteListaComics.onclick = () => {
     activarBotonesDesplazamiento(primerPagListaComics, pagPrevListaComics)
@@ -592,7 +596,7 @@ pagSgteListaComics.onclick = () => {
         mostrarListaComics()
         comicsASaltear === 0 && desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
     }
-}
+};
 
 
 ultimaPagListaComics.onclick = () => {
@@ -602,7 +606,7 @@ ultimaPagListaComics.onclick = () => {
         desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
         mostrarListaComics()
     }
-}
+};
 
 
 
@@ -625,7 +629,7 @@ const listaDeComicsHTML = (comic) => {
     }, "")
 
     contenedorTarjetasComics.innerHTML = html
-}
+};
 
 const imprimirPersonajesDelComic = (comic) => {
     const html = comic.reduce((acc, element) => {
@@ -649,7 +653,6 @@ const imprimirPersonajesDelComic = (comic) => {
 
 
 const listaPersonajesHTML = (personaje) => {
-    const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
     const html = personaje.reduce((acc, element) => {
         return acc + `
         <a href="#seccion-personajes">
