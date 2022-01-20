@@ -85,14 +85,14 @@ const desactivarBotonesNavTemporalmente = () => {
             boton.disabled = false;
         },1550)
     })
-}
+};
 
 const cerrarMenuHamburguesa = () => {
     nav.classList.add("nav-menu")
     nav.classList.remove("nav-menu-hamburguesa")
     iconoMenuHamburguesa.classList.remove("fa-times")
     iconoMenuHamburguesa.classList.add("fa-bars")
-}
+};
 
 
 const funcionAbrirSeccionPersonajes = () => {
@@ -163,26 +163,28 @@ volverSeccionPrincipal.onclick = () => {
     seccionComics.classList.add("ocultar");
     seccionPersonajes.classList.add("ocultar");
     seccionPrincipal.classList.remove("ocultar");
-    seccionPrincipal.style.opacity = "100"
-
-}
+    seccionPrincipal.style.opacity = "100";
+    cerrarMenuHamburguesa()
+};
 
 abrirSeccionPersonajes.onclick = () => {
     botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar");
     botonesPaginadoListaPersonajes.classList.remove("ocultar");
-    desactivarBotonesNavTemporalmente()
-    seccionComics.classList.add("ocultar")
-    seccionBusqueda.classList.add("ocultar")
-    funcionAbrirSeccionPersonajes()
-}
+    desactivarBotonesNavTemporalmente();
+    cerrarMenuHamburguesa()
+    seccionComics.classList.add("ocultar");
+    seccionBusqueda.classList.add("ocultar");
+    funcionAbrirSeccionPersonajes();
+};
 
 abrirSeccionComics.onclick = () => {
     botonesPaginadoComicsBusquedaInput.classList.add("ocultar");
-    botonesPaginadoListaComics.classList.remove("ocultar")
-    desactivarBotonesNavTemporalmente()
+    botonesPaginadoListaComics.classList.remove("ocultar");
+    desactivarBotonesNavTemporalmente();
+    cerrarMenuHamburguesa()
     seccionPersonajes.classList.add("ocultar");
-    seccionBusqueda.classList.add("ocultar")
-    funcionAbrirSeccionComics()
+    seccionBusqueda.classList.add("ocultar");
+    funcionAbrirSeccionComics();
 };
 
 abrirSeccionBusqueda.onclick = () => {
@@ -190,6 +192,7 @@ abrirSeccionBusqueda.onclick = () => {
     seccionPersonajes.classList.add("ocultar");
     desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionBusqueda()
+    cerrarMenuHamburguesa()
 };
 
 const ulNav = document.getElementById("ul-nav")
