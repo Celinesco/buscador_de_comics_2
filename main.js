@@ -87,6 +87,12 @@ const desactivarBotonesNavTemporalmente = () => {
     })
 }
 
+const cerrarMenuHamburguesa = () => {
+    nav.classList.add("nav-menu")
+    nav.classList.remove("nav-menu-hamburguesa")
+    iconoMenuHamburguesa.classList.remove("fa-times")
+    iconoMenuHamburguesa.classList.add("fa-bars")
+}
 
 
 const funcionAbrirSeccionPersonajes = () => {
@@ -158,6 +164,7 @@ volverSeccionPrincipal.onclick = () => {
     seccionPersonajes.classList.add("ocultar");
     seccionPrincipal.classList.remove("ocultar");
     seccionPrincipal.style.opacity = "100"
+
 }
 
 abrirSeccionPersonajes.onclick = () => {
@@ -192,14 +199,13 @@ botonMenuHamburguesa.onclick = () => {
     if (estadoDelMenu === "fas fa-bars" ) {
         nav.classList.remove("nav-menu")
         nav.classList.add("nav-menu-hamburguesa")
+        iconoMenuHamburguesa.classList.remove("fa-bars")
+        iconoMenuHamburguesa.classList.add("fa-times")
     }
     else {
-        nav.classList.add("nav-menu")
-        nav.classList.remove("nav-menu-hamburguesa")
+        cerrarMenuHamburguesa()
     }
    
-    iconoMenuHamburguesa.classList.toggle("fa-bars")
-    iconoMenuHamburguesa.classList.toggle("fa-times")
 
 }
 
