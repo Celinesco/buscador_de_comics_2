@@ -228,6 +228,13 @@ footer {
   width: 200px;
   padding: 20px; }
 
+.contenedor-cargando {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px; }
+
 .texto-presentacion {
   font-family: ActionManBold;
   color: white;

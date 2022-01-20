@@ -133,6 +133,11 @@ footer {
     padding: 20px;
 }
 
+.contenedor-cargando {
+    @include flex-centrar();
+    margin: 20px 0px;
+}
+
 .texto-presentacion {
     font-family: $tipografia-principal-bold;
     color: $color-principal-fondos-oscuros;
