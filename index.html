@@ -26,10 +26,13 @@
         </div>
     </section>
     <main class="ocultar">
-        <nav class="">
+        <nav class="nav-menu">
             <!-- acordate una vez deployado el sitio, poner el link aca -->
-            <a href="#"><strong>BUSCADOR DE COMICS</strong></a>
-            <ul class="nav-links">
+            <div class="contenedor-boton-cerrar">
+                <a href="#"><strong>BUSCADOR DE COMICS</strong></a>
+                <button type="button" class="boton-navegacion" id="boton-menu-hamburguesa"><i class="fas fa-bars" id="icono-menu-hamburguesa"></i></button>
+            </div>
+            <ul id="ul-nav">
                 <li><button type="button" class="boton-navegacion" id="volver-seccion-principal"
                         aria-label="Volver a la seccion bienvenida">INICIO</button></li>
                 <li><button type="button" class="boton-navegacion" id="abrir-seccion-personajes"
@@ -41,12 +44,12 @@
                 <li><a href="https://www.marvel.com/" target="_blank" aria-label="Página oficial de Marvel">MARVEL</a>
                 </li>
             </ul>
-            <div class="icon-menu-burger"  role="button" aria-label="menu" aria-expanded="false" id="desplegar-menu-hamburguesa"
-            data-target="navbarBasicExample">
+            <!-- <button class="icon-menu-burger" type="button" aria-label="menu" aria-expanded="false" id="desplegar-menu-hamburguesa"
+                data-target="navbarBasicExample">
                 <i class="fas fa-bars" id="open-menu-hamburguesa" aria-hidden="true"></i>
-            </div>
+            </button> -->
         </nav>
-        <nav class="nav-menu-hamburguesa">
+        <!-- <nav class="nav-menu-hamburguesa">
             <div class="contenedor-boton-cerrar">
                 <a href="#"><strong>BUSCADOR DE COMICS</strong></a>
                 <button type="button" class="boton-navegacion" id="cerrar-menu-hamburugesa"><i class="fas fa-times"></i></button>
@@ -63,7 +66,7 @@
                 <li><a href="https://www.marvel.com/" target="_blank" aria-label="Página oficial de Marvel">MARVEL</a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
 
         <!-- Seccion PRINCIPAL -->
         <section class="seccion-principal secciones" id="seccion-principal">
