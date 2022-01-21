@@ -643,10 +643,40 @@ const asignarClickTarjetasSuperHeroApi = () => {
     tarjetasSuperHero.forEach ((heroe)=> {
         heroe.onclick = () => {
             const idHero = heroe.dataset.id
-            console.log(idHero)
+            infoSobreHeroSeleccionado(idHero)
         }
     })
 }
+
+const infoSobreHeroSeleccionado = (id) => {
+    fetch(`https://www.superheroapi.com/api.php/1777384219117173/${id}`)
+    .then(res => res.json())
+    .then(data => {
+        imprimirHeroeSeleccionado(data)
+    })
+}
+
+const imprimirHeroeSeleccionado = (heroe) => {
+    const html = `
+        <div class="borde-blanco-tarjeta-personaje">
+            <div class="contenedor-elemento-seleccionado personaje-seleccionado">
+                <div class="contenedor-imagen-superheroe">
+                    <img src="${heroe.image.url}" alt="Imagen de${heroe.name}">
+                </div>
+                <div class="contenedor-nombre-descripcion">
+                    <h3 class="nombre-personaje">${heroe.name}</h3>
+                    <p class="info-superheroe"><u>Nombre verdadero:</u> ${heroe.biography['full-name']}</p>
+                    <p class="info-superheroe"><u>Raza:</u> ${heroe.appearance['race']}</p>
+                    <p class="info-superheroe"><u>Lugar de nacimiento:</u> ${heroe.biography['place-of-birth']}</p>
+                    <p class="info-superheroe"><u>Ocupación:</u> ${heroe.work.occupation}</p>
+                    <p class="info-superheroe"><u>Parentescos: </u> ${heroe.connections.relatives}</p>
+                </div>
+            </div>
+        </div>`
+
+    contenedorHeroeSeleccionado.innerHTML = html
+}
+
 
 
 botonBusquedaSuperHeroApi.onclick = (e) => {

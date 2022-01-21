@@ -13,18 +13,8 @@ h2 {
   font-family: Actionmanshadded;
   color: black; }
 
-h3 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  font-family: ActionManBold; }
-
 h4 {
   font-family: ActionManRegular; }
-
-h5 {
-  font-family: Roboto;
-  font-size: 15px;
-  margin: 15px 0; }
 
 body, html {
   height: 100%; }
@@ -132,11 +122,27 @@ nav {
   border-bottom: 2px solid white;
   z-index: 3; }
 
+h4 {
+  margin-bottom: 10px; }
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-family: ActionManBold; }
+
+h5 {
+  font-family: Roboto;
+  font-size: 15px;
+  margin: 15px 0; }
+
 .nav-menu ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center; }
+
+.contenedor-imagen-superheroe {
+  max-width: 250px; }
 
 .fa-bars, .fa-times {
   color: white; }
@@ -172,7 +178,7 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 30px;
-  height: 20vh;
+  height: 30vh;
   border-top: 2px solid white; }
 
 .footer-social-icons {
@@ -489,6 +495,10 @@ footer {
 
 .texto-derechos-reservados {
   margin: 20px 0; }
+
+.info-superheroe {
+  margin: 5px;
+  font-family: Roboto; }
 
 @media (max-width: 991.98px) {
   .contenedor-tarjetas-y-botones-paginado {

@@ -35,6 +35,22 @@ nav {
     z-index: 3;
 }
 
+h4 {
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-family: $tipografia-principal-bold;
+}
+
+h5 {
+    font-family: $tipografia-secundaria;
+    font-size: 15px;
+    margin: 15px 0;
+}
+
 
 .nav-menu {
     ul {
@@ -42,6 +58,9 @@ nav {
     }
 }
 
+.contenedor-imagen-superheroe {
+    max-width: 250px;
+}
 
 .fa-bars , .fa-times {
     color: white;
@@ -195,7 +214,6 @@ footer {
 #opcion-1 {
     background-image: url(../images/fondos/fondo-tarjeta-violeta.svg);
     background-attachment:local;
-    
 }
 
 .fondo-texto {
@@ -417,6 +435,12 @@ footer {
 
 .texto-derechos-reservados {
     margin: 20px 0
+}
+
+.info-superheroe {
+    margin: 5px;
+    font-family: $tipografia-secundaria
+
 }
 
 @import "breakpoints";
