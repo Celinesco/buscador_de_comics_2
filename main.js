@@ -325,8 +325,6 @@ const busquedaPersonajePorNombre = (nombre) => {
         .then(data => {
             infoPersonaje.classList.add("ocultar");
             if (data.data.results.length === 0) {
-                botonesPaginadoListaPersonajes.classList.add("ocultar")
-                botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar")
                 imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
             }
             else {
@@ -349,7 +347,9 @@ const busquedaPersonajePorNombre = (nombre) => {
 botonBusquedaPersonaje.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
-    busquedaPersonajePorNombre(busquedaPersonajeInput.value)
+    busquedaPersonajeInput.length > 0
+    ? busquedaPersonajePorNombre(busquedaPersonajeInput.value)
+    : imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
 };
 
 
@@ -478,12 +478,9 @@ const busquedaComicPorNombre = (nombre) => {
         .then(data => {
             if (data.data.results.length === 0) {
                 infoComic.classList.add("ocultar")
-                botonesPaginadoListaComics.classList.add("ocultar")
-                botonesPaginadoComicsBusquedaInput.classList.add("ocultar")
                 imprimirBusquedaSinResultados(contenedorTarjetasComics)
             }
             else {
-                
                 ultimaPaginaComics = Math.floor(data.data.total / 20)
                 listaDeComicsHTML(data.data.results)
                 asignarClickTarjetaComics()
@@ -516,7 +513,6 @@ const asignarClickTarjetaComics = () => {
         comic.onclick = () => {
             personajesASaltear = 0
             infoComic.classList.remove("ocultar")
-          
             const idComic = comic.dataset.id;
             idElementoClickeado = idComic;
             obtenerInfoComicClickeado(idComic)
@@ -529,9 +525,9 @@ const asignarClickTarjetaComics = () => {
 botonBusquedaComic.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
-    botonesPaginadoListaComics.classList.add("ocultar")
-    botonesPaginadoComicsBusquedaInput.classList.remove("ocultar")
-    busquedaComicPorNombre(busquedaComicInput.value)
+    busquedaComicInput.length > 0 
+    ? busquedaComicPorNombre(busquedaComicInput.value)
+    : imprimirBusquedaSinResultados(contenedorTarjetasComics)
 };
 
 
@@ -834,6 +830,10 @@ const imprimirBusquedaSinResultados = (contenedorDom) => {
 </div>`
 
     contenedorDom.innerHTML = html
+    botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar")
+    botonesPaginadoListaPersonajes.classList.add("ocultar")
+    botonesPaginadoComicsBusquedaInput.classList.add("ocultar")
+    botonesPaginadoListaComics.classList.add("ocultar")
 }
 
 // const botonHaciaAbajo = (boton) => {
