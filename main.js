@@ -25,7 +25,6 @@ const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
 const busquedaComicInput = document.getElementById("busqueda-comic");
 const infoPersonaje = document.getElementById("resultado-busqueda-personaje");
 const infoComic = document.getElementById("resultado-busqueda-comic");
-const boxBusquedaSinResultados = document.getElementById("busqueda-sin-resultados");
 const botonesPaginadoListaPersonajes = document.getElementById("botones-paginado-lista-de-personajes");
 const botonesPaginadoListaComics = document.getElementById("botones-paginado-lista-de-comics");
 const botonesPaginadoPersonajesBusquedaPorInput = document.getElementById("botones-paginado-personajes-busqueda-por-input");
@@ -320,18 +319,17 @@ const obtenerComicsDelPersonaje = (id) => {
 
 //Si hago lo de los inputs.. podria reducir esto (creo)
 const busquedaPersonajePorNombre = (nombre) => {
-    imprimirCargando(contenedorTarjetasComics)
+    imprimirCargando(contenedorTarjetasPersonajes)
     fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}&offset=${personajesASaltear}`)
         .then(res => res.json())
         .then(data => {
             infoPersonaje.classList.add("ocultar");
             if (data.data.results.length === 0) {
-                boxBusquedaSinResultados.classList.remove("ocultar");
+                imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
             }
             else {
                 botonesPaginadoListaPersonajes.classList.add("ocultar");
                 botonesPaginadoPersonajesBusquedaPorInput.classList.remove("ocultar")
-                boxBusquedaSinResultados.classList.add("ocultar");
                 ultimaPaginaPersonajes = Math.floor(data.data.total / 20)
                 listaPersonajesHTML(data.data.results)
                 asignarClickTarjetaPersonaje()
@@ -359,7 +357,6 @@ const asignarClickTarjetaPersonaje = () => {
         personaje.onclick = () => {
             comicsASaltear = 0
             infoPersonaje.classList.remove("ocultar")
-            boxBusquedaSinResultados.classList.add("ocultar")
             const idPersonaje = personaje.dataset.id;
             idElementoClickeado = idPersonaje;
             obtenerInfoPersonajeClickeado(idPersonaje)
@@ -479,10 +476,10 @@ const busquedaComicPorNombre = (nombre) => {
         .then(data => {
             if (data.data.results.length === 0) {
                 infoComic.classList.add("ocultar")
-                boxBusquedaSinResultados.classList.remove("ocultar")
+                imprimirBusquedaSinResultados(contenedorTarjetasComics)
             }
             else {
-                boxBusquedaSinResultados.classList.add("ocultar")
+                
                 ultimaPaginaComics = Math.floor(data.data.total / 20)
                 listaDeComicsHTML(data.data.results)
                 asignarClickTarjetaComics()
@@ -515,7 +512,7 @@ const asignarClickTarjetaComics = () => {
         comic.onclick = () => {
             personajesASaltear = 0
             infoComic.classList.remove("ocultar")
-            boxBusquedaSinResultados.classList.add("ocultar")
+          
             const idComic = comic.dataset.id;
             idElementoClickeado = idComic;
             obtenerInfoComicClickeado(idComic)
@@ -613,8 +610,14 @@ const obtenerIdSuperHeroApi = (input) => {
     fetch(`https://www.superheroapi.com/api.php/1777384219117173/search/${input}`)
     .then(res => res.json())
     .then(data => {
-        imprimirArrayDeHeroes(data.results)
-        asignarClickTarjetasSuperHeroApi()
+        if (data.results.length === 0) {
+            imprimirBusquedaSinResultados(contenedorHeroeSeleccionado)
+        }
+        else {
+            imprimirArrayDeHeroes(data.results)
+            asignarClickTarjetasSuperHeroApi()
+        }
+       
     })
 }
 
@@ -814,6 +817,20 @@ const imprimirCargando = (elementoDom) => {
 };
 
 
+const imprimirBusquedaSinResultados = (contenedorDom) => {
+    const html = ` <div class="elemento-no-encontrado busqueda-sin-resultados">
+    <div class="contenedor-imagen-sin-resultados">
+        <img src="images/SinResultados.png" alt="Fantasma del espacio">
+    </div>
+    <div class="contenedor-nombre-descripcion">
+        <div class="cuadro-comic">Lo sentimos...</div>
+        <p class="texto-descripcion">No se encontraron resultados para tu búsqueda. Intenta de otra forma
+        </p>
+    </div>
+</div>`
+
+    contenedorDom.innerHTML = html
+}
 
 // const botonHaciaAbajo = (boton) => {
 //     boton.onclick = () => {
