@@ -459,7 +459,7 @@ footer {
   border: 3px solid black;
   border-radius: 10px; }
 
-#boton-busqueda-personaje, #boton-busqueda-comic {
+.botones-busqueda {
   position: relative;
   display: flex;
   align-items: center; }

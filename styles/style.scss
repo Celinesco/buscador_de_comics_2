@@ -83,7 +83,7 @@ footer {
     background-color: $fondo-navbar-footer;
     @include flex-centrar();
     padding: 30px;
-    height: 20vh;
+    height: 30vh;
     border-top: 2px solid white;
 }
 
@@ -382,7 +382,7 @@ footer {
     border-radius: 10px;
 }
 
-#boton-busqueda-personaje, #boton-busqueda-comic {
+.botones-busqueda {
     position: relative;
     display: flex;
     align-items: center;

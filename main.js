@@ -38,6 +38,9 @@ const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa");
 const imagenesDeCarga = document.querySelector(".contenedor-cargando");
 const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
 const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
+const botonBusquedaSuperHeroApi = document.getElementById("boton-busqueda-superheroapi");
+const busquedaSuperHeroApiInput = document.getElementById("busqueda-superheroapi");
+const contenedorHeroeSeleccionado = document.getElementById("contenedor-heroe-seleccionado");
 
 const primerPagListaComics = document.getElementById("primer-pag-lista-comics");
 const pagPrevListaComics = document.getElementById("pag-previa-lista-comics");
@@ -344,8 +347,6 @@ const busquedaPersonajePorNombre = (nombre) => {
 
 
 botonBusquedaPersonaje.onclick = (e) => {
-    comicsASaltear = 0
-    personajesASaltear = 0
     e.preventDefault()
     resetearVariablesPaginado()
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
@@ -526,8 +527,7 @@ const asignarClickTarjetaComics = () => {
 
 botonBusquedaComic.onclick = (e) => {
     e.preventDefault()
-    comicsASaltear = 0
-    personajesASaltear = 0
+    resetearVariablesPaginado()
     botonesPaginadoListaComics.classList.add("ocultar")
     botonesPaginadoComicsBusquedaInput.classList.remove("ocultar")
     busquedaComicPorNombre(busquedaComicInput.value)
@@ -607,6 +607,52 @@ pagSiguientesComicsBusquedaInput.onclick = () => {
 };
 
 
+//SECCION BUSQUEDA
+
+const obtenerIdSuperHeroApi = (input) => {
+    fetch(`https://www.superheroapi.com/api.php/1777384219117173/search/${input}`)
+    .then(res => res.json())
+    .then(data => {
+        imprimirArrayDeHeroes(data.results)
+        asignarClickTarjetasSuperHeroApi()
+    })
+}
+
+const imprimirArrayDeHeroes = (heroe) => {
+    const html = heroe.reduce((acc,element)=> {
+        return acc + `
+        <a href="#seccion-comics" class="tarjeta-comic tarjeta-super-hero" data-id=${element.id}>
+            <div class="row">
+                <img class="contenedor-imagen-superhero" src="${element.image.url}" alt="${element.name}">
+            </div>
+            <div class= "fondo-texto row-centrar">
+                <h4 class="nombre-personaje">${element.name}</h4>
+            </div>
+         </a>`
+
+    }, `<div class="borde-blanco-tarjeta-personaje">
+            <div class="contenedor-elemento-seleccionado">
+                <h3>Resultado de tu búsqueda...</h3>
+                <div class="row-centrar">`)
+
+    contenedorHeroeSeleccionado.innerHTML = html + `</div></div></div>`
+}
+
+const asignarClickTarjetasSuperHeroApi = () => {
+    const tarjetasSuperHero = document.querySelectorAll(".tarjeta-super-hero")
+    tarjetasSuperHero.forEach ((heroe)=> {
+        heroe.onclick = () => {
+            const idHero = heroe.dataset.id
+            console.log(idHero)
+        }
+    })
+}
+
+
+botonBusquedaSuperHeroApi.onclick = (e) => {
+    e.preventDefault()
+    obtenerIdSuperHeroApi(busquedaSuperHeroApiInput.value)
+};
 
 
 //Funciones que imprimen en HTML //
@@ -736,6 +782,8 @@ const imprimirCargando = (elementoDom) => {
     </div>
     `
 };
+
+
 
 // const botonHaciaAbajo = (boton) => {
 //     boton.onclick = () => {

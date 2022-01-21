@@ -31,7 +31,8 @@
             <!-- contenedor-boton-cerrar hay q cambiar el nombre a la clase, no tiene sentido -->
             <div class="contenedor-boton-cerrar">
                 <a href="#"><strong>BUSCADOR DE COMICS</strong></a>
-                <button type="button" class="boton-navegacion" id="boton-menu-hamburguesa"><i class="fas fa-bars" id="icono-menu-hamburguesa"></i></button>
+                <button type="button" class="boton-navegacion" id="boton-menu-hamburguesa"><i class="fas fa-bars"
+                        id="icono-menu-hamburguesa"></i></button>
             </div>
             <ul id="ul-nav">
                 <li><button type="button" class="boton-navegacion" id="volver-seccion-principal"
@@ -56,9 +57,11 @@
                         <div class="contenedor-opcion" id="opcion-1">
                             <div class="cuadro-comic">Sección Personajes...</div>
                             <div class="cuadro-comic-dialogo">
-                                <p class="texto-descripcion">En esta sección podrás acceder a todos los personajes Marvel.
+                                <p class="texto-descripcion">En esta sección podrás acceder a todos los personajes
+                                    Marvel.
                                     Clickeando en ellos
-                                    tendrás acceso a una breve descripción y podrás averiguar en qué comics se encuentran.
+                                    tendrás acceso a una breve descripción y podrás averiguar en qué comics se
+                                    encuentran.
                                 </p>
                             </div>
                             <button class="boton-onomatopeya" type="button" id="boton-seccion-personajes"><img
@@ -69,7 +72,8 @@
                         <div class="contenedor-opcion" id="opcion-2">
                             <div class="cuadro-comic">Haz tu propia búsqueda...</div>
                             <div class="cuadro-comic-dialogo">
-                                <p class="texto-descripcion">¿No encontraste el villano o superheroe que buscabas? Quizas no
+                                <p class="texto-descripcion">¿No encontraste el villano o superheroe que buscabas?
+                                    Quizas no
                                     sea de Marvel, no te des por vencido...</p>
                             </div>
                             <button class="boton-onomatopeya" type="button" id="boton-seccion-busqueda"><img
@@ -80,9 +84,11 @@
                         <div class="contenedor-opcion" id="opcion-3">
                             <div class="cuadro-comic">Sección Comics...</div>
                             <div class="cuadro-comic-dialogo">
-                                <p class="texto-descripcion">En esta sección podrás acceder a todos los títulos publicados
+                                <p class="texto-descripcion">En esta sección podrás acceder a todos los títulos
+                                    publicados
                                     por Marvel. Clickeando
-                                    en ellos tendrás acceso a información y podrás averiguar cuáles personajes se encuentran
+                                    en ellos tendrás acceso a información y podrás averiguar cuáles personajes se
+                                    encuentran
                                     en los mismos.</p>
                             </div>
                             <button class="boton-onomatopeya" type="button" id="boton-seccion-comics"><img
@@ -103,7 +109,8 @@
                         <label for="busqueda-personaje">Ingresa tu búsqueda</label>
                         <div class="input-icono">
                             <input type="text" id="busqueda-personaje">
-                            <button id="boton-busqueda-personaje"><i class="fas fa-search"></i></button>
+                            <button class="botones-busqueda" id="boton-busqueda-personaje"><i
+                                    class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
@@ -118,8 +125,9 @@
                 </div>
                 <div class="contenedor-nombre-descripcion">
                     <div class="cuadro-comic">Lo sentimos...</div>
-                    <p class= "texto-descripcion">No se encontraron resultados para tu búsqueda. Intenta de otra forma</p>
-                 </div>
+                    <p class="texto-descripcion">No se encontraron resultados para tu búsqueda. Intenta de otra forma
+                    </p>
+                </div>
             </div>
 
             <div class="contenedor-tarjetas-y-botones-paginado">
@@ -135,18 +143,46 @@
                             class="fas fa-angle-double-right"></i></button>
                 </div>
                 <div class="botones-paginado ocultar" id="botones-paginado-personajes-busqueda-por-input">
-                    <button type="button" class="boton-desplazamiento" id="pagina-anterior-personajes-por-busqueda-input"><i
-                            class="fas fa-angle-left"></i></button>
-                    <button type="button" class="boton-desplazamiento" id="pagina-siguiente-personajes-por-busqueda-input"><i
-                            class="fas fa-angle-right"></i></button>
+                    <button type="button" class="boton-desplazamiento"
+                        id="pagina-anterior-personajes-por-busqueda-input"><i class="fas fa-angle-left"></i></button>
+                    <button type="button" class="boton-desplazamiento"
+                        id="pagina-siguiente-personajes-por-busqueda-input"><i class="fas fa-angle-right"></i></button>
                 </div>
                 <p class="texto-derechos-reservados">Data provided by Marvel. © 2022 MARVEL</p>
             </div>
         </section>
 
         <!-- Seccion busqueda -->
-        <section class= "secciones ocultar" id="seccion-busqueda">
-            
+        <section class="secciones ocultar" id="seccion-busqueda">
+            <div class="row">
+                <div class="cuadro-comic">
+                    <h2>Busca por fuera de Marvel</h2>
+                </div>
+                <div class="column">
+                    <form>
+                        <label for="busqueda-superheroapi">Ingresa tu búsqueda</label>
+                        <div class="input-icono">
+                            <input type="text" id="busqueda-superheroapi">
+                            <button class="botones-busqueda" id="boton-busqueda-superheroapi"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="" id="resultado-busqueda-superheroapi">
+                <div id="contenedor-heroe-seleccionado"></div>
+            </div>
+            <div class="elemento-no-encontrado ocultar">
+                <div class="contenedor-imagen-sin-resultados">
+                    <img src="images/SinResultados.png" alt="Fantasma del espacio">
+                </div>
+                <div class="contenedor-nombre-descripcion">
+                    <div class="cuadro-comic">Lo sentimos...</div>
+                    <p class="texto-descripcion">No se encontraron resultados para tu búsqueda. Intenta de otra forma
+                    </p>
+                </div>
+            </div>
+
         </section>
         <!-- Seccion COMICS -->
         <section class="secciones ocultar" id="seccion-comics">
@@ -159,7 +195,8 @@
                         <label for="busqueda-comic">Ingresa tu búsqueda</label>
                         <div class="input-icono">
                             <input type="text" id="busqueda-comic">
-                            <button id="boton-busqueda-comic"><i class="fas fa-search"></i></button>
+                            <button class="botones-busqueda" id="boton-busqueda-comic"><i
+                                    class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
@@ -175,9 +212,9 @@
                 </div>
                 <div class="contenedor-nombre-descripcion">
                     <div class="cuadro-comic">Lo sentimos...</div>
-                    <p class= "texto-descripcion">No se encontraron resultados para tu búsqueda. Intenta de otra forma</p>
-                 </div>
-            </div>
+                    <p class="texto-descripcion">No se encontraron resultados para tu búsqueda. Intenta de otra forma
+                    </p>
+                </div>
             </div>
             <div class="contenedor-tarjetas-y-botones-paginado">
                 <div class="contenedor-tarjetas" id="contenedor-tarjetas-comics"></div>
@@ -194,8 +231,8 @@
                 <div class="botones-paginado ocultar" id="botones-paginado-comics-busqueda-por-input">
                     <button type="button" class="boton-desplazamiento" id="pagina-anterior-comics-por-busqueda-input"><i
                             class="fas fa-angle-left"></i></button>
-                    <button type="button" class="boton-desplazamiento" id="pagina-siguiente-comics-por-busqueda-input"><i
-                            class="fas fa-angle-right"></i></button>
+                    <button type="button" class="boton-desplazamiento"
+                        id="pagina-siguiente-comics-por-busqueda-input"><i class="fas fa-angle-right"></i></button>
                 </div>
                 <p class="texto-derechos-reservados">Data provided by Marvel. © 2022 MARVEL</p>
             </div>
@@ -224,5 +261,3 @@
 </body>
 
 </html>
-
-
