@@ -347,7 +347,7 @@ const busquedaPersonajePorNombre = (nombre) => {
 botonBusquedaPersonaje.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
-    busquedaPersonajeInput.length > 0
+    busquedaPersonajeInput.value.length > 0
     ? busquedaPersonajePorNombre(busquedaPersonajeInput.value)
     : imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
 };
@@ -482,6 +482,7 @@ const busquedaComicPorNombre = (nombre) => {
             }
             else {
                 ultimaPaginaComics = Math.floor(data.data.total / 20)
+                botonesPaginadoComicsBusquedaInput.classList.remove("ocultar")
                 listaDeComicsHTML(data.data.results)
                 asignarClickTarjetaComics()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -525,7 +526,7 @@ const asignarClickTarjetaComics = () => {
 botonBusquedaComic.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
-    busquedaComicInput.length > 0 
+    busquedaComicInput.value.length > 0 
     ? busquedaComicPorNombre(busquedaComicInput.value)
     : imprimirBusquedaSinResultados(contenedorTarjetasComics)
 };
