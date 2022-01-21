@@ -22,10 +22,18 @@
         max-width: 770px;
     }
 
+    #contenedor-tarjetas-personajes {
+        max-width: 420px;
+    }
+
     .nav-menu {
         ul {
             display: none;
         }
+    }
+
+    #contenedor-tarjetas-comics {
+        max-width: 540px;
     }
  }
 
@@ -55,6 +63,9 @@
     .imagen-personaje-lista-personajes {
         width: -webkit-fill-available;
         right: 0px;
+    }
+    #contenedor-tarjetas-comics {
+        max-width: 280px;
     }
  }
 

@@ -126,13 +126,10 @@ label {
   src: url("tipografias/Action-Man/Action_Man_Shaded.ttf"); }
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: black;
   padding: 30px;
   border-bottom: 2px solid white;
-  position: fixed;
-  width: 100%;
   z-index: 3; }
 
 .nav-menu ul {
@@ -500,8 +497,14 @@ footer {
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 770px; }
 
+  #contenedor-tarjetas-personajes {
+    max-width: 420px; }
+
   .nav-menu ul {
-    display: none; } }
+    display: none; }
+
+  #contenedor-tarjetas-comics {
+    max-width: 540px; } }
 @media (max-width: 575.98px) {
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 570px; }
@@ -522,7 +525,10 @@ footer {
 
   .imagen-personaje-lista-personajes {
     width: -webkit-fill-available;
-    right: 0px; } }
+    right: 0px; }
+
+  #contenedor-tarjetas-comics {
+    max-width: 280px; } }
 @media (max-width: 361px) {
   .imagen-personaje-lista-personajes {
     width: -webkit-fill-available;

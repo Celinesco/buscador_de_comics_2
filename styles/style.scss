@@ -28,13 +28,10 @@
 
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: black;
     padding: 30px;
     border-bottom: 2px solid white;
-    position: fixed;
-    width: 100%;
     z-index: 3;
 }
 
