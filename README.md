@@ -6,7 +6,7 @@
 
 ### Español
 
-![hecho con HTML5](https://img.shields.io/badge/hecho%20con-HTML5-orange)
+![hecho con HTML5](https://shields.io/badge/hecho%20con-HTML5-orange?logo=HTML5=plastic)
 ![hecho con SASS](https://shields.io/badge/hecho%20con-Sass-ff69b4?logo=sass&style=plastic)
 ![hecho con JavaScript](https://shields.io/badge/hecho%20con-JavaScript-f7df1e?logo=JavaScript&style=plastic)
 
