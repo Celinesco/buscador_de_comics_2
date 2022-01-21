@@ -325,6 +325,8 @@ const busquedaPersonajePorNombre = (nombre) => {
         .then(data => {
             infoPersonaje.classList.add("ocultar");
             if (data.data.results.length === 0) {
+                botonesPaginadoListaPersonajes.classList.add("ocultar")
+                botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar")
                 imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
             }
             else {
@@ -476,6 +478,8 @@ const busquedaComicPorNombre = (nombre) => {
         .then(data => {
             if (data.data.results.length === 0) {
                 infoComic.classList.add("ocultar")
+                botonesPaginadoListaComics.classList.add("ocultar")
+                botonesPaginadoComicsBusquedaInput.classList.add("ocultar")
                 imprimirBusquedaSinResultados(contenedorTarjetasComics)
             }
             else {
@@ -610,7 +614,7 @@ const obtenerIdSuperHeroApi = (input) => {
     fetch(`https://www.superheroapi.com/api.php/1777384219117173/search/${input}`)
     .then(res => res.json())
     .then(data => {
-        if (data.results.length === 0) {
+        if (data.response === "error") {
             imprimirBusquedaSinResultados(contenedorHeroeSeleccionado)
         }
         else {
