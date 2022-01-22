@@ -41,6 +41,7 @@ label {
   font-family: Roboto; }
 
 .boton-onomatopeya {
+  width: 80%;
   transition-property: width;
   transition-duration: 0.1s;
   animation-direction: alternate;
@@ -88,6 +89,9 @@ label {
   background-color: #ffbf0f;
   color: black; }
 
+.boton-onomatopeya:hover {
+  transform: scale(1.1); }
+
 @font-face {
   font-family: ActionManItalic;
   src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype"); }
@@ -124,7 +128,7 @@ h5 {
   width: 40vw; }
 
 .texto-presentacion {
-  font-family: ActionManBold;
+  font-family: ActionManItalic;
   color: white;
   margin: 20px;
   text-align: center;
@@ -152,7 +156,7 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100%;
   padding: 30px;
@@ -161,21 +165,80 @@ nav {
   .nav-menu-hamburguesa ul li {
     margin: 10px 0px; }
 
-.contenedor-imagen-superheroe {
-  max-width: 250px; }
-
-.fa-bars, .fa-times {
-  color: white; }
-
-.boton-navegacion {
+li button {
   color: white;
   font-family: Roboto; }
 
-.boton-onomatopeya:hover {
-  transform: scale(1.1); }
+.seccion-inicio {
+  background-image: url(../images/fondos/fondoBuscadorComic.svg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s; }
 
-.nav-links-hamburguesa {
-  margin-top: 20px; }
+.secciones {
+  background-image: url(../images/fondos/fondoBuscadorComic.svg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.8s; }
+
+.cuadro-comic {
+  border: 3px solid black;
+  font-family: ActionManItalic;
+  color: black;
+  background-color: #ffbf0f;
+  box-shadow: 6px 6px 0px 0px black;
+  padding: 20px;
+  margin: 20px; }
+
+.contenedor-opcion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 3px solid black;
+  font-family: ActionManItalic;
+  margin: 10px;
+  background-image: url(../images/fondos/tarjeta-roja-naranja.svg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 500px;
+  width: 300px; }
+
+#opcion-1 {
+  background-image: url(../images/fondos/fondo-tarjeta-violeta.svg);
+  background-attachment: local; }
+
+#opcion-3 {
+  background-image: url(../images/fondos/tarjeta-amarilla-punteada.svg);
+  background-attachment: local; }
+
+.contenedor-cargando {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px; }
+
+.contenedor-imagen-sin-resultados {
+  width: 200px;
+  padding: 20px; }
+
+.fa-bars, .fa-times {
+  color: white; }
 
 li button, li a {
   font-size: 1rem; }
@@ -205,44 +268,6 @@ footer {
   font-family: Roboto;
   color: white;
   font-size: 20px; }
-
-.texto-comic {
-  font-family: ActionManItalic; }
-
-.seccion-inicio {
-  background-image: url(../images/fondos/fondoBuscadorComic.svg);
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.6s; }
-
-.secciones {
-  background-image: url(../images/fondos/fondoBuscadorComic.svg);
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: 0.8s; }
-
-.contenedor-imagen-sin-resultados {
-  width: 200px;
-  padding: 20px; }
-
-.contenedor-cargando {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0px; }
 
 .cuadro-comic-dialogo {
   border: 3px solid black;
@@ -274,26 +299,6 @@ footer {
   box-shadow: 6px 6px 0px 0px black;
   margin: 20px; }
 
-.contenedor-opcion {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  border: 3px solid black;
-  font-family: ActionManItalic;
-  margin: 10px;
-  background-image: url(../images/fondos/tarjeta-roja-naranja.svg);
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 500px;
-  width: 300px; }
-
-#opcion-1 {
-  background-image: url(../images/fondos/fondo-tarjeta-violeta.svg);
-  background-attachment: local; }
-
 .fondo-texto {
   background-color: black;
   color: white;
@@ -306,24 +311,8 @@ footer {
   padding: 10px;
   text-align: center; }
 
-#opcion-3 {
-  background-image: url(../images/fondos/tarjeta-amarilla-punteada.svg);
-  background-attachment: local; }
-
-.cuadro-comic {
-  border: 3px solid black;
-  font-family: ActionManItalic;
-  color: black;
-  background-color: #ffbf0f;
-  box-shadow: 6px 6px 0px 0px black;
-  padding: 20px;
-  margin: 20px; }
-
 .ocultar {
   display: none; }
-
-.boton-onomatopeya {
-  width: 80%; }
 
 .row-centrar {
   display: flex;
