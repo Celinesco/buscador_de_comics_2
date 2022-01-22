@@ -53,8 +53,6 @@ label {
   color: black;
   background-color: #ffbf0f;
   box-shadow: 6px 6px 0px 0px black;
-  padding: 20px;
-  margin: 20px;
   margin: 5px;
   padding: 10px;
   font-size: 20px; }
@@ -432,7 +430,8 @@ footer {
 .column {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center;
+  align-items: normal; }
 
 .row {
   display: flex;
