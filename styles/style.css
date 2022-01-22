@@ -63,13 +63,22 @@ label {
   color: white;
   box-shadow: 3px 3px 0px 0px black; }
 
-.sombra {
-  box-shadow: 4px 22px 37px -20px #524c52; }
-
 .width-100 {
   width: 100%;
   display: flex;
   justify-content: center; }
+
+.fa-search {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 15px;
+  right: 0;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  height: 50px;
+  border-radius: 0px 5px 5px 0px; }
 
 @keyframes rotacion {
   from {
@@ -237,6 +246,11 @@ li button {
   background-image: url(../images/fondos/tarjeta-amarilla-punteada.svg);
   background-attachment: local; }
 
+.botones-busqueda {
+  position: relative;
+  display: flex;
+  align-items: center; }
+
 .cuadro-comic-dialogo {
   border: 3px solid black;
   background-color: white;
@@ -323,6 +337,16 @@ li button {
   transition: transform 0.3s;
   max-width: 150px;
   max-height: 320px; }
+  .personajes-del-comic img, .comics-del-personaje img {
+    box-shadow: 4px 22px 37px -20px #524c52; }
+
+.input-icono {
+  width: 100%;
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 10px; }
 
 .tarjeta-personaje {
   margin: 10px 5px;
@@ -398,9 +422,6 @@ footer {
   color: white;
   font-size: 20px; }
 
-.ocultar {
-  display: none; }
-
 .row-centrar {
   display: flex;
   flex-direction: row;
@@ -420,11 +441,15 @@ footer {
     color: black;
     line-height: 1.2; }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: normal; }
+.texto-derechos-reservados {
+  margin: 20px 0; }
+
+.info-superheroe {
+  margin: 5px;
+  font-family: Roboto; }
+
+.ocultar {
+  display: none; }
 
 .row {
   display: flex;
@@ -432,40 +457,11 @@ footer {
   justify-content: center;
   max-width: 700px; }
 
-.input-icono {
-  width: 100%;
-  margin: 10px 0px;
+.column {
   display: flex;
-  align-items: center;
-  border: 3px solid black;
-  border-radius: 10px; }
-
-.botones-busqueda {
-  position: relative;
-  display: flex;
-  align-items: center; }
-
-.fa-search {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  padding: 15px;
-  right: 0;
-  font-size: 20px;
-  background-color: black;
-  color: white;
-  height: 50px;
-  border-radius: 0px 5px 5px 0px; }
-
-.ocultar {
-  display: none; }
-
-.texto-derechos-reservados {
-  margin: 20px 0; }
-
-.info-superheroe {
-  margin: 5px;
-  font-family: Roboto; }
+  flex-direction: column;
+  justify-content: center;
+  align-items: normal; }
 
 @media (max-width: 991.98px) {
   .contenedor-tarjetas-y-botones-paginado {
