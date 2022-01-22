@@ -192,6 +192,17 @@ li {
     position: relative;
     transition: 2s;    
 }
+.contenedor-imagen-lista-personajes {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    img {
+        height: 100%;
+        width: auto;
+        position: relative;
+        right: 8px;
+    }
+}
 .fondo-texto {
     background-color: black;
     color: white;
@@ -261,23 +272,6 @@ footer {
     transition: 2s;
     cursor: pointer;
 }
-
-.contenedor-imagen-lista-personajes {
-    height: 240px;
-    overflow: hidden;
-    position: relative;
-    img {
-        height: 100%;
-        width: auto;
-        position: relative;
-        right: 8px;
-    }
-}
-
-.nombre-elemento {
-    margin-bottom: 0;
-}
-
 .contenedor-imagen-lista-comics {
     height: 380px;
     position: relative;
