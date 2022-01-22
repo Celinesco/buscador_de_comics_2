@@ -76,7 +76,6 @@ nav {
     border-bottom: 2px solid white;
     z-index: 3;
 }
-
 .nav-menu {
     ul {
        display: flex;
@@ -95,7 +94,19 @@ nav {
             margin: 10px 0px;
         }
     }
-    
+}
+.seccion-inicio {
+    background-image: url(../images/fondos/fondoBuscadorComic.svg);
+    @include imagen-fondo();
+    @include flex-centrar();
+    transition: transform 0.6s;
+}
+
+.secciones {
+    background-image: url(../images/fondos/fondoBuscadorComic.svg);
+    @include imagen-fondo();
+    @include flex-centrar();
+    transition: 0.8s;
 }
 
 .contenedor-imagen-superheroe {
@@ -117,9 +128,6 @@ nav {
     transform: scale(1.1)
 }
 
-.nav-links-hamburguesa {
-    margin-top: 20px
-}
 
 li button, li a {
     font-size: 1rem;
@@ -153,19 +161,7 @@ footer {
 }
 
 
-.seccion-inicio {
-    background-image: url(../images/fondos/fondoBuscadorComic.svg);
-    @include imagen-fondo();
-    @include flex-centrar();
-    transition: transform 0.6s;
-}
 
-.secciones {
-    background-image: url(../images/fondos/fondoBuscadorComic.svg);
-    @include imagen-fondo();
-    @include flex-centrar();
-    transition: 0.8s;
-}
 
 
 
