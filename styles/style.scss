@@ -171,8 +171,12 @@ li {
     @include flex-centrar();
     margin: 20px 0px;
 }
-.contenedor-imagen-sin-resultados {
-    width: 200px;
+.busqueda-sin-resultados {
+    display: flex;
+    max-width: 650px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
     padding: 20px;
 }
 .borde-blanco {
@@ -209,6 +213,17 @@ li {
     padding: 10px;
     text-align: center;
 }
+.personajes-del-comic, .comics-del-personaje  {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 5px;
+    transition: transform 0.3s;
+    max-width: 150px;
+    max-height: 320px;
+}
+
+
 // seccion personajes
 .tarjeta-personaje {
     margin: 10px 5px;
@@ -228,6 +243,34 @@ li {
         right: 8px;
     }
 }
+.personaje-seleccionado {
+    @include flex-centrar($direccion:row, $content: flex-start, $align:flex-start);
+}
+.comics-del-personaje {
+    height: 330px;
+}
+
+
+// seccion comics
+
+.tarjeta-comic {
+    height: 350px;
+    width: 249px;
+    margin:  0px 10px 130px 10px;
+    transition: 2s;
+    cursor: pointer;
+}
+.contenedor-imagen-lista-comics {
+    height: 380px;
+    position: relative;
+    img {
+        height: 100%;
+    }
+}
+.personajes-del-comic {
+    height: 200px;
+}
+
 
 
 
@@ -281,30 +324,9 @@ footer {
 
 
 
-.tarjeta-comic {
-    height: 350px;
-    width: 249px;
-    margin:  0px 10px 130px 10px;
-    transition: 2s;
-    cursor: pointer;
-}
-.contenedor-imagen-lista-comics {
-    height: 380px;
-    position: relative;
-    img {
-        height: 100%;
-    }
-}
 
 
 
-.personaje-seleccionado {
-    @include flex-centrar($direccion:row, $content: flex-start, $align:flex-start);
-}
-
-.comics-personaje-seleccionado {
-    @include flex-centrar()
-}
 
 
 
@@ -318,11 +340,6 @@ footer {
     }
 }
 
-.imagen-personaje-lista-personaje {
-    margin-bottom: 20px;
-    transition: 0.2s;
-}
-
 .column {
     @include flex-centrar($align:normal);
 }
@@ -334,26 +351,9 @@ footer {
     max-width: 700px;
 }
 
-.personajes-del-comic, .comics-del-personaje  {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 10px 5px;
-    transition: transform 0.3s;
-    max-width: 150px;
-    max-height: 320px;
-}
 
 
 
-
-.personajes-del-comic {
-    height: 200px;
-}
-
-.comics-del-personaje {
-    height: 330px;
-}
 
 .input-icono {
     width: 100%;
@@ -383,14 +383,7 @@ footer {
     border-radius: 0px 5px 5px 0px;
 }
 
-.elemento-no-encontrado {
-    display: flex;
-    max-width: 650px;
-    background-color: white;
-    border: 3px solid black;
-    border-radius: 5px;
-    padding: 20px;
-}
+
 
 .ocultar {
     display: none
