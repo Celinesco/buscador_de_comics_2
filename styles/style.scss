@@ -92,11 +92,19 @@ nav {
         }
     }
 }
+.izquierda-menu-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 li {
     button {
         color: white;
         font-family: $tipografia-secundaria;
     }
+}
+li button, li a {
+    font-size: 1rem;
 }
 .seccion-inicio {
     background-image: url(../images/fondos/fondoBuscadorComic.svg);
@@ -230,13 +238,13 @@ li {
         box-shadow: 4px 22px 37px -20px rgba(82,76,82,1);
     }
 }
-.input-icono {
-    width: 100%;
-    margin: 10px 0px;
-    display: flex;
-    align-items: center;
-    border: 3px solid black;
-    border-radius: 10px;
+.contenedor-info-para-usuario {
+    padding: 20px;
+    p {
+        font-family: ActionManRegular;
+        color: $color-principal-fondos-claros;
+        line-height: 1.2;
+    }
 }
 
 // seccion personajes
@@ -283,17 +291,14 @@ li {
 .personajes-del-comic {
     height: 200px;
 }
-
-
-
-
-.fa-bars , .fa-times {
-    color: white;
+.texto-derechos-reservados {
+    margin: 20px 0
 }
-li button, li a {
-    font-size: 1rem;
+// seccion buscar
+.info-superheroe {
+    margin: 5px;
+    font-family: $tipografia-secundaria
 }
-
 footer {
     background-color: $fondo-navbar-footer;
     @include flex-centrar();
@@ -301,7 +306,6 @@ footer {
     height: 20vh;
     border-top: 2px solid white;
 }
-
 .footer-social-icons {
     @include flex-centrar($direccion:row);
 }
@@ -310,48 +314,17 @@ footer {
     margin: 10px;
     cursor: pointer;
 }
-
 .texto-footer {
     font-family: $tipografia-secundaria;
     color:$color-principal-fondos-oscuros;
     font-size: 20px;
 }
 
-
-
+//clases auxiliares
 .row-centrar {
     @include flex-centrar($direccion:row);
     flex-wrap: wrap;
 }
-
-.contenedor-boton-cerrar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.contenedor-nombre-descripcion {
-    padding: 20px;
-    p {
-        font-family: ActionManRegular;
-        color: $color-principal-fondos-claros;
-        line-height: 1.2;
-    }
-}
-
-
-
-
-.texto-derechos-reservados {
-    margin: 20px 0
-}
-
-.info-superheroe {
-    margin: 5px;
-    font-family: $tipografia-secundaria
-}
-
-//clases auxiliares
 .ocultar {
     display: none
 }
@@ -364,6 +337,5 @@ footer {
 .column {
     @include flex-centrar($align:normal);
 }
-
 
 @import "breakpoints";

@@ -664,7 +664,7 @@ const imprimirHeroeSeleccionado = (heroe) => {
                 <div class="contenedor-imagen-superheroe">
                     <img src="${heroe.image.url}" alt="Imagen de${heroe.name}">
                 </div>
-                <div class="contenedor-nombre-descripcion">
+                <div class="contenedor-info-para-usuario">
                     <h3>${heroe.name}</h3>
                     <p class="info-superheroe"><u>Nombre verdadero:</u> ${heroe.biography['full-name']}</p>
                     <p class="info-superheroe"><u>Raza:</u> ${heroe.appearance['race']}</p>
@@ -718,7 +718,7 @@ const imprimirPersonajesDelComic = (comic) => {
     }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Personajes presentes en este comic</h3><div class="row-centrar">`)
 
     contenedorPersonajesDelComicSeleccionado.innerHTML = html + `</div>
-    <div class="width-100">
+    <div class="row-centrar">
         <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-atras"><i class="fas fa-angle-left"></i></button>
         <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-adelante"><i class="fas fa-angle-right"></i></button></div>
     </div>
@@ -752,7 +752,7 @@ const imprimirPersonaje = (personaje) => {
                 <div class="contenedor-imagen-objeto-seleccionado">
                     <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
                 </div>
-                <div class="contenedor-nombre-descripcion">
+                <div class="contenedor-info-para-usuario">
                     <h3>${element.name}</h3>
                     <p>${element.description}</p>
                 </div>
@@ -772,7 +772,7 @@ const imprimirComicHTML = (comic) => {
                 <div class="contenedor-imagen-objeto-seleccionado">
                     <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.title}">
                 </div>
-                <div class="contenedor-nombre-descripcion">
+                <div class="contenedor-info-para-usuario">
                     <h3>${element.title}</h3>
                     <p>${element.description !== null ? element.description : "" }</p>
                 </div>
@@ -795,7 +795,7 @@ const imprimirComicsDePersonaje = (comic) => {
     }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Comics donde se encuentra</h3><div class="row-centrar">`)
 
     contenedorComicsDePersonajeSeleccionado.innerHTML = html + `</div>
-    <div class="width-100">
+    <div class="row-centrar">
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-atras"><i class="fas fa-angle-left"></i></button>
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-adelante"><i class="fas fa-angle-right"></i></button></div>
     </div>
@@ -820,7 +820,7 @@ const imprimirBusquedaSinResultados = (contenedorDom) => {
     <div class="contenedor-imagen-sin-resultados">
         <img src="images/SinResultados.png" alt="Fantasma del espacio">
     </div>
-    <div class="contenedor-nombre-descripcion">
+    <div class="contenedor-info-para-usuario">
         <div class="cuadro-comic">Lo sentimos...</div>
         <p class="texto-descripcion">No se encontraron resultados para tu búsqueda. Intenta de otra forma
         </p>
