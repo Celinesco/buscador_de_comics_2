@@ -18,9 +18,8 @@ También utilicé imágenes e íconos de:
 [FontAwesome](https://fontawesome.com/)\
 
 
-
-La aplicación permite buscar superhéroes o comics de Marvel, ofreciendo una breve descripción de los mismos (siempre y cuando la información esté disponible en la API )
-[Pruébala aquí!](https://celinesco.github.io/BuscadorDeComics/) 
+La aplicación permite buscar superhéroes o comics de Marvel, ofreciendo una breve descripción de los mismos (siempre y cuando la información esté disponible en la API ), además de algunos superhéroes extra, que no se encuentran en Marvel. 
+[Pruébala aquí!](https://celinesco.github.io/buscador_de_comics_2/) 
 
 
 
