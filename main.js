@@ -816,7 +816,7 @@ const imprimirCargando = (elementoDom) => {
 
 
 const imprimirBusquedaSinResultados = (contenedorDom) => {
-    const html = ` <div class="elemento-no-encontrado busqueda-sin-resultados">
+    const html = ` <div class="busqueda-sin-resultados">
     <div class="contenedor-imagen-sin-resultados">
         <img src="images/SinResultados.png" alt="Fantasma del espacio">
     </div>
