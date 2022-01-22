@@ -710,7 +710,7 @@ const imprimirPersonajesDelComic = (comic) => {
         return acc + `
         <div class="personajes-del-comic">
             <div>
-                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" class="sombra" alt="Comic: ${element.name}">
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic: ${element.name}">
             </div>
                 <h5>${element.name}</h5>
         </div>
@@ -787,7 +787,7 @@ const imprimirComicsDePersonaje = (comic) => {
         return acc + `
         <div class="comics-del-personaje">
             <div>
-                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" class="sombra" alt="Comic: ${element.title}">
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic: ${element.title}">
             </div>
                 <h5>${element.title}</h5>
         </div>

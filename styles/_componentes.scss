@@ -24,12 +24,21 @@
     box-shadow: 3px 3px 0px 0px rgb(0,0,0);
 }
 
-.sombra {
-    box-shadow: 4px 22px 37px -20px rgba(82,76,82,1);;
-}
-
 .width-100 {
     width:100%;
     display: flex;
     justify-content: center
+}
+
+.fa-search {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding: 15px;
+    right: 0;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border-radius: 0px 5px 5px 0px;
 }

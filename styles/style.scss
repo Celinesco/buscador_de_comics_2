@@ -143,6 +143,11 @@ li {
 }
 
 // Elementos presentes en dos o mas secciones
+.botones-busqueda {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 .cuadro-comic-dialogo {
     border: $bordes-tarjetas-estilo-comic;
     background-color: white;
@@ -221,8 +226,18 @@ li {
     transition: transform 0.3s;
     max-width: 150px;
     max-height: 320px;
+    img {
+        box-shadow: 4px 22px 37px -20px rgba(82,76,82,1);
+    }
 }
-
+.input-icono {
+    width: 100%;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 10px;
+}
 
 // seccion personajes
 .tarjeta-personaje {
@@ -250,9 +265,7 @@ li {
     height: 330px;
 }
 
-
 // seccion comics
-
 .tarjeta-comic {
     height: 350px;
     width: 249px;
@@ -305,9 +318,6 @@ footer {
 }
 
 
-.ocultar {
-    display: none
-}
 
 .row-centrar {
     @include flex-centrar($direccion:row);
@@ -320,17 +330,6 @@ footer {
     justify-content: space-between;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .contenedor-nombre-descripcion {
     padding: 20px;
     p {
@@ -340,54 +339,8 @@ footer {
     }
 }
 
-.column {
-    @include flex-centrar($align:normal);
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 700px;
-}
 
 
-
-
-
-.input-icono {
-    width: 100%;
-    margin: 10px 0px;
-    display: flex;
-    align-items: center;
-    border: 3px solid black;
-    border-radius: 10px;
-}
-
-.botones-busqueda {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.fa-search {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    padding: 15px;
-    right: 0;
-    font-size: 20px;
-    background-color: black;
-    color: white;
-    height: 50px;
-    border-radius: 0px 5px 5px 0px;
-}
-
-
-
-.ocultar {
-    display: none
-}
 
 .texto-derechos-reservados {
     margin: 20px 0
@@ -397,5 +350,20 @@ footer {
     margin: 5px;
     font-family: $tipografia-secundaria
 }
+
+//clases auxiliares
+.ocultar {
+    display: none
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 700px;
+}
+.column {
+    @include flex-centrar($align:normal);
+}
+
 
 @import "breakpoints";
