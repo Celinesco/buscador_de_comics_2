@@ -3,7 +3,6 @@
 @import "reset";
 @import "componentes";
 @import "animaciones";
-@import "hoveryfocus";
 
 
 @font-face {
@@ -50,6 +49,20 @@ h5 {
     font-size: 15px;
     margin: 15px 0;
 }
+
+h2 {
+    font-size: 3em;
+    margin: 10px;
+    font-family: $tipografia-principal-sombreada;
+    color: $color-principal-fondos-claros;
+}
+
+
+
+h4 {
+    font-family: $tipografia-principal-regular;
+}
+
 
 
 .nav-menu {
