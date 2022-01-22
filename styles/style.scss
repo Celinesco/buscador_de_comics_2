@@ -266,9 +266,7 @@ footer {
 }
 
 .row-centrar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-centrar($direccion:row);
     flex-wrap: wrap;
 }
 
@@ -372,9 +370,7 @@ footer {
 }
 
 .column {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
+    @include flex-centrar($align:normal);
 }
 
 .row {
@@ -383,7 +379,6 @@ footer {
     justify-content: center;
     max-width: 700px;
 }
-
 
 .personajes-del-comic, .comics-del-personaje  {
     display: flex;
@@ -408,7 +403,6 @@ footer {
     height: 330px;
 }
 
-
 .input-icono {
     width: 100%;
     margin: 10px 0px;
@@ -423,7 +417,6 @@ footer {
     display: flex;
     align-items: center;
 }
-
 
 .fa-search {
     display: flex;
