@@ -193,6 +193,14 @@ li button {
   align-items: center;
   transition: 0.8s; }
 
+.contenido-seccion-principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5%;
+  flex-wrap: wrap; }
+
 .cuadro-comic {
   border: 3px solid black;
   font-family: ActionManItalic;
@@ -226,6 +234,16 @@ li button {
   background-image: url(../images/fondos/tarjeta-amarilla-punteada.svg);
   background-attachment: local; }
 
+.cuadro-comic-dialogo {
+  border: 3px solid black;
+  background-color: white;
+  padding: 10px;
+  margin: 0 10px; }
+  .cuadro-comic-dialogo p {
+    font-family: ActionManRegular;
+    color: black;
+    line-height: 1.2; }
+
 .contenedor-cargando {
   display: flex;
   flex-direction: column;
@@ -236,6 +254,30 @@ li button {
 .contenedor-imagen-sin-resultados {
   width: 200px;
   padding: 20px; }
+
+.borde-blanco {
+  background-color: white;
+  margin: 10px;
+  box-shadow: 6px 6px 0px 0px black; }
+
+.borde-blanco-tarjeta-personaje {
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 5px;
+  box-shadow: 6px 6px 0px 0px black;
+  margin: 20px; }
+
+.fondo-texto {
+  background-color: black;
+  color: white;
+  height: 50px;
+  position: relative;
+  top: 0px;
+  height: 80px;
+  padding: 10px 0px;
+  border-top: 6px solid #ffbf0f;
+  padding: 10px;
+  text-align: center; }
 
 .fa-bars, .fa-times {
   color: white; }
@@ -268,48 +310,6 @@ footer {
   font-family: Roboto;
   color: white;
   font-size: 20px; }
-
-.cuadro-comic-dialogo {
-  border: 3px solid black;
-  background-color: white;
-  padding: 10px;
-  margin: 0 10px; }
-  .cuadro-comic-dialogo p {
-    font-family: ActionManRegular;
-    color: black;
-    line-height: 1.2; }
-
-.contenido-seccion-principal {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 5%;
-  flex-wrap: wrap; }
-
-.borde-blanco {
-  background-color: white;
-  margin: 10px;
-  box-shadow: 6px 6px 0px 0px black; }
-
-.borde-blanco-tarjeta-personaje {
-  background-color: white;
-  border: 10px solid white;
-  border-radius: 5px;
-  box-shadow: 6px 6px 0px 0px black;
-  margin: 20px; }
-
-.fondo-texto {
-  background-color: black;
-  color: white;
-  height: 50px;
-  position: relative;
-  top: 0px;
-  height: 80px;
-  padding: 10px 0px;
-  border-top: 6px solid #ffbf0f;
-  padding: 10px;
-  text-align: center; }
 
 .ocultar {
   display: none; }
