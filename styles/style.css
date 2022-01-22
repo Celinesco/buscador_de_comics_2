@@ -7,15 +7,6 @@ section {
   padding: 110px 40px 130px;
   height: 100%; }
 
-h2 {
-  font-size: 3em;
-  margin: 10px;
-  font-family: Actionmanshadded;
-  color: black; }
-
-h4 {
-  font-family: ActionManRegular; }
-
 body, html {
   height: 100%; }
 
@@ -99,9 +90,6 @@ label {
   background-color: #ffbf0f;
   color: black; }
 
-.boton-onomatopeya:hover {
-  transform: scale(1.1); }
-
 @font-face {
   font-family: ActionManItalic;
   src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype"); }
@@ -135,6 +123,15 @@ h5 {
   font-size: 15px;
   margin: 15px 0; }
 
+h2 {
+  font-size: 3em;
+  margin: 10px;
+  font-family: Actionmanshadded;
+  color: black; }
+
+h4 {
+  font-family: ActionManRegular; }
+
 .nav-menu ul {
   display: flex;
   flex-direction: row;
@@ -164,6 +161,9 @@ h5 {
   transition-duration: 0.6s; }
   .nav-menu-hamburguesa ul li {
     margin: 10px 0px; }
+
+.boton-onomatopeya:hover {
+  transform: scale(1.1); }
 
 .nav-links-hamburguesa {
   margin-top: 20px; }
@@ -380,15 +380,14 @@ footer {
   height: 240px;
   overflow: hidden;
   position: relative; }
+  .contenedor-imagen-lista-personajes img {
+    height: 100%;
+    width: auto;
+    position: relative;
+    right: 8px; }
 
 .imagen-personaje-lista-comics {
   height: 100%; }
-
-.imagen-personaje-lista-personajes {
-  height: 100%;
-  width: auto;
-  position: relative;
-  right: 8px; }
 
 .nombre-elemento {
   margin-bottom: 0; }

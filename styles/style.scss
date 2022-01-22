@@ -313,18 +313,19 @@ footer {
     height: 240px;
     overflow: hidden;
     position: relative;
+    img {
+        height: 100%;
+        width: auto;
+        position: relative;
+        right: 8px;
+    }
 }
 
 .imagen-personaje-lista-comics {
     height: 100%;
 }
 
-.imagen-personaje-lista-personajes {
-    height: 100%;
-    width: auto;
-    position: relative;
-    right: 8px;
-}
+
 
 .nombre-elemento {
     margin-bottom: 0;
