@@ -152,6 +152,19 @@ li {
         line-height: 1.2;
     }
 }
+.contenedor-tarjetas-y-botones-paginado {
+    @include flex-centrar();
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border: $bordes-tarjetas-estilo-comic;
+    box-shadow: $sombra-tarjetas-estilo-comic;
+    max-width: 1200px;
+}
+.contenedor-tarjetas {
+    @include flex-centrar($direccion:row);
+    flex-wrap: wrap;
+}
 .contenedor-cargando {
     @include flex-centrar();
     margin: 20px 0px;
@@ -172,14 +185,19 @@ li {
     box-shadow: 6px 6px 0px 0px black;
     margin: 20px;
 }
+.tarjeta-personaje {
+    margin: 10px 5px;
+    cursor: pointer;
+    width: 200px;
+    position: relative;
+    transition: 2s;    
+}
 .fondo-texto {
     background-color: black;
     color: white;
-    height: 50px;
     position: relative;
     top: 0px;
     height: 80px;
-    padding: 10px 0px;
     border-top: 6px solid $color-fondo-principal;
     padding: 10px;
     text-align: center;
@@ -217,24 +235,6 @@ footer {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .ocultar {
     display: none
 }
@@ -250,28 +250,9 @@ footer {
     justify-content: space-between;
 }
 
-.contenedor-tarjetas-y-botones-paginado {
-    margin-top: 40px;
-    padding: 20px;
-    @include flex-centrar();
-    background-color: white;
-    border: $bordes-tarjetas-estilo-comic;
-    box-shadow: $sombra-tarjetas-estilo-comic;
-    max-width: 1200px;
-}
 
-.contenedor-tarjetas {
-    @include flex-centrar($direccion:row);
-    flex-wrap: wrap;
-}
 
-.tarjeta-personaje {
-    margin: 10px 5px;
-    cursor: pointer;
-    width: 200px;
-    position: relative;
-    transition: 2s;    
-}
+
 
 .tarjeta-comic {
     height: 350px;
@@ -365,9 +346,7 @@ footer {
 }
 
 
-.comics-del-personaje:hover, .personajes-del-comic:hover {
-    transform:translateY(-6px)
-}
+
 
 .personajes-del-comic {
     height: 200px;

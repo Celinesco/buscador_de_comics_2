@@ -7,28 +7,26 @@
       transform: rotate(5deg)
     }
   }
-
 .trasladar-hacia-arriba {
     transform: translateY(-100%);
 }
-
 .trasladar-hacia-abajo {
     transform: translateY(100%);
 }
-
 .rotacion-y {
     transform: rotateY(360deg);
 }
-
 .tarjeta-comic:hover, .tarjeta-personaje:hover {
     .fondo-texto {
         background-color: #ffbf0f;
         color: black;
     }
 }
-
 .boton-onomatopeya:hover {
     transform: scale(1.1)
+}
+.comics-del-personaje:hover, .personajes-del-comic:hover {
+    transform:translateY(-6px)
 }
 
 

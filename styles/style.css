@@ -270,11 +270,9 @@ li button {
 .fondo-texto {
   background-color: black;
   color: white;
-  height: 50px;
   position: relative;
   top: 0px;
   height: 80px;
-  padding: 10px 0px;
   border-top: 6px solid #ffbf0f;
   padding: 10px;
   text-align: center; }
