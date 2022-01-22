@@ -695,7 +695,7 @@ const listaDeComicsHTML = (comic) => {
         return acc + `
         <a href="#seccion-comics" class="tarjeta-comic" data-id=${element.id}>
             <div class="contenedor-imagen-lista-comics">
-                <img class="imagen-personaje-lista-comics" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
             </div>
             <div class= "fondo-texto row-centrar">
                 <h4 class="nombre-personaje">${element.title}</h4>

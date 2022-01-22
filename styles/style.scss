@@ -178,17 +178,16 @@ footer {
     text-align: center;
 }
 
-.texto-descripcion {
-    font-family: ActionManRegular;
-    color: $color-principal-fondos-claros;
-    line-height: 1.2;
-}
-
 .cuadro-comic-dialogo {
     border: $bordes-tarjetas-estilo-comic;
     background-color: white;
     padding: 10px;
     margin: 0 10px;
+    p {
+        font-family: ActionManRegular;
+        color: $color-principal-fondos-claros;
+        line-height: 1.2;
+    }
 }
 
 .contenedor-boton-inicio {
@@ -307,8 +306,6 @@ footer {
     cursor: pointer;
 }
 
-
-
 .contenedor-imagen-lista-personajes {
     height: 240px;
     overflow: hidden;
@@ -321,12 +318,6 @@ footer {
     }
 }
 
-.imagen-personaje-lista-comics {
-    height: 100%;
-}
-
-
-
 .nombre-elemento {
     margin-bottom: 0;
 }
@@ -334,6 +325,9 @@ footer {
 .contenedor-imagen-lista-comics {
     height: 380px;
     position: relative;
+    img {
+        height: 100%;
+    }
 }
 
 .contenedor-elemento-seleccionado {
@@ -358,7 +352,6 @@ footer {
     display: flex;
     border: $bordes-tarjetas-estilo-comic;
     max-width: 250px;
-    
 }
 
 .contenedor-nombre-descripcion {
@@ -369,7 +362,6 @@ footer {
     margin-bottom: 20px;
     transition: 0.2s;
 }
-
 
 .column {
    display: flex;

@@ -244,16 +244,15 @@ footer {
   margin: 20px;
   text-align: center; }
 
-.texto-descripcion {
-  font-family: ActionManRegular;
-  color: black;
-  line-height: 1.2; }
-
 .cuadro-comic-dialogo {
   border: 3px solid black;
   background-color: white;
   padding: 10px;
   margin: 0 10px; }
+  .cuadro-comic-dialogo p {
+    font-family: ActionManRegular;
+    color: black;
+    line-height: 1.2; }
 
 .contenedor-boton-inicio {
   width: 15vw;
@@ -386,15 +385,14 @@ footer {
     position: relative;
     right: 8px; }
 
-.imagen-personaje-lista-comics {
-  height: 100%; }
-
 .nombre-elemento {
   margin-bottom: 0; }
 
 .contenedor-imagen-lista-comics {
   height: 380px;
   position: relative; }
+  .contenedor-imagen-lista-comics img {
+    height: 100%; }
 
 .contenedor-elemento-seleccionado {
   max-width: 900px;
