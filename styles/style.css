@@ -92,6 +92,9 @@ label {
 .boton-onomatopeya:hover {
   transform: scale(1.1); }
 
+.comics-del-personaje:hover, .personajes-del-comic:hover {
+  transform: translateY(-6px); }
+
 @font-face {
   font-family: ActionManItalic;
   src: url("tipografias/Action-Man/Action_Man_Italic.ttf") format("opentype"); }
@@ -244,6 +247,25 @@ li button {
     color: black;
     line-height: 1.2; }
 
+.contenedor-tarjetas-y-botones-paginado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: white;
+  border: 3px solid black;
+  box-shadow: 6px 6px 0px 0px black;
+  max-width: 1200px; }
+
+.contenedor-tarjetas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
 .contenedor-cargando {
   display: flex;
   flex-direction: column;
@@ -267,6 +289,18 @@ li button {
   box-shadow: 6px 6px 0px 0px black;
   margin: 20px; }
 
+.contenedor-elemento-seleccionado {
+  max-width: 900px;
+  background-color: #ebd096;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 20px; }
+
+.contenedor-imagen-objeto-seleccionado {
+  display: flex;
+  border: 3px solid black;
+  max-width: 250px; }
+
 .fondo-texto {
   background-color: black;
   color: white;
@@ -276,6 +310,23 @@ li button {
   border-top: 6px solid #ffbf0f;
   padding: 10px;
   text-align: center; }
+
+.tarjeta-personaje {
+  margin: 10px 5px;
+  cursor: pointer;
+  width: 200px;
+  position: relative;
+  transition: 2s; }
+
+.contenedor-imagen-lista-personajes {
+  height: 240px;
+  overflow: hidden;
+  position: relative; }
+  .contenedor-imagen-lista-personajes img {
+    height: 100%;
+    width: auto;
+    position: relative;
+    right: 8px; }
 
 .fa-bars, .fa-times {
   color: white; }
@@ -324,32 +375,6 @@ footer {
   display: flex;
   justify-content: space-between; }
 
-.contenedor-tarjetas-y-botones-paginado {
-  margin-top: 40px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border: 3px solid black;
-  box-shadow: 6px 6px 0px 0px black;
-  max-width: 1200px; }
-
-.contenedor-tarjetas {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; }
-
-.tarjeta-personaje {
-  margin: 10px 5px;
-  cursor: pointer;
-  width: 200px;
-  position: relative;
-  transition: 2s; }
-
 .tarjeta-comic {
   height: 350px;
   width: 249px;
@@ -357,31 +382,11 @@ footer {
   transition: 2s;
   cursor: pointer; }
 
-.contenedor-imagen-lista-personajes {
-  height: 240px;
-  overflow: hidden;
-  position: relative; }
-  .contenedor-imagen-lista-personajes img {
-    height: 100%;
-    width: auto;
-    position: relative;
-    right: 8px; }
-
-.nombre-elemento {
-  margin-bottom: 0; }
-
 .contenedor-imagen-lista-comics {
   height: 380px;
   position: relative; }
   .contenedor-imagen-lista-comics img {
     height: 100%; }
-
-.contenedor-elemento-seleccionado {
-  max-width: 900px;
-  background-color: #ebd096;
-  border: 3px solid black;
-  border-radius: 5px;
-  padding: 20px; }
 
 .personaje-seleccionado {
   display: flex;
@@ -394,11 +399,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
-
-.contenedor-imagen-objeto-seleccionado {
-  display: flex;
-  border: 3px solid black;
-  max-width: 250px; }
 
 .contenedor-nombre-descripcion {
   padding: 20px; }
@@ -431,9 +431,6 @@ footer {
   transition: transform 0.3s;
   max-width: 150px;
   max-height: 320px; }
-
-.comics-del-personaje:hover, .personajes-del-comic:hover {
-  transform: translateY(-6px); }
 
 .personajes-del-comic {
   height: 200px; }
