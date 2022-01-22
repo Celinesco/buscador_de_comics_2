@@ -753,7 +753,7 @@ const imprimirPersonaje = (personaje) => {
                     <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="imagen de ${element.name}">
                 </div>
                 <div class="contenedor-nombre-descripcion">
-                    <h3 class="nombre-elemento">${element.name}</h3>
+                    <h3>${element.name}</h3>
                     <p>${element.description}</p>
                 </div>
             </div>
