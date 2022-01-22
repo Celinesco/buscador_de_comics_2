@@ -163,6 +163,7 @@ primerPagListaComics.style.background = "grey";
 volverSeccionPrincipal.onclick = () => {
     seccionComics.classList.add("ocultar");
     seccionPersonajes.classList.add("ocultar");
+    seccionBusqueda.classList.add("ocultar")
     seccionPrincipal.classList.remove("ocultar");
     seccionPrincipal.style.opacity = "100";
     cerrarMenuHamburguesa()
