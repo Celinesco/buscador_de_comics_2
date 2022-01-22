@@ -119,7 +119,7 @@ li {
     border: $bordes-tarjetas-estilo-comic;
     font-family: $tipografia-principal-italic;
     color: $color-principal-fondos-claros;
-    background-color: $fondo-tarjetas-aclaraciones;
+    background-color: $color-fondo-principal;
     box-shadow: $sombra-tarjetas-estilo-comic;
     padding: 20px;
     margin: 20px;
@@ -180,7 +180,7 @@ li {
     top: 0px;
     height: 80px;
     padding: 10px 0px;
-    border-top: 6px solid #ffbf0f;
+    border-top: 6px solid $color-fondo-principal;
     padding: 10px;
     text-align: center;
 }
