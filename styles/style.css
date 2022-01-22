@@ -63,10 +63,8 @@ label {
   color: white;
   box-shadow: 3px 3px 0px 0px black; }
 
-.width-100 {
-  width: 100%;
-  display: flex;
-  justify-content: center; }
+.fa-bars, .fa-times {
+  color: white; }
 
 .fa-search {
   display: flex;
@@ -79,6 +77,14 @@ label {
   color: white;
   height: 50px;
   border-radius: 0px 5px 5px 0px; }
+
+.input-icono {
+  width: 100%;
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 10px; }
 
 @keyframes rotacion {
   from {
@@ -177,9 +183,17 @@ nav {
   .nav-menu-hamburguesa ul li {
     margin: 10px 0px; }
 
+.izquierda-menu-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+
 li button {
   color: white;
   font-family: Roboto; }
+
+li button, li a {
+  font-size: 1rem; }
 
 .seccion-inicio {
   background-image: url(../images/fondos/fondoBuscadorComic.svg);
@@ -340,13 +354,12 @@ li button {
   .personajes-del-comic img, .comics-del-personaje img {
     box-shadow: 4px 22px 37px -20px #524c52; }
 
-.input-icono {
-  width: 100%;
-  margin: 10px 0px;
-  display: flex;
-  align-items: center;
-  border: 3px solid black;
-  border-radius: 10px; }
+.contenedor-info-para-usuario {
+  padding: 20px; }
+  .contenedor-info-para-usuario p {
+    font-family: ActionManRegular;
+    color: black;
+    line-height: 1.2; }
 
 .tarjeta-personaje {
   margin: 10px 5px;
@@ -390,11 +403,12 @@ li button {
 .personajes-del-comic {
   height: 200px; }
 
-.fa-bars, .fa-times {
-  color: white; }
+.texto-derechos-reservados {
+  margin: 20px 0; }
 
-li button, li a {
-  font-size: 1rem; }
+.info-superheroe {
+  margin: 5px;
+  font-family: Roboto; }
 
 footer {
   background-color: black;
@@ -428,25 +442,6 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap; }
-
-.contenedor-boton-cerrar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between; }
-
-.contenedor-nombre-descripcion {
-  padding: 20px; }
-  .contenedor-nombre-descripcion p {
-    font-family: ActionManRegular;
-    color: black;
-    line-height: 1.2; }
-
-.texto-derechos-reservados {
-  margin: 20px 0; }
-
-.info-superheroe {
-  margin: 5px;
-  font-family: Roboto; }
 
 .ocultar {
   display: none; }
@@ -530,7 +525,7 @@ footer {
     width: 90%;
     height: 263px; } }
 @media (min-width: 767.98px) {
-  .contenedor-boton-cerrar button {
+  .izquierda-menu-nav button {
     display: none; } }
 
 /*# sourceMappingURL=style.css.map */
