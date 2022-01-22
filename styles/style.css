@@ -100,6 +100,42 @@ label {
 @font-face {
   font-family: Actionmanshadded;
   src: url("tipografias/Action-Man/Action_Man_Shaded.ttf"); }
+h2 {
+  font-size: 3em;
+  margin: 10px;
+  font-family: Actionmanshadded;
+  color: black; }
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-family: ActionManBold; }
+
+h4 {
+  margin-bottom: 10px;
+  font-family: ActionManRegular; }
+
+h5 {
+  font-family: Roboto;
+  font-size: 15px;
+  margin: 15px 0; }
+
+.contenedor-imagen-presentacion {
+  width: 40vw; }
+
+.texto-presentacion {
+  font-family: ActionManBold;
+  color: white;
+  margin: 20px;
+  text-align: center;
+  font-size: 200%; }
+
+.contenedor-boton-inicio {
+  width: 15vw;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0; }
+
 nav {
   display: flex;
   align-items: center;
@@ -108,33 +144,22 @@ nav {
   border-bottom: 2px solid white;
   z-index: 3; }
 
-h4 {
-  margin-bottom: 10px; }
-
-h3 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  font-family: ActionManBold; }
-
-h5 {
-  font-family: Roboto;
-  font-size: 15px;
-  margin: 15px 0; }
-
-h2 {
-  font-size: 3em;
-  margin: 10px;
-  font-family: Actionmanshadded;
-  color: black; }
-
-h4 {
-  font-family: ActionManRegular; }
-
 .nav-menu ul {
+  display: flex; }
+
+.nav-menu-hamburguesa {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center; }
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  padding: 30px;
+  transition-property: left;
+  transition-duration: 0.6s; }
+  .nav-menu-hamburguesa ul li {
+    margin: 10px 0px; }
 
 .contenedor-imagen-superheroe {
   max-width: 250px; }
@@ -145,20 +170,6 @@ h4 {
 .boton-navegacion {
   color: white;
   font-family: Roboto; }
-
-.nav-menu-hamburguesa {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 100vh;
-  width: 100%;
-  padding: 30px;
-  transition-property: left;
-  transition-duration: 0.6s; }
-  .nav-menu-hamburguesa ul li {
-    margin: 10px 0px; }
 
 .boton-onomatopeya:hover {
   transform: scale(1.1); }
@@ -222,9 +233,6 @@ footer {
   align-items: center;
   transition: 0.8s; }
 
-.contenedor-imagen-presentacion {
-  width: 40vw; }
-
 .contenedor-imagen-sin-resultados {
   width: 200px;
   padding: 20px; }
@@ -236,12 +244,6 @@ footer {
   align-items: center;
   margin: 20px 0px; }
 
-.texto-presentacion {
-  font-family: ActionManBold;
-  color: white;
-  margin: 20px;
-  text-align: center; }
-
 .cuadro-comic-dialogo {
   border: 3px solid black;
   background-color: white;
@@ -251,12 +253,6 @@ footer {
     font-family: ActionManRegular;
     color: black;
     line-height: 1.2; }
-
-.contenedor-boton-inicio {
-  width: 15vw;
-  cursor: pointer;
-  position: absolute;
-  bottom: 0; }
 
 .contenido-seccion-principal {
   display: flex;
@@ -331,6 +327,7 @@ footer {
 
 .row-centrar {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap; }
