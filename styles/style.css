@@ -273,8 +273,12 @@ li button {
   align-items: center;
   margin: 20px 0px; }
 
-.contenedor-imagen-sin-resultados {
-  width: 200px;
+.busqueda-sin-resultados {
+  display: flex;
+  max-width: 650px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 5px;
   padding: 20px; }
 
 .borde-blanco {
@@ -311,6 +315,15 @@ li button {
   padding: 10px;
   text-align: center; }
 
+.personajes-del-comic, .comics-del-personaje {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px 5px;
+  transition: transform 0.3s;
+  max-width: 150px;
+  max-height: 320px; }
+
 .tarjeta-personaje {
   margin: 10px 5px;
   cursor: pointer;
@@ -327,6 +340,31 @@ li button {
     width: auto;
     position: relative;
     right: 8px; }
+
+.personaje-seleccionado {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start; }
+
+.comics-del-personaje {
+  height: 330px; }
+
+.tarjeta-comic {
+  height: 350px;
+  width: 249px;
+  margin: 0px 10px 130px 10px;
+  transition: 2s;
+  cursor: pointer; }
+
+.contenedor-imagen-lista-comics {
+  height: 380px;
+  position: relative; }
+  .contenedor-imagen-lista-comics img {
+    height: 100%; }
+
+.personajes-del-comic {
+  height: 200px; }
 
 .fa-bars, .fa-times {
   color: white; }
@@ -375,41 +413,12 @@ footer {
   display: flex;
   justify-content: space-between; }
 
-.tarjeta-comic {
-  height: 350px;
-  width: 249px;
-  margin: 0px 10px 130px 10px;
-  transition: 2s;
-  cursor: pointer; }
-
-.contenedor-imagen-lista-comics {
-  height: 380px;
-  position: relative; }
-  .contenedor-imagen-lista-comics img {
-    height: 100%; }
-
-.personaje-seleccionado {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start; }
-
-.comics-personaje-seleccionado {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
 .contenedor-nombre-descripcion {
   padding: 20px; }
   .contenedor-nombre-descripcion p {
     font-family: ActionManRegular;
     color: black;
     line-height: 1.2; }
-
-.imagen-personaje-lista-personaje {
-  margin-bottom: 20px;
-  transition: 0.2s; }
 
 .column {
   display: flex;
@@ -422,21 +431,6 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 700px; }
-
-.personajes-del-comic, .comics-del-personaje {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin: 10px 5px;
-  transition: transform 0.3s;
-  max-width: 150px;
-  max-height: 320px; }
-
-.personajes-del-comic {
-  height: 200px; }
-
-.comics-del-personaje {
-  height: 330px; }
 
 .input-icono {
   width: 100%;
@@ -462,14 +456,6 @@ footer {
   color: white;
   height: 50px;
   border-radius: 0px 5px 5px 0px; }
-
-.elemento-no-encontrado {
-  display: flex;
-  max-width: 650px;
-  background-color: white;
-  border: 3px solid black;
-  border-radius: 5px;
-  padding: 20px; }
 
 .ocultar {
   display: none; }
