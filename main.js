@@ -627,7 +627,7 @@ const imprimirArrayDeHeroes = (heroe) => {
                 <img class="contenedor-imagen-superhero" src="${element.image.url}" alt="${element.name}">
             </div>
             <div class= "fondo-texto row-centrar">
-                <h4 class="nombre-personaje">${element.name}</h4>
+                <h4>${element.name}</h4>
             </div>
          </a>`
 
@@ -665,7 +665,7 @@ const imprimirHeroeSeleccionado = (heroe) => {
                     <img src="${heroe.image.url}" alt="Imagen de${heroe.name}">
                 </div>
                 <div class="contenedor-nombre-descripcion">
-                    <h3 class="nombre-personaje">${heroe.name}</h3>
+                    <h3>${heroe.name}</h3>
                     <p class="info-superheroe"><u>Nombre verdadero:</u> ${heroe.biography['full-name']}</p>
                     <p class="info-superheroe"><u>Raza:</u> ${heroe.appearance['race']}</p>
                     <p class="info-superheroe"><u>Lugar de nacimiento:</u> ${heroe.biography['place-of-birth']}</p>
@@ -696,7 +696,7 @@ const listaDeComicsHTML = (comic) => {
                 <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.title}">
             </div>
             <div class= "fondo-texto row-centrar">
-                <h4 class="nombre-personaje">${element.title}</h4>
+                <h4>${element.title}</h4>
             </div>
         </a>
         `
@@ -734,7 +734,7 @@ const listaPersonajesHTML = (personaje) => {
                 <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
             </div>
             <div class="fondo-texto row-centrar">
-                <h4 class="nombre-personaje">${element.name}</h4>
+                <h4>${element.name}</h4>
             </div>
         </a>
         `

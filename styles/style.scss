@@ -25,7 +25,6 @@
     src: url("tipografias/Action-Man/Action_Man_Shaded.ttf");
 }
 
-
 h2 {
     font-size: 3em;
     margin: 10px;
@@ -111,6 +110,11 @@ li {
     @include flex-centrar();
     transition: 0.8s;
 }
+.contenido-seccion-principal {
+    @include flex-centrar($direccion: column, $content: space-around);
+    margin: 5%;
+    flex-wrap: wrap;
+}
 .cuadro-comic {
     border: $bordes-tarjetas-estilo-comic;
     font-family: $tipografia-principal-italic;
@@ -137,6 +141,17 @@ li {
     background-image: url(../images/fondos/tarjeta-amarilla-punteada.svg);
     background-attachment:local;
 }
+.cuadro-comic-dialogo {
+    border: $bordes-tarjetas-estilo-comic;
+    background-color: white;
+    padding: 10px;
+    margin: 0 10px;
+    p {
+        font-family: ActionManRegular;
+        color: $color-principal-fondos-claros;
+        line-height: 1.2;
+    }
+}
 .contenedor-cargando {
     @include flex-centrar();
     margin: 20px 0px;
@@ -144,6 +159,30 @@ li {
 .contenedor-imagen-sin-resultados {
     width: 200px;
     padding: 20px;
+}
+.borde-blanco {
+    background-color: white;
+    margin: 10px;
+    box-shadow: $sombra-tarjetas-estilo-comic;
+}
+.borde-blanco-tarjeta-personaje {
+    background-color: white;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 6px 6px 0px 0px black;
+    margin: 20px;
+}
+.fondo-texto {
+    background-color: black;
+    color: white;
+    height: 50px;
+    position: relative;
+    top: 0px;
+    height: 80px;
+    padding: 10px 0px;
+    border-top: 6px solid #ffbf0f;
+    padding: 10px;
+    text-align: center;
 }
 
 
@@ -184,55 +223,18 @@ footer {
 
 
 
-.cuadro-comic-dialogo {
-    border: $bordes-tarjetas-estilo-comic;
-    background-color: white;
-    padding: 10px;
-    margin: 0 10px;
-    p {
-        font-family: ActionManRegular;
-        color: $color-principal-fondos-claros;
-        line-height: 1.2;
-    }
-}
-
-
-
-.contenido-seccion-principal {
-    @include flex-centrar($direccion: column, $content: space-around);
-    margin: 5%;
-    flex-wrap: wrap;
-}
-
-.borde-blanco {
-    background-color: white;
-    margin: 10px;
-    box-shadow: $sombra-tarjetas-estilo-comic;
-}
-
-.borde-blanco-tarjeta-personaje {
-    background-color: white;
-    border: 10px solid white;
-    border-radius: 5px;
-    box-shadow: 6px 6px 0px 0px black;
-    margin: 20px;
-}
 
 
 
 
-.fondo-texto {
-    background-color: black;
-    color: white;
-    height: 50px;
-    position: relative;
-    top: 0px;
-    height: 80px;
-    padding: 10px 0px;
-    border-top: 6px solid #ffbf0f;
-    padding: 10px;
-    text-align: center;
-}
+
+
+
+
+
+
+
+
 .ocultar {
     display: none
 }
