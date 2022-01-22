@@ -25,6 +25,49 @@
     src: url("tipografias/Action-Man/Action_Man_Shaded.ttf");
 }
 
+
+
+h2 {
+    font-size: 3em;
+    margin: 10px;
+    font-family: $tipografia-principal-sombreada;
+    color: $color-principal-fondos-claros;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-family: $tipografia-principal-bold;
+}
+
+h4 {
+    margin-bottom: 10px;
+    font-family: $tipografia-principal-regular;
+}
+
+h5 {
+    font-family: $tipografia-secundaria;
+    font-size: 15px;
+    margin: 15px 0;
+}
+
+.contenedor-imagen-presentacion {
+    width: 40vw;
+}
+.texto-presentacion {
+    font-family: $tipografia-principal-bold;
+    color: $color-principal-fondos-oscuros;
+    margin: $margen-superior;
+    text-align: center;
+    font-size: 200%;
+}
+.contenedor-boton-inicio {
+    width: 15vw;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -34,39 +77,25 @@ nav {
     z-index: 3;
 }
 
-h4 {
-    margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    font-family: $tipografia-principal-bold;
-}
-
-h5 {
-    font-family: $tipografia-secundaria;
-    font-size: 15px;
-    margin: 15px 0;
-}
-
-h2 {
-    font-size: 3em;
-    margin: 10px;
-    font-family: $tipografia-principal-sombreada;
-    color: $color-principal-fondos-claros;
-}
-
-h4 {
-    font-family: $tipografia-principal-regular;
-}
-
-
-
 .nav-menu {
     ul {
-        @include flex-centrar($direccion: row, $content: flex-end)
+       display: flex;
     }
+}
+.nav-menu-hamburguesa {
+    @include flex-centrar($content:flex-start,$align:flex-start);
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    padding: 30px ;
+    transition-property: left;
+    transition-duration: 0.6s;
+    ul {
+        li {
+            margin: 10px 0px;
+        }
+    }
+    
 }
 
 .contenedor-imagen-superheroe {
@@ -82,23 +111,7 @@ h4 {
     font-family: $tipografia-secundaria;
 }
 
-.nav-menu-hamburguesa {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100vh;
-    width: 100%;
-    padding: 30px ;
-    ul {
-        li {
-            margin: 10px 0px;
-        }
-    }
-    transition-property: left;
-    transition-duration: 0.6s;
-}
+
 
 .boton-onomatopeya:hover {
     transform: scale(1.1)
@@ -154,9 +167,7 @@ footer {
     transition: 0.8s;
 }
 
-.contenedor-imagen-presentacion {
-    width: 40vw;
-}
+
 
 .contenedor-imagen-sin-resultados {
     width: 200px;
@@ -168,12 +179,7 @@ footer {
     margin: 20px 0px;
 }
 
-.texto-presentacion {
-    font-family: $tipografia-principal-bold;
-    color: $color-principal-fondos-oscuros;
-    margin: $margen-superior;
-    text-align: center;
-}
+
 
 .cuadro-comic-dialogo {
     border: $bordes-tarjetas-estilo-comic;
@@ -187,12 +193,7 @@ footer {
     }
 }
 
-.contenedor-boton-inicio {
-    width: 15vw;
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
-}
+
 
 .contenido-seccion-principal {
     @include flex-centrar($direccion: column, $content: space-around);
