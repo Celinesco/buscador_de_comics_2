@@ -54,8 +54,6 @@ const abrirSeccionBusqueda = document.getElementById("abrir-seccion-busqueda");
 
 const main = document.querySelector("main");
 
-
-const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
 const botonesNavegacion = document.querySelectorAll(".boton-navegacion");
 
 //FUNCIONES Y VARIABLES AUXILIARES
