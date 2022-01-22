@@ -4,7 +4,6 @@ const seccionComics = document.getElementById("seccion-comics");
 const seccionPrincipal = document.getElementById("seccion-principal");
 const seccionPersonajes = document.getElementById("seccion-personajes");
 const seccionBusqueda = document.getElementById("seccion-busqueda");
-const navHamburguesa = document.querySelector(".nav-menu-hamburguesa")
 const nav = document.querySelector("nav");
 const botonMenuHamburguesa = document.getElementById("boton-menu-hamburguesa");
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
@@ -34,7 +33,6 @@ const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-sigu
 const pagAnteriorComicsBusquedaInput = document.getElementById("pagina-anterior-comics-por-busqueda-input");
 const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguiente-comics-por-busqueda-input");
 const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa");
-const imagenesDeCarga = document.querySelector(".contenedor-cargando");
 const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
 const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
 const botonBusquedaSuperHeroApi = document.getElementById("boton-busqueda-superheroapi");
@@ -52,11 +50,11 @@ const volverSeccionPrincipal = document.getElementById("volver-seccion-principal
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
 const abrirSeccionComics = document.getElementById("abrir-seccion-comics");
 const abrirSeccionBusqueda = document.getElementById("abrir-seccion-busqueda");
-const desplegarMenuHamburguesa = document.getElementById("desplegar-menu-hamburguesa");
+
 
 const main = document.querySelector("main");
 
-const todasLasSecciones = document.querySelectorAll(".secciones");
+
 const botonOnomatopeya = document.querySelectorAll(".boton-onomatopeya");
 const botonesNavegacion = document.querySelectorAll(".boton-navegacion");
 
