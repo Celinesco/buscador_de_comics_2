@@ -733,7 +733,7 @@ const listaPersonajesHTML = (personaje) => {
         return acc + `
         <a href="#seccion-personajes" class="tarjeta-personaje column" data-id="${element.id}">
             <div class="contenedor-imagen-lista-personajes">
-                <img class="imagen-personaje-lista-personajes" src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
+                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="${element.name}">
             </div>
             <div class="fondo-texto row-centrar">
                 <h4 class="nombre-personaje">${element.name}</h4>
