@@ -57,8 +57,6 @@ h2 {
     color: $color-principal-fondos-claros;
 }
 
-
-
 h4 {
     font-family: $tipografia-principal-regular;
 }
@@ -90,7 +88,6 @@ h4 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    // left: -300%;
     height: 100vh;
     width: 100%;
     padding: 30px ;
@@ -251,7 +248,13 @@ footer {
 }
 
 .cuadro-comic {
-    @include cuadroDeDialogo();
+    border: $bordes-tarjetas-estilo-comic;
+    font-family: $tipografia-principal-italic;
+    color: $color-principal-fondos-claros;
+    background-color: $fondo-tarjetas-aclaraciones;
+    box-shadow: $sombra-tarjetas-estilo-comic;
+    padding: 20px;
+    margin: 20px;
 }
 
 .ocultar {
@@ -356,6 +359,11 @@ footer {
 
 .contenedor-nombre-descripcion {
     padding: 20px;
+    p {
+        font-family: ActionManRegular;
+        color: $color-principal-fondos-claros;
+        line-height: 1.2;
+    }
 }
 
 .imagen-personaje-lista-personaje {
@@ -450,7 +458,6 @@ footer {
 .info-superheroe {
     margin: 5px;
     font-family: $tipografia-secundaria
-
 }
 
 @import "breakpoints";

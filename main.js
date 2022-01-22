@@ -756,7 +756,7 @@ const imprimirPersonaje = (personaje) => {
                 </div>
                 <div class="contenedor-nombre-descripcion">
                     <h3 class="nombre-elemento">${element.name}</h3>
-                    <p class="texto-descripcion">${element.description}</p>
+                    <p>${element.description}</p>
                 </div>
             </div>
         </div>`
@@ -776,7 +776,7 @@ const imprimirComicHTML = (comic) => {
                 </div>
                 <div class="contenedor-nombre-descripcion">
                     <h3>${element.title}</h3>
-                    <p class="texto-descripcion">${element.description !== null ? element.description : "" }</p>
+                    <p>${element.description !== null ? element.description : "" }</p>
                 </div>
             </div>
         </div>`

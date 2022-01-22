@@ -5,7 +5,6 @@
     align-items: $align;
   }
 
-
 @mixin imagen-fondo {
     overflow: hidden;
     background-size: cover;
@@ -17,18 +16,6 @@
   border: $bordes-tarjetas-estilo-comic;
   font-family: $tipografia-principal-italic;
 }
-
-@mixin cuadroDeDialogo {
-  border: $bordes-tarjetas-estilo-comic;
-  font-family: $tipografia-principal-italic;
-  color: $color-principal-fondos-claros;
-  background-color: $fondo-tarjetas-aclaraciones;
-  box-shadow: $sombra-tarjetas-estilo-comic;
-  padding: 20px;
-  margin: 20px;
-}
-
-
 
 @mixin flex-row-wrap {
   display: flex;
