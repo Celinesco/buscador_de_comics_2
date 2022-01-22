@@ -289,7 +289,7 @@ const mostrarListaPersonajes = () => {
             setTimeout(() => {
                 tarjetas.forEach((tarjeta) => {
                     tarjeta.classList.add("rotacion-y")
-                }, 600)
+                }, 500)
             })
         })
 };
