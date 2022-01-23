@@ -224,10 +224,11 @@ botonDeslizarSeccionAbajo.onclick = () => {
     }, 900)
     main.classList.remove("ocultar")
     seccionPrincipal.classList.remove("ocultar");
-    window.scroll({
-        top: 0,
-        behavior: 'smooth'
-      });
+    // no se como es esto para que se deslice con el dedo hacia arriba Male. 
+    // window.scroll({
+    //     top: 0,
+    //     behavior: 'smooth'
+    //   });
 };
 
 botonOnomatopeyaSeccionPersonajes.onclick = () => {
