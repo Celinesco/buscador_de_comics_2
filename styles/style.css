@@ -122,6 +122,11 @@ label {
 @font-face {
   font-family: Actionmanshadded;
   src: url("tipografias/Action-Man/Action_Man_Shaded.ttf"); }
+h1 {
+  font-size: 300%;
+  text-align: center;
+  line-height: 1.2; }
+
 h2 {
   font-size: 220%;
   margin: 10px;

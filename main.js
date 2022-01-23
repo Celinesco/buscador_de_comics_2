@@ -76,6 +76,12 @@ const resetearVariablesPaginado = () => {
     comicsASaltear = 0
 };
 
+const resetearInputs = () => {
+    busquedaSuperHeroApiInput.value = "";
+    busquedaComicInput.value = "";
+    busquedaPersonajeInput.value = "";
+}
+
 const vaciarContenedores = (contenedor1, contenedor2) => {
     contenedor1.innerHTML = "";
     contenedor2.innerHTML = ""
@@ -99,6 +105,7 @@ const cerrarMenuHamburguesa = () => {
 
 
 const funcionAbrirSeccionPersonajes = () => {
+    resetearInputs();
     vaciarContenedores(contenedorPersonajeSeleccionado,contenedorComicsDePersonajeSeleccionado);
     pagPrevListaPersonajes.style.backgroundColor = "grey";
     primeraPaginaListaPersonajes.style.backgroundColor = "grey";
@@ -120,12 +127,13 @@ const funcionAbrirSeccionPersonajes = () => {
 };
 
 const funcionAbrirSeccionComics = () => {
+    resetearInputs();
     vaciarContenedores(contenedorComicSeleccionado,contenedorPersonajesDelComicSeleccionado);
     pagPrevListaComics.style.backgroundColor = "grey";
     primerPagListaComics.style.background = "grey";
-    resetearVariablesPaginado()
+    resetearVariablesPaginado();
     vibrarOnomatopeya(botonOnomatopeyaSeccionComics);
-    desvanecerSeccion(seccionPrincipal)
+    desvanecerSeccion(seccionPrincipal);
 
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
@@ -141,6 +149,8 @@ const funcionAbrirSeccionComics = () => {
 };
 
 const funcionAbrirSeccionBusqueda = () => {
+    resetearInputs();
+    vaciarContenedores(contenedorHeroeSeleccionado,contenedorHeroeSeleccionado)
     vibrarOnomatopeya(botonOnomatopeyaSeccionBusqueda);
     desvanecerSeccion(seccionPrincipal)
 
