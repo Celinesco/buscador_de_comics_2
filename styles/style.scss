@@ -191,6 +191,12 @@ li button, li a {
     border: 3px solid black;
     border-radius: 5px;
     padding: 20px;
+    .cuadro-comic {
+        margin: 0px 0px 20px 0px
+    }
+    .contenedor-info-para-usuario {
+        padding: 10px 0px ;
+    }
 }
 .borde-blanco {
     background-color: white;

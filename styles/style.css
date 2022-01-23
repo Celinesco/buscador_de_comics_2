@@ -308,6 +308,10 @@ li button, li a {
   border: 3px solid black;
   border-radius: 5px;
   padding: 20px; }
+  .busqueda-sin-resultados .cuadro-comic {
+    margin: 0px 0px 20px 0px; }
+  .busqueda-sin-resultados .contenedor-info-para-usuario {
+    padding: 10px 0px; }
 
 .borde-blanco {
   background-color: white;
@@ -491,14 +495,14 @@ footer {
   .contenedor-imagen-objeto-seleccionado {
     margin-bottom: 30px; }
 
-  .imagen-personaje-lista-personajes {
+  .contenedor-imagen-lista-personajes img {
     width: -webkit-fill-available;
     right: 0px; }
 
   #contenedor-tarjetas-comics {
     max-width: 280px; } }
 @media (max-width: 361px) {
-  .imagen-personaje-lista-personajes {
+  .contenedor-imagen-lista-personajes img {
     width: -webkit-fill-available;
     right: 0px; }
 
