@@ -36,7 +36,6 @@ const botonesPaginadoPersonajesBusquedaPorInput = document.getElementById("boton
 const pagAnteriorPersonajesBusquedaInput = document.getElementById("pagina-anterior-personajes-por-busqueda-input");
 const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input");
 
-
 //Seccion Busqueda
 const seccionBusqueda = document.getElementById("seccion-busqueda");
 const botonBusquedaSuperHeroApi = document.getElementById("boton-busqueda-superheroapi");
@@ -85,6 +84,12 @@ const resetearInputs = () => {
     busquedaPersonajeInput.value = "";
 }
 
+const ocultarSecciones = (s1,s2,s3) => {
+    s1.classList.add("ocultar");
+    s2.classList.add("ocultar");
+    s3.classList.add("ocultar");
+}
+
 const vaciarContenedores = (contenedor1, contenedor2) => {
     contenedor1.innerHTML = "";
     contenedor2.innerHTML = ""
@@ -124,41 +129,36 @@ const cerrarMenuHamburguesa = () => {
 };
 
 const funcionAbrirSeccionPersonajes = () => {
-    resetearInputs();
-    vaciarContenedores(contenedorPersonajeSeleccionado,contenedorComicsDePersonajeSeleccionado);
-    pagPrevListaPersonajes.style.backgroundColor = "grey";
-    primeraPaginaListaPersonajes.style.backgroundColor = "grey";
-    resetearVariablesPaginado();
     vibrarOnomatopeya(botonOnomatopeyaSeccionPersonajes);
     desvanecerSeccion(seccionPrincipal);
     setTimeout(() => {
-        seccionPrincipal.classList.add("ocultar");
-        seccionComics.classList.add("ocultar");
-        seccionBusqueda.classList.add("ocultar");
+        ocultarSecciones(seccionPrincipal,seccionComics,seccionBusqueda)
     }, 900)
     setTimeout(() => {
         seccionPersonajes.classList.remove("ocultar");
     }, 1000)
+    resetearInputs();
+    vaciarContenedores(contenedorPersonajeSeleccionado,contenedorComicsDePersonajeSeleccionado);
+    resetearVariablesPaginado();
+    pagPrevListaPersonajes.style.backgroundColor = "grey";
+    primeraPaginaListaPersonajes.style.backgroundColor = "grey";
     mostrarListaPersonajes()
 };
 
 const funcionAbrirSeccionComics = () => {
-    resetearInputs();
-    vaciarContenedores(contenedorComicSeleccionado,contenedorPersonajesDelComicSeleccionado);
-    pagPrevListaComics.style.backgroundColor = "grey";
-    primerPagListaComics.style.background = "grey";
-    resetearVariablesPaginado();
     vibrarOnomatopeya(botonOnomatopeyaSeccionComics);
     desvanecerSeccion(seccionPrincipal);
     setTimeout(() => {
-        seccionPrincipal.classList.add("ocultar");
-        seccionPersonajes.classList.add("ocultar");
-        seccionBusqueda.classList.add("ocultar");
+        ocultarSecciones(seccionPrincipal,seccionPersonajes,seccionBusqueda)
     }, 900)
-
     setTimeout(() => {
         seccionComics.classList.remove("ocultar")
     }, 1000)
+    resetearInputs();
+    vaciarContenedores(contenedorComicSeleccionado,contenedorPersonajesDelComicSeleccionado);
+    resetearVariablesPaginado();
+    pagPrevListaComics.style.backgroundColor = "grey";
+    primerPagListaComics.style.background = "grey";
     mostrarListaComics()
 };
 
@@ -168,9 +168,7 @@ const funcionAbrirSeccionBusqueda = () => {
     vibrarOnomatopeya(botonOnomatopeyaSeccionBusqueda);
     desvanecerSeccion(seccionPrincipal);
     setTimeout(() => {
-        seccionPrincipal.classList.add("ocultar");
-        seccionPersonajes.classList.add("ocultar");
-        seccionComics.classList.add("ocultar")
+        ocultarSecciones(seccionPrincipal,seccionPersonajes,seccionComics)
     }, 900)
     setTimeout(() => {
         seccionBusqueda.classList.remove("ocultar")
@@ -181,9 +179,7 @@ const funcionAbrirSeccionBusqueda = () => {
 //navegabilidad NAV y seccion ppal
 
 volverSeccionPrincipal.onclick = () => {
-    seccionComics.classList.add("ocultar");
-    seccionPersonajes.classList.add("ocultar");
-    seccionBusqueda.classList.add("ocultar")
+    ocultarSecciones(seccionComics,seccionPersonajes,seccionBusqueda);
     seccionPrincipal.classList.remove("ocultar");
     seccionPrincipal.style.opacity = "100";
     cerrarMenuHamburguesa()
@@ -192,27 +188,18 @@ volverSeccionPrincipal.onclick = () => {
 abrirSeccionPersonajes.onclick = () => {
     botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar");
     botonesPaginadoListaPersonajes.classList.remove("ocultar");
-    desactivarBotonesNavTemporalmente();
     cerrarMenuHamburguesa()
-    seccionComics.classList.add("ocultar");
-    seccionBusqueda.classList.add("ocultar");
     funcionAbrirSeccionPersonajes();
 };
 
 abrirSeccionComics.onclick = () => {
     botonesPaginadoComicsBusquedaInput.classList.add("ocultar");
     botonesPaginadoListaComics.classList.remove("ocultar");
-    desactivarBotonesNavTemporalmente();
     cerrarMenuHamburguesa()
-    seccionPersonajes.classList.add("ocultar");
-    seccionBusqueda.classList.add("ocultar");
     funcionAbrirSeccionComics();
 };
 
 abrirSeccionBusqueda.onclick = () => {
-    seccionComics.classList.add("ocultar");
-    seccionPersonajes.classList.add("ocultar");
-    desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionBusqueda()
     cerrarMenuHamburguesa()
 };
@@ -244,17 +231,14 @@ botonDeslizarSeccionAbajo.onclick = () => {
 };
 
 botonOnomatopeyaSeccionPersonajes.onclick = () => {
-    desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionPersonajes()
 };
 
 botonOnomatopeyaSeccionComics.onclick = () => {
-    desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionComics()
 };
 
 botonOnomatopeyaSeccionBusqueda.onclick = () => {
-    desactivarBotonesNavTemporalmente()
     funcionAbrirSeccionBusqueda()
 };
 
@@ -401,7 +385,6 @@ primeraPaginaListaPersonajes.onclick = () => {
         mostrarListaPersonajes()
     }
 };
-
 
 pagAnteriorPersonajesBusquedaInput.onclick = () => {
     personajesASaltear === ultimaPaginaPersonajes * 20
@@ -551,7 +534,6 @@ pagSgteListaComics.onclick = () => {
     }
 };
 
-
 ultimaPagListaComics.onclick = () => {
     activarBotonesDesplazamiento(primerPagListaComics, pagPrevListaComics)
     if (comicsASaltear !== ultimaPaginaComics) {
@@ -560,7 +542,6 @@ ultimaPagListaComics.onclick = () => {
         mostrarListaComics()
     }
 };
-
 
 pagAnteriorComicsBusquedaInput.onclick = () => {
     comicsASaltear === 0
@@ -649,7 +630,6 @@ const imprimirHeroeSeleccionado = (heroe) => {
                 </div>
             </div>
         </div>`
-
     contenedorHeroeSeleccionado.innerHTML = html
 }
 
@@ -674,7 +654,6 @@ const listaDeComicsHTML = (comic) => {
         </a>
         `
     }, "")
-
     contenedorTarjetasComics.innerHTML = html
 };
 
