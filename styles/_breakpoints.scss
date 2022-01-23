@@ -1,13 +1,3 @@
-@media (max-width: 1399.98px) { 
-
-  
-}
-
-@media (max-width: 1199.98px) { 
-  
- }
-
-
  @media (max-width: 991.98px) {
     .contenedor-tarjetas-y-botones-paginado {
         max-width: 800px;
@@ -66,12 +56,6 @@
 
 
  @media (max-width: 361px) {
-     .contenedor-imagen-lista-personajes {
-         img {
-            width: -webkit-fill-available;
-            right: 0px;
-         }
-     }
     .contenedor-tarjetas-y-botones-paginado {
         max-width: 360px;
     }
@@ -85,9 +69,7 @@
     .cuadro-comic  {
         max-width: 255px;
     }
-    h2 {
-        font-size: 35px;
-    }
+ 
     .contenedor-elemento-seleccionado {
         width: 260px;
     }
@@ -96,7 +78,7 @@
 
  @media (max-width: 279.98px) {
     .tarjeta-personaje {
-        width: 90%;
+        width: 85%;
         height: 263px;
     }
 }

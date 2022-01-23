@@ -26,7 +26,7 @@
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 220%;
     margin: 10px;
     font-family: $tipografia-principal-sombreada;
     color: $color-principal-fondos-claros;
@@ -259,7 +259,7 @@ li button, li a {
     cursor: pointer;
     width: 200px;
     position: relative;
-    transition: 2s;    
+    transition: rotation 2s;    
 }
 .contenedor-imagen-lista-personajes {
     height: 240px;
@@ -284,7 +284,7 @@ li button, li a {
     height: 350px;
     width: 249px;
     margin:  0px 10px 130px 10px;
-    transition: 2s;
+    transition: rotation 2s;
     cursor: pointer;
 }
 .contenedor-imagen-lista-comics {

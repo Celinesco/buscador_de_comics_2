@@ -123,7 +123,7 @@ label {
   font-family: Actionmanshadded;
   src: url("tipografias/Action-Man/Action_Man_Shaded.ttf"); }
 h2 {
-  font-size: 3em;
+  font-size: 220%;
   margin: 10px;
   font-family: Actionmanshadded;
   color: black; }
@@ -370,7 +370,7 @@ li button, li a {
   cursor: pointer;
   width: 200px;
   position: relative;
-  transition: 2s; }
+  transition: rotation 2s; }
 
 .contenedor-imagen-lista-personajes {
   height: 240px;
@@ -395,7 +395,7 @@ li button, li a {
   height: 350px;
   width: 249px;
   margin: 0px 10px 130px 10px;
-  transition: 2s;
+  transition: rotation 2s;
   cursor: pointer; }
 
 .contenedor-imagen-lista-comics {
@@ -502,10 +502,6 @@ footer {
   #contenedor-tarjetas-comics {
     max-width: 280px; } }
 @media (max-width: 361px) {
-  .contenedor-imagen-lista-personajes img {
-    width: -webkit-fill-available;
-    right: 0px; }
-
   .contenedor-tarjetas-y-botones-paginado {
     max-width: 360px; }
 
@@ -519,14 +515,11 @@ footer {
   .cuadro-comic {
     max-width: 255px; }
 
-  h2 {
-    font-size: 35px; }
-
   .contenedor-elemento-seleccionado {
     width: 260px; } }
 @media (max-width: 279.98px) {
   .tarjeta-personaje {
-    width: 90%;
+    width: 85%;
     height: 263px; } }
 @media (min-width: 767.98px) {
   .izquierda-menu-nav button {
