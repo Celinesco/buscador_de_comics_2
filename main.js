@@ -4,6 +4,7 @@ const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccio
 
 //Nav 
 const nav = document.querySelector("nav");
+const ulNav = document.getElementById("ul-nav")
 const volverSeccionPrincipal = document.getElementById("volver-seccion-principal");
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
 const abrirSeccionComics = document.getElementById("abrir-seccion-comics");
@@ -215,8 +216,6 @@ abrirSeccionBusqueda.onclick = () => {
     funcionAbrirSeccionBusqueda()
     cerrarMenuHamburguesa()
 };
-
-const ulNav = document.getElementById("ul-nav")
 
 botonMenuHamburguesa.onclick = () => {
     const estadoDelMenu = iconoMenuHamburguesa.getAttribute("class")
