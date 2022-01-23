@@ -61,7 +61,7 @@ h5 {
 .texto-presentacion {
     font-family: $tipografia-principal-italic;
     color: $color-principal-fondos-oscuros;
-    margin: $margen-superior;
+    margin: $margen-separacion-vertical-M-elementos;
     text-align: center;
     font-size: 200%;
 }
@@ -75,7 +75,7 @@ nav {
     display: flex;
     align-items: center;
     background-color: black;
-    padding: 30px;
+    padding: $padding-nav-footer;
     border-bottom: 2px solid white;
     z-index: 3;
 }
@@ -89,12 +89,12 @@ nav {
     position: fixed;
     height: 100vh;
     width: 100%;
-    padding: 30px ;
+    padding: $padding-nav-footer;
     transition-property: left;
     transition-duration: 0.6s;
     ul {
         li {
-            margin: 10px 0px;
+            margin: $margin-separacion-vertical-S-elementos;
         }
     }
 }
@@ -135,8 +135,8 @@ li button, li a {
     color: $color-principal-fondos-claros;
     background-color: $color-fondo-principal;
     box-shadow: $sombra-tarjetas-estilo-comic;
-    padding: 20px;
-    margin: 20px;
+    padding: $padding-contenedores;
+    margin: $margen-tarjetas;
 }
 .contenedor-opcion {
     @include flex-centrar($content: space-around);
@@ -176,7 +176,7 @@ li button, li a {
 .contenedor-tarjetas-y-botones-paginado {
     @include flex-centrar();
     margin-top: 40px;
-    padding: 20px;
+    padding: $padding-contenedores;
     background-color: white;
     border: $bordes-tarjetas-estilo-comic;
     box-shadow: $sombra-tarjetas-estilo-comic;
@@ -196,7 +196,7 @@ li button, li a {
     background-color: white;
     border: 3px solid black;
     border-radius: 5px;
-    padding: 20px;
+    padding: $padding-contenedores;
     .cuadro-comic {
         margin: 0px 0px 20px 0px
     }
@@ -221,7 +221,7 @@ li button, li a {
     background-color: rgb(235, 208, 150);
     border: $bordes-tarjetas-estilo-comic;
     border-radius: 5px;
-    padding: 20px;
+    padding: $padding-contenedores;
 }
 .contenedor-imagen-objeto-seleccionado {
     display: flex;
@@ -251,7 +251,7 @@ li button, li a {
     }
 }
 .contenedor-info-para-usuario {
-    padding: 20px;
+    padding: $padding-contenedores;
     p {
         font-family: ActionManRegular;
         color: $color-principal-fondos-claros;
@@ -304,7 +304,7 @@ li button, li a {
     height: 200px;
 }
 .texto-derechos-reservados {
-    margin: 20px 0
+    margin: $margen-separacion-vertical-M-elementos;
 }
 // seccion buscar
 .info-superheroe {
@@ -314,7 +314,7 @@ li button, li a {
 footer {
     background-color: $fondo-navbar-footer;
     @include flex-centrar();
-    padding: 30px;
+    padding: $padding-nav-footer;
     height: 20vh;
     border-top: 2px solid white;
 }

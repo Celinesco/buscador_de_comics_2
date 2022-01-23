@@ -1,72 +1,74 @@
-
+// seccion Inicio
 const seccionInicio = document.getElementById("seccion-inicio");
-const seccionComics = document.getElementById("seccion-comics");
-const seccionPrincipal = document.getElementById("seccion-principal");
-const seccionPersonajes = document.getElementById("seccion-personajes");
-const seccionBusqueda = document.getElementById("seccion-busqueda");
-const nav = document.querySelector("nav");
-const botonMenuHamburguesa = document.getElementById("boton-menu-hamburguesa");
 const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccion-abajo");
-const botonOnomatopeyaSeccionPersonajes = document.getElementById("boton-seccion-personajes");
-const botonOnomatopeyaSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
-const botonOnomatopeyaSeccionComics = document.getElementById("boton-seccion-comics");
-const pagSgteListaPersonajes = document.getElementById("pagina-siguiente-personajes");
-const pagPrevListaPersonajes = document.getElementById("pagina-previa-personajes");
-const primeraPaginaListaPersonajes = document.getElementById("primera-pagina-personajes");
-const ultimaPaginaListaPersonajes = document.getElementById("ultima-pagina-personajes");
-const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
-const contenedorComicsDePersonajeSeleccionado = document.getElementById("contenedor-comics-personaje-seleccionado");
-const contenedorPersonajesDelComicSeleccionado = document.getElementById("contenedor-personajes-comic-seleccionado");
-const busquedaPersonajeInput = document.getElementById("busqueda-personaje");
-const botonBusquedaPersonaje = document.getElementById("boton-busqueda-personaje");
-const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
-const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
-const busquedaComicInput = document.getElementById("busqueda-comic");
-const infoPersonaje = document.getElementById("resultado-busqueda-personaje");
-const infoComic = document.getElementById("resultado-busqueda-comic");
-const botonesPaginadoListaPersonajes = document.getElementById("botones-paginado-lista-de-personajes");
-const botonesPaginadoListaComics = document.getElementById("botones-paginado-lista-de-comics");
-const botonesPaginadoPersonajesBusquedaPorInput = document.getElementById("botones-paginado-personajes-busqueda-por-input");
-const botonesPaginadoComicsBusquedaInput = document.getElementById("botones-paginado-comics-busqueda-por-input");
-const pagAnteriorPersonajesBusquedaInput = document.getElementById("pagina-anterior-personajes-por-busqueda-input");
-const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input");
-const pagAnteriorComicsBusquedaInput = document.getElementById("pagina-anterior-comics-por-busqueda-input");
-const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguiente-comics-por-busqueda-input");
-const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa");
-const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
-const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
-const botonBusquedaSuperHeroApi = document.getElementById("boton-busqueda-superheroapi");
-const busquedaSuperHeroApiInput = document.getElementById("busqueda-superheroapi");
-const contenedorHeroeSeleccionado = document.getElementById("contenedor-heroe-seleccionado");
 
-const primerPagListaComics = document.getElementById("primer-pag-lista-comics");
-const pagPrevListaComics = document.getElementById("pag-previa-lista-comics");
-const pagSgteListaComics = document.getElementById("pag-sgte-lista-comics");
-const ultimaPagListaComics = document.getElementById("ultima-pag-lista-comics");
-
-
-// nav
+//Nav 
+const nav = document.querySelector("nav");
 const volverSeccionPrincipal = document.getElementById("volver-seccion-principal");
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
 const abrirSeccionComics = document.getElementById("abrir-seccion-comics");
 const abrirSeccionBusqueda = document.getElementById("abrir-seccion-busqueda");
+const botonMenuHamburguesa = document.getElementById("boton-menu-hamburguesa");
+const iconoMenuHamburguesa = document.getElementById("icono-menu-hamburguesa");
 
-
+//Seccion Principal
 const main = document.querySelector("main");
+const seccionPrincipal = document.getElementById("seccion-principal");
+const botonOnomatopeyaSeccionPersonajes = document.getElementById("boton-seccion-personajes");
+const botonOnomatopeyaSeccionBusqueda = document.getElementById("boton-seccion-busqueda");
+const botonOnomatopeyaSeccionComics = document.getElementById("boton-seccion-comics");
 
-const botonesNavegacion = document.querySelectorAll(".boton-navegacion");
+//Seccion Personajes
+const seccionPersonajes = document.getElementById("seccion-personajes");
+const busquedaPersonajeInput = document.getElementById("busqueda-personaje");
+const botonBusquedaPersonaje = document.getElementById("boton-busqueda-personaje");
+const contenedorTarjetasPersonajes = document.getElementById("contenedor-tarjetas-personajes");
+const botonesPaginadoListaPersonajes = document.getElementById("botones-paginado-lista-de-personajes");
+const primeraPaginaListaPersonajes = document.getElementById("primera-pagina-personajes");
+const pagPrevListaPersonajes = document.getElementById("pagina-previa-personajes");
+const pagSgteListaPersonajes = document.getElementById("pagina-siguiente-personajes");
+const ultimaPaginaListaPersonajes = document.getElementById("ultima-pagina-personajes");
+const infoPersonaje = document.getElementById("resultado-busqueda-personaje");
+const contenedorPersonajeSeleccionado = document.getElementById("contenedor-personaje-seleccionado");
+const contenedorComicsDePersonajeSeleccionado = document.getElementById("contenedor-comics-personaje-seleccionado");
+const botonesPaginadoPersonajesBusquedaPorInput = document.getElementById("botones-paginado-personajes-busqueda-por-input");
+const pagAnteriorPersonajesBusquedaInput = document.getElementById("pagina-anterior-personajes-por-busqueda-input");
+const pagSiguientePersonajesBusuqedaInput = document.getElementById("pagina-siguiente-personajes-por-busqueda-input");
+
+
+//Seccion Busqueda
+const seccionBusqueda = document.getElementById("seccion-busqueda");
+const botonBusquedaSuperHeroApi = document.getElementById("boton-busqueda-superheroapi");
+const busquedaSuperHeroApiInput = document.getElementById("busqueda-superheroapi");
+const contenedorHeroeSeleccionado = document.getElementById("contenedor-heroe-seleccionado");
+
+//Seccion Comics
+const seccionComics = document.getElementById("seccion-comics");
+const botonBusquedaComic = document.getElementById("boton-busqueda-comic");
+const busquedaComicInput = document.getElementById("busqueda-comic");
+const contenedorTarjetasComics = document.getElementById("contenedor-tarjetas-comics");
+const botonesPaginadoListaComics = document.getElementById("botones-paginado-lista-de-comics");
+const primerPagListaComics = document.getElementById("primer-pag-lista-comics");
+const pagPrevListaComics = document.getElementById("pag-previa-lista-comics");
+const pagSgteListaComics = document.getElementById("pag-sgte-lista-comics");
+const ultimaPagListaComics = document.getElementById("ultima-pag-lista-comics");
+const infoComic = document.getElementById("resultado-busqueda-comic");
+const contenedorComicSeleccionado = document.getElementById("contenedor-comic-seleccionado");
+const contenedorPersonajesDelComicSeleccionado = document.getElementById("contenedor-personajes-comic-seleccionado");
+const botonesPaginadoComicsBusquedaInput = document.getElementById("botones-paginado-comics-busqueda-por-input");
+const pagAnteriorComicsBusquedaInput = document.getElementById("pagina-anterior-comics-por-busqueda-input");
+const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguiente-comics-por-busqueda-input");
+
 
 //FUNCIONES Y VARIABLES AUXILIARES
 const urlBase = "https://gateway.marvel.com:443/v1/public";
 const apiKey = "1fd738e2dc343485449632dfe8caffa1";
-
 let ultimaPaginaListaDeComicsOPersonajes = 0;
 let ultimaPaginaComics = 0;
 let ultimaPaginaPersonajes = 0;
 let personajesASaltear = 0;
 let comicsASaltear = 0;
 let idElementoClickeado = 0;
-
 
 
 const resetearVariablesPaginado = () => {
@@ -87,13 +89,30 @@ const vaciarContenedores = (contenedor1, contenedor2) => {
     contenedor2.innerHTML = ""
 }
 
-const desactivarBotonesNavTemporalmente = () => {
-    botonesNavegacion.forEach((boton) => {
-        boton.disabled = true
-        setTimeout(() => {
-            boton.disabled = false;
-        }, 1550)
-    })
+const desactivarBotonDesplazamiento = (boton1, boton2) => {
+    boton1.disabled = true;
+    boton2.disabled = true;
+    boton1.style.backgroundColor = "grey";
+    boton2.style.backgroundColor = "grey";
+};
+
+const activarBotonesDesplazamiento = (boton1, boton2) => {
+    boton1.disabled = false;
+    boton2.disabled = false;
+    boton1.style.backgroundColor = "#ffbf0f";
+    boton2.style.backgroundColor = "#ffbf0f";
+};
+
+const desvanecerSeccion = (seccion) => {
+    seccion.style.transitionProperty = "opacity";
+    seccion.style.opacity = "0";
+};
+
+const vibrarOnomatopeya = (onomatopeya) => {
+    onomatopeya.style.animationName = "rotacion";
+    setTimeout(() => {
+        onomatopeya.style.animationName = "";
+    }, 600)
 };
 
 const cerrarMenuHamburguesa = () => {
@@ -103,7 +122,6 @@ const cerrarMenuHamburguesa = () => {
     iconoMenuHamburguesa.classList.add("fa-bars")
 };
 
-
 const funcionAbrirSeccionPersonajes = () => {
     resetearInputs();
     vaciarContenedores(contenedorPersonajeSeleccionado,contenedorComicsDePersonajeSeleccionado);
@@ -112,17 +130,14 @@ const funcionAbrirSeccionPersonajes = () => {
     resetearVariablesPaginado();
     vibrarOnomatopeya(botonOnomatopeyaSeccionPersonajes);
     desvanecerSeccion(seccionPrincipal);
-
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
         seccionComics.classList.add("ocultar");
         seccionBusqueda.classList.add("ocultar");
     }, 900)
-
     setTimeout(() => {
         seccionPersonajes.classList.remove("ocultar");
     }, 1000)
-
     mostrarListaPersonajes()
 };
 
@@ -134,7 +149,6 @@ const funcionAbrirSeccionComics = () => {
     resetearVariablesPaginado();
     vibrarOnomatopeya(botonOnomatopeyaSeccionComics);
     desvanecerSeccion(seccionPrincipal);
-
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
         seccionPersonajes.classList.add("ocultar");
@@ -144,30 +158,26 @@ const funcionAbrirSeccionComics = () => {
     setTimeout(() => {
         seccionComics.classList.remove("ocultar")
     }, 1000)
-
     mostrarListaComics()
 };
 
 const funcionAbrirSeccionBusqueda = () => {
     resetearInputs();
-    vaciarContenedores(contenedorHeroeSeleccionado,contenedorHeroeSeleccionado)
+    vaciarContenedores(contenedorHeroeSeleccionado,contenedorHeroeSeleccionado);
     vibrarOnomatopeya(botonOnomatopeyaSeccionBusqueda);
-    desvanecerSeccion(seccionPrincipal)
-
+    desvanecerSeccion(seccionPrincipal);
     setTimeout(() => {
         seccionPrincipal.classList.add("ocultar");
         seccionPersonajes.classList.add("ocultar");
         seccionComics.classList.add("ocultar")
     }, 900)
-
     setTimeout(() => {
         seccionBusqueda.classList.remove("ocultar")
     }, 1000)
 };
 
 
-//navegabilidad NAV 
-
+//navegabilidad NAV y seccion ppal
 
 volverSeccionPrincipal.onclick = () => {
     seccionComics.classList.add("ocultar");
@@ -221,29 +231,6 @@ botonMenuHamburguesa.onclick = () => {
     }
 };
 
-const desactivarBotonDesplazamiento = (boton1, boton2) => {
-    boton1.disabled = true;
-    boton2.disabled = true;
-    boton1.style.backgroundColor = "grey";
-    boton2.style.backgroundColor = "grey";
-};
-
-const activarBotonesDesplazamiento = (boton1, boton2) => {
-    boton1.disabled = false;
-    boton2.disabled = false;
-    boton1.style.backgroundColor = "#ffbf0f";
-    boton2.style.backgroundColor = "#ffbf0f";
-};
-
-
-const desvanecerSeccion = (seccion) => {
-    seccion.style.transitionProperty = "opacity";
-    seccion.style.opacity = "0";
-};
-
-
-///
-
 botonDeslizarSeccionAbajo.onclick = () => {
     seccionInicio.classList.add("trasladar-hacia-arriba");
     setTimeout(() => {
@@ -256,15 +243,6 @@ botonDeslizarSeccionAbajo.onclick = () => {
         behavior: 'smooth'
       });
 };
-
-const vibrarOnomatopeya = (onomatopeya) => {
-    onomatopeya.style.animationName = "rotacion";
-    setTimeout(() => {
-        onomatopeya.style.animationName = "";
-    }, 600)
-};
-
-
 
 botonOnomatopeyaSeccionPersonajes.onclick = () => {
     desactivarBotonesNavTemporalmente()
@@ -281,11 +259,7 @@ botonOnomatopeyaSeccionBusqueda.onclick = () => {
     funcionAbrirSeccionBusqueda()
 };
 
-
-
-///////////////  FETCH   ///////////////  FETCH  /////////////// FETCH  ///////////////
-
-////////////// seccion Personajes
+///////////////  SECCION PERSONAJES  ///////////////////////////////////  SECCION PERSONAJES  ////////////////////
 
 const mostrarListaPersonajes = () => {
     imprimirCargando(contenedorTarjetasPersonajes)
@@ -326,7 +300,6 @@ const obtenerComicsDelPersonaje = (id) => {
         })
 };
 
-//Si hago lo de los inputs.. podria reducir esto (creo)
 const busquedaPersonajePorNombre = (nombre) => {
     imprimirCargando(contenedorTarjetasPersonajes)
     fetch(`${urlBase}/characters?nameStartsWith=${nombre}&apikey=${apiKey}&offset=${personajesASaltear}`)
@@ -352,7 +325,6 @@ const busquedaPersonajePorNombre = (nombre) => {
         })
 };
 
-
 botonBusquedaPersonaje.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
@@ -360,7 +332,6 @@ botonBusquedaPersonaje.onclick = (e) => {
         ? busquedaPersonajePorNombre(busquedaPersonajeInput.value)
         : imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
 };
-
 
 const asignarClickTarjetaPersonaje = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-personaje")
@@ -375,7 +346,6 @@ const asignarClickTarjetaPersonaje = () => {
         }
     })
 };
-
 
 const comicsDelPersonajeAdelante = () => {
     const botonDerecha = document.getElementById("mas-comics-del-personaje-adelante")
@@ -396,7 +366,6 @@ const comicsDelPersonajeAtras = () => {
         obtenerComicsDelPersonaje(idElementoClickeado)
     }
 };
-
 
 pagSgteListaPersonajes.onclick = () => {
     activarBotonesDesplazamiento(primeraPaginaListaPersonajes, pagPrevListaPersonajes)
@@ -453,7 +422,6 @@ pagSiguientePersonajesBusuqedaInput.onclick = () => {
 
 ///////////////  SECCION COMICS  ///////////////////////////////////  SECCION COMICS  ////////////////////
 
-
 const mostrarListaComics = () => {
     imprimirCargando(contenedorTarjetasComics)
     fetch(`${urlBase}/comics?orderBy=title&apikey=${apiKey}&offset=${comicsASaltear}`)
@@ -504,7 +472,6 @@ const busquedaComicPorNombre = (nombre) => {
         })
 };
 
-
 const obtenerPersonajesDelComicClickeado = (id) => {
     fetch(`${urlBase}/comics/${id}/characters?&apikey=${apiKey}&limit=8&offset=${personajesASaltear}`)
         .then(res => res.json())
@@ -515,7 +482,6 @@ const obtenerPersonajesDelComicClickeado = (id) => {
             personajesDelComicAtras()
         })
 };
-
 
 const asignarClickTarjetaComics = () => {
     const tarjetas = document.querySelectorAll(".tarjeta-comic")
@@ -531,7 +497,6 @@ const asignarClickTarjetaComics = () => {
     })
 };
 
-
 botonBusquedaComic.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
@@ -539,7 +504,6 @@ botonBusquedaComic.onclick = (e) => {
         ? busquedaComicPorNombre(busquedaComicInput.value)
         : imprimirBusquedaSinResultados(contenedorTarjetasComics)
 };
-
 
 const personajesDelComicAdelante = () => {
     const botonAdelante = document.getElementById("mas-personajes-del-comic-adelante")
@@ -690,8 +654,6 @@ const imprimirHeroeSeleccionado = (heroe) => {
     contenedorHeroeSeleccionado.innerHTML = html
 }
 
-
-
 botonBusquedaSuperHeroApi.onclick = (e) => {
     e.preventDefault()
     obtenerIdSuperHeroApi(busquedaSuperHeroApiInput.value)
@@ -742,7 +704,6 @@ const imprimirPersonajesDelComic = (comic) => {
     }
 };
 
-
 const listaPersonajesHTML = (personaje) => {
     const html = personaje.reduce((acc, element) => {
         return acc + `
@@ -758,8 +719,6 @@ const listaPersonajesHTML = (personaje) => {
     }, "")
     contenedorTarjetasPersonajes.innerHTML = html;
 };
-
-
 
 const imprimirPersonaje = (personaje) => {
     const html = personaje.reduce((acc, element) => {
@@ -779,7 +738,6 @@ const imprimirPersonaje = (personaje) => {
     }, "")
     contenedorPersonajeSeleccionado.innerHTML = html
 };
-
 
 const imprimirComicHTML = (comic) => {
     const html = comic.reduce((acc, element) => {
@@ -823,9 +781,6 @@ const imprimirComicsDePersonaje = (comic) => {
     </div>`
 };}
 
-
-
-
 const imprimirCargando = (elementoDom) => {
     elementoDom.innerHTML = `
      <div class = "contenedor-cargando">
@@ -834,7 +789,6 @@ const imprimirCargando = (elementoDom) => {
     </div>
     `
 };
-
 
 const imprimirBusquedaSinResultados = (contenedorDom) => {
     const html = ` <div class="busqueda-sin-resultados">
@@ -854,14 +808,6 @@ const imprimirBusquedaSinResultados = (contenedorDom) => {
     botonesPaginadoComicsBusquedaInput.classList.add("ocultar")
     botonesPaginadoListaComics.classList.add("ocultar")
 }
-
-// const botonHaciaAbajo = (boton) => {
-//     boton.onclick = () => {
-//         cantidadDeComicsASaltear +=
-//     }
-// }
-
-
 
 
 
