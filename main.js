@@ -307,9 +307,6 @@ const obtenerComicsDelPersonaje = (id) => {
             comicsDelPersonajeAtras()
             comicsDelPersonajeAdelante()
         })
-        .catch(() => {
-
-        })
 };
 
 //Si hago lo de los inputs.. podria reducir esto (creo)
@@ -781,6 +778,10 @@ const imprimirComicHTML = (comic) => {
 };
 
 const imprimirComicsDePersonaje = (comic) => {
+    if (comic.length === 0) {
+        contenedorComicsDePersonajeSeleccionado.innerHTML = `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>No se encontraron comics para este personaje</h3><div class="row-centrar">`
+    }
+    else {
     const html = comic.reduce((acc, element) => {
         return acc + `
         <div class="comics-del-personaje">
@@ -798,7 +799,7 @@ const imprimirComicsDePersonaje = (comic) => {
         <button type ="button" class="boton-desplazamiento" id="mas-comics-del-personaje-adelante"><i class="fas fa-angle-right"></i></button></div>
     </div>
     </div>`
-};
+};}
 
 
 

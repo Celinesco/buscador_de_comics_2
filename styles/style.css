@@ -129,7 +129,7 @@ h2 {
   color: black; }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 150%;
   margin-bottom: 20px;
   font-family: ActionManBold; }
 
@@ -139,7 +139,7 @@ h4 {
 
 h5 {
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 100%;
   margin: 15px 0; }
 
 .contenedor-imagen-presentacion {
@@ -193,7 +193,7 @@ li button {
   font-family: Roboto; }
 
 li button, li a {
-  font-size: 1rem; }
+  font-size: 95%; }
 
 .seccion-inicio {
   background-image: url(../images/fondos/fondoBuscadorComic.svg);
