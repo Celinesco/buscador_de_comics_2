@@ -79,11 +79,11 @@ const resetearVariablesPaginado = () => {
 };
 
 const desactivarBotonesNavTemporalmente = () => {
-    botonesNavegacion.forEach((boton)=> {
+    botonesNavegacion.forEach((boton) => {
         boton.disabled = true
-        setTimeout(()=> {
+        setTimeout(() => {
             boton.disabled = false;
-        },1550)
+        }, 1550)
     })
 };
 
@@ -109,7 +109,7 @@ const funcionAbrirSeccionPersonajes = () => {
     setTimeout(() => {
         seccionPersonajes.classList.remove("ocultar");
     }, 1000)
-    
+
     mostrarListaPersonajes()
 };
 
@@ -124,10 +124,10 @@ const funcionAbrirSeccionComics = () => {
         seccionBusqueda.classList.add("ocultar");
     }, 900)
 
-    setTimeout (() => {
+    setTimeout(() => {
         seccionComics.classList.remove("ocultar")
     }, 1000)
-    
+
     mostrarListaComics()
 };
 
@@ -199,7 +199,7 @@ const ulNav = document.getElementById("ul-nav")
 
 botonMenuHamburguesa.onclick = () => {
     const estadoDelMenu = iconoMenuHamburguesa.getAttribute("class")
-    if (estadoDelMenu === "fas fa-bars" ) {
+    if (estadoDelMenu === "fas fa-bars") {
         nav.classList.remove("nav-menu")
         nav.classList.add("nav-menu-hamburguesa")
         iconoMenuHamburguesa.classList.remove("fa-bars")
@@ -262,8 +262,8 @@ botonOnomatopeyaSeccionComics.onclick = () => {
 };
 
 botonOnomatopeyaSeccionBusqueda.onclick = () => {
-   desactivarBotonesNavTemporalmente()
-   funcionAbrirSeccionBusqueda()
+    desactivarBotonesNavTemporalmente()
+    funcionAbrirSeccionBusqueda()
 };
 
 
@@ -345,8 +345,8 @@ botonBusquedaPersonaje.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
     busquedaPersonajeInput.value.length > 0
-    ? busquedaPersonajePorNombre(busquedaPersonajeInput.value)
-    : imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
+        ? busquedaPersonajePorNombre(busquedaPersonajeInput.value)
+        : imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
 };
 
 
@@ -425,15 +425,15 @@ primeraPaginaListaPersonajes.onclick = () => {
 
 pagAnteriorPersonajesBusquedaInput.onclick = () => {
     personajesASaltear === ultimaPaginaPersonajes * 20
-    ? personajesASaltear = 0
-    : personajesASaltear -=20
+        ? personajesASaltear = 0
+        : personajesASaltear -= 20
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 };
 
 pagSiguientePersonajesBusuqedaInput.onclick = () => {
     personajesASaltear === ultimaPaginaPersonajes * 20
-    ? personajesASaltear = 0
-    : personajesASaltear += 20
+        ? personajesASaltear = 0
+        : personajesASaltear += 20
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 };
 
@@ -495,13 +495,13 @@ const busquedaComicPorNombre = (nombre) => {
 
 const obtenerPersonajesDelComicClickeado = (id) => {
     fetch(`${urlBase}/comics/${id}/characters?&apikey=${apiKey}&limit=8&offset=${personajesASaltear}`)
-    .then (res => res.json())
-    .then(data => {
-        ultimaPaginaPersonajes = Math.floor(data.data.total / 8)
-        imprimirPersonajesDelComic(data.data.results)
-        personajesDelComicAdelante()
-        personajesDelComicAtras()
-    })
+        .then(res => res.json())
+        .then(data => {
+            ultimaPaginaPersonajes = Math.floor(data.data.total / 8)
+            imprimirPersonajesDelComic(data.data.results)
+            personajesDelComicAdelante()
+            personajesDelComicAtras()
+        })
 };
 
 
@@ -523,9 +523,9 @@ const asignarClickTarjetaComics = () => {
 botonBusquedaComic.onclick = (e) => {
     e.preventDefault()
     resetearVariablesPaginado()
-    busquedaComicInput.value.length > 0 
-    ? busquedaComicPorNombre(busquedaComicInput.value)
-    : imprimirBusquedaSinResultados(contenedorTarjetasComics)
+    busquedaComicInput.value.length > 0
+        ? busquedaComicPorNombre(busquedaComicInput.value)
+        : imprimirBusquedaSinResultados(contenedorTarjetasComics)
 };
 
 
@@ -553,7 +553,7 @@ primerPagListaComics.onclick = () => {
     activarBotonesDesplazamiento(pagSgteListaComics, ultimaPagListaComics)
     if (comicsASaltear !== 0) {
         comicsASaltear = 0
-        desactivarBotonDesplazamiento(primerPagListaComics,pagPrevListaComics)
+        desactivarBotonDesplazamiento(primerPagListaComics, pagPrevListaComics)
         mostrarListaComics()
     }
 };
@@ -572,32 +572,32 @@ pagSgteListaComics.onclick = () => {
     if (comicsASaltear !== ultimaPaginaComics) {
         comicsASaltear += 20
         mostrarListaComics()
-        comicsASaltear === 0 && desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
+        comicsASaltear === 0 && desactivarBotonDesplazamiento(pagSgteListaComics, ultimaPagListaComics)
     }
 };
 
 
 ultimaPagListaComics.onclick = () => {
     activarBotonesDesplazamiento(primerPagListaComics, pagPrevListaComics)
-    if(comicsASaltear !== ultimaPaginaComics) {
+    if (comicsASaltear !== ultimaPaginaComics) {
         comicsASaltear = ultimaPaginaComics * 20
-        desactivarBotonDesplazamiento(pagSgteListaComics,ultimaPagListaComics)
+        desactivarBotonDesplazamiento(pagSgteListaComics, ultimaPagListaComics)
         mostrarListaComics()
     }
 };
 
 
 pagAnteriorComicsBusquedaInput.onclick = () => {
-    comicsASaltear === 0 
-    ? comicsASaltear = ultimaPaginaComics * 20
-    : comicsASaltear -= 20
+    comicsASaltear === 0
+        ? comicsASaltear = ultimaPaginaComics * 20
+        : comicsASaltear -= 20
     busquedaComicPorNombre(busquedaComicInput.value)
 };
 
 pagSiguientesComicsBusquedaInput.onclick = () => {
     comicsASaltear === ultimaPaginaComics * 20
-    ? comicsASaltear = 0
-    : comicsASaltear += 20
+        ? comicsASaltear = 0
+        : comicsASaltear += 20
     busquedaComicPorNombre(busquedaComicInput.value)
 };
 
@@ -606,21 +606,21 @@ pagSiguientesComicsBusquedaInput.onclick = () => {
 
 const obtenerIdSuperHeroApi = (input) => {
     fetch(`https://www.superheroapi.com/api.php/1777384219117173/search/${input}`)
-    .then(res => res.json())
-    .then(data => {
-        if (data.response === "error") {
-            imprimirBusquedaSinResultados(contenedorHeroeSeleccionado)
-        }
-        else {
-            imprimirArrayDeHeroes(data.results)
-            asignarClickTarjetasSuperHeroApi()
-        }
-       
-    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.response === "error") {
+                imprimirBusquedaSinResultados(contenedorHeroeSeleccionado)
+            }
+            else {
+                imprimirArrayDeHeroes(data.results)
+                asignarClickTarjetasSuperHeroApi()
+            }
+
+        })
 }
 
 const imprimirArrayDeHeroes = (heroe) => {
-    const html = heroe.reduce((acc,element)=> {
+    const html = heroe.reduce((acc, element) => {
         return acc + `
         <a href="#seccion-comics" class="tarjeta-comic tarjeta-super-hero" data-id=${element.id}>
             <div class="row">
@@ -641,7 +641,7 @@ const imprimirArrayDeHeroes = (heroe) => {
 
 const asignarClickTarjetasSuperHeroApi = () => {
     const tarjetasSuperHero = document.querySelectorAll(".tarjeta-super-hero")
-    tarjetasSuperHero.forEach ((heroe)=> {
+    tarjetasSuperHero.forEach((heroe) => {
         heroe.onclick = () => {
             const idHero = heroe.dataset.id
             infoSobreHeroSeleccionado(idHero)
@@ -651,10 +651,10 @@ const asignarClickTarjetasSuperHeroApi = () => {
 
 const infoSobreHeroSeleccionado = (id) => {
     fetch(`https://www.superheroapi.com/api.php/1777384219117173/${id}`)
-    .then(res => res.json())
-    .then(data => {
-        imprimirHeroeSeleccionado(data)
-    })
+        .then(res => res.json())
+        .then(data => {
+            imprimirHeroeSeleccionado(data)
+        })
 }
 
 const imprimirHeroeSeleccionado = (heroe) => {
@@ -774,7 +774,7 @@ const imprimirComicHTML = (comic) => {
                 </div>
                 <div class="contenedor-info-para-usuario">
                     <h3>${element.title}</h3>
-                    <p>${element.description !== null ? element.description : "" }</p>
+                    <p>${element.description !== null ? element.description : ""}</p>
                 </div>
             </div>
         </div>`
@@ -806,7 +806,7 @@ const imprimirComicsDePersonaje = (comic) => {
 
 
 const imprimirCargando = (elementoDom) => {
-     elementoDom.innerHTML = `
+    elementoDom.innerHTML = `
      <div class = "contenedor-cargando">
         <img src="https://media.giphy.com/media/2pT3cHQSJB4tpFTYeX/giphy.gif" style= "width:80%" alt="superheroe volando">
         <img src="https://media.giphy.com/media/559nyYPxdHpJDlex5V/giphy.gif" style= "width:20%" alt="cargando-contenido">
