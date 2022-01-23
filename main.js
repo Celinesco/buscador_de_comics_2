@@ -76,6 +76,11 @@ const resetearVariablesPaginado = () => {
     comicsASaltear = 0
 };
 
+const vaciarContenedores = (contenedor1, contenedor2) => {
+    contenedor1.innerHTML = "";
+    contenedor2.innerHTML = ""
+}
+
 const desactivarBotonesNavTemporalmente = () => {
     botonesNavegacion.forEach((boton) => {
         boton.disabled = true
@@ -94,9 +99,10 @@ const cerrarMenuHamburguesa = () => {
 
 
 const funcionAbrirSeccionPersonajes = () => {
+    vaciarContenedores(contenedorPersonajeSeleccionado,contenedorComicsDePersonajeSeleccionado);
     pagPrevListaPersonajes.style.backgroundColor = "grey";
     primeraPaginaListaPersonajes.style.backgroundColor = "grey";
-    resetearVariablesPaginado()
+    resetearVariablesPaginado();
     vibrarOnomatopeya(botonOnomatopeyaSeccionPersonajes);
     desvanecerSeccion(seccionPrincipal);
 
@@ -114,6 +120,7 @@ const funcionAbrirSeccionPersonajes = () => {
 };
 
 const funcionAbrirSeccionComics = () => {
+    vaciarContenedores(contenedorComicSeleccionado,contenedorPersonajesDelComicSeleccionado);
     pagPrevListaComics.style.backgroundColor = "grey";
     primerPagListaComics.style.background = "grey";
     resetearVariablesPaginado()
@@ -701,23 +708,28 @@ const listaDeComicsHTML = (comic) => {
 };
 
 const imprimirPersonajesDelComic = (comic) => {
-    const html = comic.reduce((acc, element) => {
-        return acc + `
-        <div class="personajes-del-comic">
-            <div>
-                <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic: ${element.name}">
+    if (comic.length === 0) {
+       contenedorPersonajesDelComicSeleccionado.innerHTML = `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>No se encontraron personajes para mostrar en este comic</h3><div class="row-centrar">`
+    }
+    else {
+        const html = comic.reduce((acc, element) => {
+            return acc + `
+            <div class="personajes-del-comic">
+                <div>
+                    <img src="${element.thumbnail.path}.${element.thumbnail.extension}" alt="Comic: ${element.name}">
+                </div>
+                    <h5>${element.name}</h5>
             </div>
-                <h5>${element.name}</h5>
+            `
+        }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Personajes presentes en este comic</h3><div class="row-centrar">`)
+    
+        contenedorPersonajesDelComicSeleccionado.innerHTML = html + `</div>
+        <div class="row-centrar">
+            <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-atras"><i class="fas fa-angle-left"></i></button>
+            <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-adelante"><i class="fas fa-angle-right"></i></button></div>
         </div>
-        `
-    }, `<div class="borde-blanco-tarjeta-personaje"><div class="contenedor-elemento-seleccionado"><h3>Personajes presentes en este comic</h3><div class="row-centrar">`)
-
-    contenedorPersonajesDelComicSeleccionado.innerHTML = html + `</div>
-    <div class="row-centrar">
-        <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-atras"><i class="fas fa-angle-left"></i></button>
-        <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-adelante"><i class="fas fa-angle-right"></i></button></div>
-    </div>
-    </div>`
+        </div>`
+    }
 };
 
 
