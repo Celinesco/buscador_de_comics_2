@@ -64,9 +64,7 @@ let ultimaPaginaListaDeComicsOPersonajes = 0;
 let ultimaPaginaComics = 0;
 let ultimaPaginaPersonajes = 0;
 let personajesASaltear = 0;
-
 let comicsASaltear = 0;
-
 let idElementoClickeado = 0;
 
 
@@ -96,6 +94,8 @@ const cerrarMenuHamburguesa = () => {
 
 
 const funcionAbrirSeccionPersonajes = () => {
+    pagPrevListaPersonajes.style.backgroundColor = "grey";
+    primeraPaginaListaPersonajes.style.backgroundColor = "grey";
     resetearVariablesPaginado()
     vibrarOnomatopeya(botonOnomatopeyaSeccionPersonajes);
     desvanecerSeccion(seccionPrincipal);
@@ -114,6 +114,8 @@ const funcionAbrirSeccionPersonajes = () => {
 };
 
 const funcionAbrirSeccionComics = () => {
+    pagPrevListaComics.style.backgroundColor = "grey";
+    primerPagListaComics.style.background = "grey";
     resetearVariablesPaginado()
     vibrarOnomatopeya(botonOnomatopeyaSeccionComics);
     desvanecerSeccion(seccionPrincipal)
@@ -145,14 +147,6 @@ const funcionAbrirSeccionBusqueda = () => {
         seccionBusqueda.classList.remove("ocultar")
     }, 1000)
 };
-
-//Comienzo de pagina
-pagPrevListaPersonajes.style.backgroundColor = "grey";
-primeraPaginaListaPersonajes.style.backgroundColor = "grey";
-pagPrevListaComics.style.backgroundColor = "grey";
-primerPagListaComics.style.background = "grey";
-
-//
 
 
 //navegabilidad NAV 
@@ -240,6 +234,10 @@ botonDeslizarSeccionAbajo.onclick = () => {
     }, 900)
     main.classList.remove("ocultar")
     seccionPrincipal.classList.remove("ocultar");
+    window.scroll({
+        top: 0,
+        behavior: 'smooth'
+      });
 };
 
 const vibrarOnomatopeya = (onomatopeya) => {
