@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- aca Male deje espaniol.. pero las Apis me devuelven informacion en ingles, asique no se que tan bien esta esto. Pero la pagina en si, esta en espaniol. -->
+<!-- Hiciste lo correcto! Podes indicar que un elemento como un div o article tiene su contenido en ingles con el atributo lang -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +29,7 @@
     <main class="ocultar">
         <nav class="nav-menu">
             <div class="izquierda-menu-nav">
+                <!-- No uses strong, estilar es trabajo de css, no de html -->
                 <a href="https://celinesco.github.io/buscador_de_comics_2/"><strong>BUSCADOR DE COMICS</strong></a>
                 <button type="button" id="boton-menu-hamburguesa"><i class="fas fa-bars"
                         id="icono-menu-hamburguesa"></i></button>
@@ -47,6 +49,7 @@
 
         <!-- Seccion PRINCIPAL -->
         <section class="seccion-principal secciones" id="seccion-principal">
+            <!-- este div nunca se cierra. fijate en el tabulado de la linea 98-99: es tu guia de que algo está abierto acá -->
             <div class="contenido-seccion-principal">
                 <h1 class="cuadro-comic">Buscador de Comics</h1>
                 <div class="row-centrar">
@@ -119,6 +122,7 @@
             <div class="contenedor-tarjetas-y-botones-paginado">
                 <div class="contenedor-tarjetas" id="contenedor-tarjetas-personajes"></div>
                 <div id="botones-paginado-lista-de-personajes">
+                    <!-- Si un boton no tiene contenido de texto debe si o si tener un aria label  -->
                     <button type="button" class="boton-desplazamiento" id="primera-pagina-personajes"><i
                             class="fas fa-angle-double-left"></i></button>
                     <button type="button" class="boton-desplazamiento" id="pagina-previa-personajes"><i

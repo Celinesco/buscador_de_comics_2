@@ -25,6 +25,7 @@
     src: url("tipografias/Action-Man/Action_Man_Shaded.ttf");
 }
 
+// No aprovechas el anidado tanto como podrias!
 h1 {
     font-size: 300%;
     text-align: center;
@@ -109,6 +110,7 @@ li {
         font-family: $tipografia-secundaria;
     }
 }
+// aprovecha el anidado!
 li button, li a {
     font-size: 95%;
 }
@@ -350,4 +352,5 @@ footer {
     @include flex-centrar($align:normal);
 }
 
+// todos los imports deberian ir al principio
 @import "breakpoints";

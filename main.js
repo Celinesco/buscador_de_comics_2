@@ -4,6 +4,7 @@ const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccio
 
 //Nav 
 const nav = document.querySelector("nav");
+// nunca usas esta variable 
 const ulNav = document.getElementById("ul-nav")
 const volverSeccionPrincipal = document.getElementById("volver-seccion-principal");
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
@@ -63,6 +64,7 @@ const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguien
 //FUNCIONES Y VARIABLES AUXILIARES
 const urlBase = "https://gateway.marvel.com:443/v1/public";
 const apiKey = "1fd738e2dc343485449632dfe8caffa1";
+// nunca usas esta variable 
 let ultimaPaginaListaDeComicsOPersonajes = 0;
 let ultimaPaginaComics = 0;
 let ultimaPaginaPersonajes = 0;
@@ -115,6 +117,7 @@ const desvanecerSeccion = (seccion) => {
 };
 
 const vibrarOnomatopeya = (onomatopeya) => {
+    // excelente 
     onomatopeya.style.animationName = "rotacion";
     setTimeout(() => {
         onomatopeya.style.animationName = "";
@@ -225,6 +228,8 @@ botonDeslizarSeccionAbajo.onclick = () => {
     main.classList.remove("ocultar")
     seccionPrincipal.classList.remove("ocultar");
     // no se como es esto para que se deslice con el dedo hacia arriba Male. 
+    // No es tan facil, pero es con css: el elemento tiene que rebalsar su contenedor y usas
+    // -webkit-overflow-scrolling: touch;
     // window.scroll({
     //     top: 0,
     //     behavior: 'smooth'
@@ -290,6 +295,8 @@ const busquedaPersonajePorNombre = (nombre) => {
         .then(res => res.json())
         .then(data => {
             infoPersonaje.classList.add("ocultar");
+            // mejor decir 
+            // if (!data.data.results.length) {
             if (data.data.results.length === 0) {
                 imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
             }
@@ -324,6 +331,7 @@ const asignarClickTarjetaPersonaje = () => {
             comicsASaltear = 0
             infoPersonaje.classList.remove("ocultar")
             const idPersonaje = personaje.dataset.id;
+            // excelente
             idElementoClickeado = idPersonaje;
             obtenerInfoPersonajeClickeado(idPersonaje)
             obtenerComicsDelPersonaje(idPersonaje)
@@ -386,7 +394,7 @@ primeraPaginaListaPersonajes.onclick = () => {
         mostrarListaPersonajes()
     }
 };
-
+// ojo! puedo hacer click acá si estoy en la pagina 1 de busqueda, y eso me rompe la web!
 pagAnteriorPersonajesBusquedaInput.onclick = () => {
     personajesASaltear === ultimaPaginaPersonajes * 20
         ? personajesASaltear = 0
@@ -560,7 +568,7 @@ pagSiguientesComicsBusquedaInput.onclick = () => {
 
 
 //SECCION BUSQUEDA
-
+// increible que hayas usado dos apis!!
 const obtenerIdSuperHeroApi = (input) => {
     fetch(`https://www.superheroapi.com/api.php/1777384219117173/search/${input}`)
         .then(res => res.json())
@@ -615,6 +623,7 @@ const infoSobreHeroSeleccionado = (id) => {
 }
 
 const imprimirHeroeSeleccionado = (heroe) => {
+    // No es necesario escribir heroe.appearance['race'], podes usar: heroe.appearance.race
     const html = `
         <div class="borde-blanco-tarjeta-personaje">
             <div class="contenedor-elemento-seleccionado personaje-seleccionado">
