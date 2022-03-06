@@ -37,7 +37,7 @@ Some of the icons and images are from :
 [Flaticon](https://www.flaticon.com/free-icons/superhero)\
 [FontAwesome](https://fontawesome.com/)
 
-You can find superheroes(and villains too), and the ones who belogn to Marvel's world, have extra information.
+You can find superheroes(and villains too), and those that belong to Marvel's world, have extra information.
 [Try it here!](https://celinesco.github.io/buscador_de_comics_2/) 
 
 
