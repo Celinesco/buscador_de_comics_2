@@ -26,9 +26,9 @@ La aplicación permite buscar superhéroes o comics de Marvel, ofreciendo una br
 
 ### English
 
-![made with HTML5](https://shields.io/badge/hecho%20con-HTML5-orange?logo=html5&style=plastic)
-![made with SASS](https://shields.io/badge/hecho%20con-Sass-ff69b4?logo=sass&style=plastic)
-![made with  JavaScript](https://shields.io/badge/hecho%20con-JavaScript-f7df1e?logo=JavaScript&style=plastic)
+![made with HTML5](https://shields.io/badge/made%20with-HTML5-orange?logo=html5&style=plastic)
+![made with SASS](https://shields.io/badge/made%20with-Sass-ff69b4?logo=sass&style=plastic)
+![made with  JavaScript](https://shields.io/badge/made%20with-JavaScript-f7df1e?logo=JavaScript&style=plastic)
 
 This is my fourth project from the Bootcamp by Ada Itw. The aim of the project was to work with a public API. As always, we had pages examples, with different APIs. I chose Marvel Api, taking this [web site](https://frontend-proyecto-comics.adaitw.org/) as model, and also dabbled in another API to complete with those superheroes that don't belong to the Marvel world.
 Some of the icons and images are from :
