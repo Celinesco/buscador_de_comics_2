@@ -390,10 +390,13 @@ primeraPaginaListaPersonajes.onclick = () => {
 };
 // ojo! puedo hacer click acá si estoy en la pagina 1 de busqueda, y eso me rompe la web!
 pagAnteriorPersonajesBusquedaInput.onclick = () => {
-    personajesASaltear === ultimaPaginaPersonajes * 20
+    if (personajesASaltear !== 0) {
+        personajesASaltear === ultimaPaginaPersonajes * 20
         ? personajesASaltear = 0
         : personajesASaltear -= 20
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
+    }
+  
 };
 
 pagSiguientePersonajesBusuqedaInput.onclick = () => {
@@ -617,6 +620,7 @@ const infoSobreHeroSeleccionado = (id) => {
 }
 
 const imprimirHeroeSeleccionado = (heroe) => {
+    //tegno que reveer ese u de underline y estilarlo de css
     // No es necesario escribir heroe.appearance['race'], podes usar: heroe.appearance.race
     const html = `
         <div class="borde-blanco-tarjeta-personaje">
@@ -626,11 +630,11 @@ const imprimirHeroeSeleccionado = (heroe) => {
                 </div>
                 <div class="contenedor-info-para-usuario">
                     <h3>${heroe.name}</h3>
-                    <p class="info-superheroe"><u>Nombre verdadero:</u> ${heroe.biography['full-name']}</p>
-                    <p class="info-superheroe"><u>Raza:</u> ${heroe.appearance['race']}</p>
-                    <p class="info-superheroe"><u>Lugar de nacimiento:</u> ${heroe.biography['place-of-birth']}</p>
-                    <p class="info-superheroe"><u>Ocupación:</u> ${heroe.work.occupation}</p>
-                    <p class="info-superheroe"><u>Parentescos: </u> ${heroe.connections.relatives}</p>
+                    <p class="info-superheroe" lang="en"><u>Nombre verdadero:</u> ${heroe.biography['full-name']}</p>
+                    <p class="info-superheroe" lang="en" ><u>Raza:</u> ${heroe.appearance.race}</p>
+                    <p class="info-superheroe" lang="en"><u>Lugar de nacimiento:</u> ${heroe.biography['place-of-birth']}</p>
+                    <p class="info-superheroe" lang="en"><u>Ocupación:</u> ${heroe.work.occupation}</p>
+                    <p class="info-superheroe" lang="en"><u>Parentescos: </u> ${heroe.connections.relatives}</p>
                 </div>
             </div>
         </div>`
@@ -712,7 +716,7 @@ const imprimirPersonaje = (personaje) => {
                 </div>
                 <div class="contenedor-info-para-usuario">
                     <h3>${element.name}</h3>
-                    <p>${element.description}</p>
+                    <p lang="en">${element.description}</p>
                 </div>
             </div>
         </div>`
@@ -731,7 +735,7 @@ const imprimirComicHTML = (comic) => {
                 </div>
                 <div class="contenedor-info-para-usuario">
                     <h3>${element.title}</h3>
-                    <p>${element.description !== null ? element.description : ""}</p>
+                    <p lang="en">${element.description !== null ? element.description : ""}</p>
                 </div>
             </div>
         </div>`

@@ -33,9 +33,9 @@ La aplicación permite buscar superhéroes o comics de Marvel, ofreciendo una br
 This is my fourth project from the Bootcamp by Ada Itw. The aim of the project was to work with a public API. As always, we had pages examples, with different APIs. I chose Marvel Api, taking this [web site](https://frontend-proyecto-comics.adaitw.org/) as model, and also dabbled in another API to complete with those superheroes that don't belong to the Marvel world.
 Some of the icons and images are from :
 
-[Freepik](https://www.freepik.com/vectors/background) creados por coolvector, freepik y starline\
+[Freepik](https://www.freepik.com/vectors/background) by coolvector, freepik y starline\
 [Flaticon](https://www.flaticon.com/free-icons/superhero)\
-[FontAwesome](https://fontawesome.com/)\
+[FontAwesome](https://fontawesome.com/)
 
 You can find superheroes(and villains too), and the ones who belogn to Marvel's world, have extra information.
 [Try it here!](https://celinesco.github.io/buscador_de_comics_2/) 

@@ -125,12 +125,14 @@ li button, li a {
     @include imagen-fondo();
     @include flex-centrar();
     transition: 0.8s;
+    min-height: 80vh;
 }
 .contenido-seccion-principal {
     @include flex-centrar($direccion: column, $content: space-around);
     margin: 5%;
     flex-wrap: wrap;
 }
+
 .cuadro-comic {
     border: $bordes-tarjetas-estilo-comic;
     font-family: $tipografia-principal-italic;

@@ -153,7 +153,7 @@ h5 {
 .texto-presentacion {
   font-family: ActionManItalic;
   color: white;
-  margin: 20px;
+  margin: 20px 0;
   text-align: center;
   font-size: 200%; }
 
@@ -186,7 +186,7 @@ nav {
   transition-property: left;
   transition-duration: 0.6s; }
   .nav-menu-hamburguesa ul li {
-    margin: 10px 0px; }
+    margin: 10px 0; }
 
 .izquierda-menu-nav {
   width: 100%;
@@ -222,7 +222,8 @@ li button, li a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: 0.8s; }
+  transition: 0.8s;
+  min-height: 80vh; }
 
 .contenido-seccion-principal {
   display: flex;
