@@ -1,8 +1,7 @@
-# Buscador de comics
-
-
 ![Gifpresentacion](https://media.giphy.com/media/2pT3cHQSJB4tpFTYeX/giphy.gif)
 
+
+# Buscador de comics
 
 ### Español
 
@@ -23,4 +22,23 @@ La aplicación permite buscar superhéroes o comics de Marvel, ofreciendo una br
 
 
 
+# Comic search app
 
+### English
+
+![made with HTML5](https://shields.io/badge/hecho%20con-HTML5-orange?logo=html5&style=plastic)
+![made with SASS](https://shields.io/badge/hecho%20con-Sass-ff69b4?logo=sass&style=plastic)
+![made with  JavaScript](https://shields.io/badge/hecho%20con-JavaScript-f7df1e?logo=JavaScript&style=plastic)
+
+This is my fourth project from the Bootcamp by Ada Itw. The aim of the project was to work with a public API. As always, we had pages examples, with different APIs. I chose Marvel Api, taking this [web site](https://frontend-proyecto-comics.adaitw.org/) as model, and also dabbled in another API to complete with those superheroes that don't belong to the Marvel world.
+Some of the icons and images are from :
+
+[Freepik](https://www.freepik.com/vectors/background) creados por coolvector, freepik y starline\
+[Flaticon](https://www.flaticon.com/free-icons/superhero)\
+[FontAwesome](https://fontawesome.com/)\
+
+You can find superheroes(and villains too), and the ones who belogn to Marvel's world, have extra information.
+[Try it here!](https://celinesco.github.io/buscador_de_comics_2/) 
+
+
+Write my for any suggestions!

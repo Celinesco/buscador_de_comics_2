@@ -4,8 +4,6 @@ const botonDeslizarSeccionAbajo = document.getElementById("boton-deslizar-seccio
 
 //Nav 
 const nav = document.querySelector("nav");
-// nunca usas esta variable 
-const ulNav = document.getElementById("ul-nav")
 const volverSeccionPrincipal = document.getElementById("volver-seccion-principal");
 const abrirSeccionPersonajes = document.getElementById("abrir-seccion-personajes");
 const abrirSeccionComics = document.getElementById("abrir-seccion-comics");
@@ -64,8 +62,6 @@ const pagSiguientesComicsBusquedaInput = document.getElementById("pagina-siguien
 //FUNCIONES Y VARIABLES AUXILIARES
 const urlBase = "https://gateway.marvel.com:443/v1/public";
 const apiKey = "1fd738e2dc343485449632dfe8caffa1";
-// nunca usas esta variable 
-let ultimaPaginaListaDeComicsOPersonajes = 0;
 let ultimaPaginaComics = 0;
 let ultimaPaginaPersonajes = 0;
 let personajesASaltear = 0;
@@ -295,9 +291,7 @@ const busquedaPersonajePorNombre = (nombre) => {
         .then(res => res.json())
         .then(data => {
             infoPersonaje.classList.add("ocultar");
-            // mejor decir 
-            // if (!data.data.results.length) {
-            if (data.data.results.length === 0) {
+            if (!data.data.results.length) {
                 imprimirBusquedaSinResultados(contenedorTarjetasPersonajes)
             }
             else {
