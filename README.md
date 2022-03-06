@@ -41,4 +41,4 @@ You can find superheroes(and villains too), and the ones who belogn to Marvel's 
 [Try it here!](https://celinesco.github.io/buscador_de_comics_2/) 
 
 
-Write my for any suggestions!
+Suggestions are always welcome!
