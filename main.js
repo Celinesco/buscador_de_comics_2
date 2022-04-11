@@ -623,7 +623,6 @@ const infoSobreHeroSeleccionado = (id) => {
 
 const imprimirHeroeSeleccionado = (heroe) => {
     //tegno que reveer ese u de underline y estilarlo de css
-    // No es necesario escribir heroe.appearance['race'], podes usar: heroe.appearance.race
     const html = `
         <div class="borde-blanco-tarjeta-personaje">
             <div class="contenedor-elemento-seleccionado personaje-seleccionado">
@@ -796,6 +795,4 @@ const imprimirBusquedaSinResultados = (contenedorDom) => {
     botonesPaginadoComicsBusquedaInput.classList.add("ocultar")
     botonesPaginadoListaComics.classList.add("ocultar")
 }
-
-
 
