@@ -49,7 +49,6 @@
 
         <!-- Seccion PRINCIPAL -->
         <section class="seccion-principal secciones" id="seccion-principal">
-            <!-- este div nunca se cierra. fijate en el tabulado de la linea 98-99: es tu guia de que algo está abierto acá -->
             <div class="contenido-seccion-principal">
                 <h1 class="cuadro-comic">Buscador de Comics</h1>
                 <div class="row-centrar">
@@ -96,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- Seccion PERSONAJES -->
@@ -122,14 +122,13 @@
             <div class="contenedor-tarjetas-y-botones-paginado">
                 <div class="contenedor-tarjetas" id="contenedor-tarjetas-personajes"></div>
                 <div id="botones-paginado-lista-de-personajes">
-                    <!-- Si un boton no tiene contenido de texto debe si o si tener un aria label  -->
-                    <button type="button" class="boton-desplazamiento" id="primera-pagina-personajes"><i
+                    <button type="button" class="boton-desplazamiento" id="primera-pagina-personajes" aria-label="Primera página"><i
                             class="fas fa-angle-double-left"></i></button>
-                    <button type="button" class="boton-desplazamiento" id="pagina-previa-personajes"><i
+                    <button type="button" class="boton-desplazamiento" id="pagina-previa-personajes" aria-label="Página anterior"><i
                             class="fas fa-angle-left"></i></button>
-                    <button type="button" class="boton-desplazamiento" id="pagina-siguiente-personajes"><i
+                    <button type="button" class="boton-desplazamiento" id="pagina-siguiente-personajes" aria-label="Página siguiente"><i
                             class="fas fa-angle-right"></i></button>
-                    <button type="button" class="boton-desplazamiento" id="ultima-pagina-personajes"><i
+                    <button type="button" class="boton-desplazamiento" id="ultima-pagina-personajes" aria-label="Última página"><i
                             class="fas fa-angle-double-right"></i></button>
                 </div>
                 <div class="ocultar" id="botones-paginado-personajes-busqueda-por-input">

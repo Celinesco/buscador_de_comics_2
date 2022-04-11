@@ -1,4 +1,4 @@
-![Gifpresentacion](https://media.giphy.com/media/2pT3cHQSJB4tpFTYeX/giphy.gif)
+<img src="https://user-images.githubusercontent.com/64862069/162695750-f2fea8f8-8e3e-4832-9e50-fba9a03d1b67.png" alt="Aplicacion en diferentes dispositivos" >
 
 
 # Buscador de comics
@@ -21,6 +21,7 @@ La aplicación permite buscar superhéroes o comics de Marvel, ofreciendo una br
 [Pruébala aquí!](https://celinesco.github.io/buscador_de_comics_2/) 
 
 
+![Gifpresentacion](https://media.giphy.com/media/2pT3cHQSJB4tpFTYeX/giphy.gif)
 
 # Comic search app
 
