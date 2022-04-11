@@ -190,6 +190,18 @@ li button, li a {
     @include flex-centrar($direccion:row);
     flex-wrap: wrap;
 }
+
+.contenedor-resultados-totales {
+    padding: 20px 10px;
+    width: 100%;
+    @include flex-centrar($direccion: row, $content: flex-start, $align: center);
+    p {
+        font-family: ActionManRegular;
+        font-weight: bold;
+        font-size: 30px
+    }
+}
+
 .contenedor-cargando {
     @include flex-centrar();
     margin: 20px 0px;

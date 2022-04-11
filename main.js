@@ -21,6 +21,7 @@ const botonOnomatopeyaSeccionBusqueda = qs("#boton-seccion-busqueda");
 const botonOnomatopeyaSeccionComics = qs("#boton-seccion-comics");
 
 //Seccion Personajes
+const resultadosTotales = qs("#resultados-totales");
 const seccionPersonajes = qs("#seccion-personajes");
 const busquedaPersonajeInput = qs("#busqueda-personaje");
 const botonBusquedaPersonaje = qs("#boton-busqueda-personaje");
@@ -69,6 +70,7 @@ let ultimaPaginaPersonajes = 0;
 let personajesASaltear = 0;
 let comicsASaltear = 0;
 let idElementoClickeado = 0;
+let totalResults = 0;
 
 
 const resetearVariablesPaginado = () => {
@@ -256,6 +258,8 @@ const mostrarListaPersonajes = () => {
             botonesPaginadoPersonajesBusquedaPorInput.classList.add("ocultar")
             botonesPaginadoListaPersonajes.classList.remove("ocultar");
             ultimaPaginaPersonajes = Math.floor(data.data.total / 20)
+            totalResults = data.data.total
+            resultadosTotales.innerHTML = `<p>Resultados: ${totalResults}</p>`
             listaPersonajesHTML(data.data.results)
             asignarClickTarjetaPersonaje()
             const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -300,6 +304,7 @@ const busquedaPersonajePorNombre = (nombre) => {
                 botonesPaginadoListaPersonajes.classList.add("ocultar");
                 botonesPaginadoPersonajesBusquedaPorInput.classList.remove("ocultar")
                 ultimaPaginaPersonajes = Math.floor(data.data.total / 20)
+                
                 listaPersonajesHTML(data.data.results)
                 asignarClickTarjetaPersonaje()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
