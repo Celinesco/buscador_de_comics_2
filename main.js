@@ -345,9 +345,10 @@ const asignarClickTarjetaPersonaje = () => {
 const comicsDelPersonajeAdelante = () => {
     const botonDerecha = qs("#mas-comics-del-personaje-adelante")
     botonDerecha.onclick = () => {
-        comicsASaltear === ultimaPaginaComics * 8
-            ? comicsASaltear = 0
-            : comicsASaltear += 8
+        if (comicsASaltear === ultimaPaginaComics * 8) {
+            comicsASaltear = 0
+        }
+        else { comicsASaltear += 8 }
         obtenerComicsDelPersonaje(idElementoClickeado)
     }
 };
@@ -355,9 +356,10 @@ const comicsDelPersonajeAdelante = () => {
 const comicsDelPersonajeAtras = () => {
     const botonIzquierda = qs("#mas-comics-del-personaje-atras")
     botonIzquierda.onclick = () => {
-        comicsASaltear === 0
-            ? comicsASaltear = ultimaPaginaComics * 8
-            : comicsASaltear -= 8
+        if (comicsASaltear === 0) {
+            comicsASaltear = ultimaPaginaComics * 8
+        }
+        else {comicsASaltear -= 8}
         obtenerComicsDelPersonaje(idElementoClickeado)
     }
 };
@@ -397,21 +399,20 @@ primeraPaginaListaPersonajes.onclick = () => {
         mostrarListaPersonajes()
     }
 };
-// ojo! puedo hacer click acá si estoy en la pagina 1 de busqueda, y eso me rompe la web!
+
 pagAnteriorPersonajesBusquedaInput.onclick = () => {
     if (personajesASaltear !== 0) {
-        personajesASaltear === ultimaPaginaPersonajes * 20
-        ? personajesASaltear = 0
-        : personajesASaltear -= 20
-    busquedaPersonajePorNombre(busquedaPersonajeInput.value)
+        personajesASaltear -= 20
     }
-  
+     else{ personajesASaltear = ultimaPaginaPersonajes * 20}
+    busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 };
 
 pagSiguientePersonajesBusuqedaInput.onclick = () => {
-    personajesASaltear === ultimaPaginaPersonajes * 20
-        ? personajesASaltear = 0
-        : personajesASaltear += 20
+    if (personajesASaltear === ultimaPaginaPersonajes * 20){
+        personajesASaltear = 0
+    }
+    else {personajesASaltear += 20}
     busquedaPersonajePorNombre(busquedaPersonajeInput.value)
 };
 
@@ -478,6 +479,8 @@ const obtenerPersonajesDelComicClickeado = (id) => {
         .then(res => res.json())
         .then(data => {
             ultimaPaginaPersonajes = Math.floor(data.data.total / 8)
+            console.log(data.data.total)
+            console.log(ultimaPaginaPersonajes * 8)
             imprimirPersonajesDelComic(data.data.results)
             personajesDelComicAdelante()
             personajesDelComicAtras()
@@ -509,9 +512,12 @@ botonBusquedaComic.onclick = (e) => {
 const personajesDelComicAdelante = () => {
     const botonAdelante = qs("#mas-personajes-del-comic-adelante")
     botonAdelante.onclick = () => {
-        personajesASaltear === ultimaPaginaPersonajes * 8
-            ? personajesASaltear = 0
-            : personajesASaltear += 8
+        console.log(personajesASaltear)
+        console.log(ultimaPaginaPersonajes)
+        if (personajesASaltear === ultimaPaginaPersonajes * 8) {
+            personajesASaltear = 0
+        }
+        else {personajesASaltear += 8}
         obtenerPersonajesDelComicClickeado(idElementoClickeado)
     }
 };
@@ -519,9 +525,10 @@ const personajesDelComicAdelante = () => {
 const personajesDelComicAtras = () => {
     const botonAtras = qs("#mas-personajes-del-comic-atras")
     botonAtras.onclick = () => {
-        personajesASaltear === 0
-            ? personajesASaltear = ultimaPaginaPersonajes * 8
-            : personajesASaltear -= 8
+        if (personajesASaltear === 0) {
+            personajesASaltear = ultimaPaginaPersonajes * 8
+        }
+        else {personajesASaltear -= 8}
         obtenerPersonajesDelComicClickeado(idElementoClickeado)
     }
 };
@@ -563,16 +570,18 @@ ultimaPagListaComics.onclick = () => {
 };
 
 pagAnteriorComicsBusquedaInput.onclick = () => {
-    comicsASaltear === 0
-        ? comicsASaltear = ultimaPaginaComics * 20
-        : comicsASaltear -= 20
+    if (comicsASaltear === 0) {
+        comicsASaltear = ultimaPaginaComics * 20
+    } 
+    else {comicsASaltear -= 20}
     busquedaComicPorNombre(busquedaComicInput.value)
 };
 
 pagSiguientesComicsBusquedaInput.onclick = () => {
-    comicsASaltear === ultimaPaginaComics * 20
-        ? comicsASaltear = 0
-        : comicsASaltear += 20
+    if (comicsASaltear === ultimaPaginaComics * 20) {
+        comicsASaltear = 0
+    }
+    else {comicsASaltear += 20}
     busquedaComicPorNombre(busquedaComicInput.value)
 };
 
