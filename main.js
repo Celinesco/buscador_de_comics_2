@@ -684,8 +684,8 @@ const imprimirPersonajesDelComic = (comic) => {
     
         contenedorPersonajesDelComicSeleccionado.innerHTML = html + `</div>
         <div class="row-centrar">
-            <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-atras"><i class="fas fa-angle-left"></i></button>
-            <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-adelante"><i class="fas fa-angle-right"></i></button></div>
+            <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-atras" aria-label="Página siguiente"><i class="fas fa-angle-left"></i></button>
+            <button type ="button" class="boton-desplazamiento" id="mas-personajes-del-comic-adelante" aria-label="Página anterior"><i class="fas fa-angle-right"></i></button></div>
         </div>
         </div>`
     }
