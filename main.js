@@ -21,7 +21,7 @@ const botonOnomatopeyaSeccionBusqueda = qs("#boton-seccion-busqueda");
 const botonOnomatopeyaSeccionComics = qs("#boton-seccion-comics");
 
 //Seccion Personajes
-const resultadosTotales = qs("#resultados-totales");
+const resultadosTotalesPersonajes = qs("#resultados-totales-personajes");
 const seccionPersonajes = qs("#seccion-personajes");
 const busquedaPersonajeInput = qs("#busqueda-personaje");
 const botonBusquedaPersonaje = qs("#boton-busqueda-personaje");
@@ -45,6 +45,7 @@ const busquedaSuperHeroApiInput = qs("#busqueda-superheroapi");
 const contenedorHeroeSeleccionado = qs("#contenedor-heroe-seleccionado");
 
 //Seccion Comics
+const resultadosTotalesComics = qs("#resultados-totales-comics");
 const seccionComics = qs("#seccion-comics");
 const botonBusquedaComic = qs("#boton-busqueda-comic");
 const busquedaComicInput = qs("#busqueda-comic");
@@ -259,7 +260,7 @@ const mostrarListaPersonajes = () => {
             botonesPaginadoListaPersonajes.classList.remove("ocultar");
             ultimaPaginaPersonajes = Math.floor(data.data.total / 20)
             totalResults = data.data.total
-            resultadosTotales.innerHTML = `<p>Resultados: ${totalResults}</p>`
+            resultadosTotalesPersonajes.innerHTML = `<p>Resultados: ${totalResults}</p>`
             listaPersonajesHTML(data.data.results)
             asignarClickTarjetaPersonaje()
             const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -304,7 +305,8 @@ const busquedaPersonajePorNombre = (nombre) => {
                 botonesPaginadoListaPersonajes.classList.add("ocultar");
                 botonesPaginadoPersonajesBusquedaPorInput.classList.remove("ocultar")
                 ultimaPaginaPersonajes = Math.floor(data.data.total / 20)
-                
+                totalResults = data.data.total
+                resultadosTotalesPersonajes.innerHTML = `<p>Resultados: ${totalResults}</p>`
                 listaPersonajesHTML(data.data.results)
                 asignarClickTarjetaPersonaje()
                 const tarjetas = document.querySelectorAll(".tarjeta-personaje");
@@ -423,6 +425,8 @@ const mostrarListaComics = () => {
         .then(res => res.json())
         .then(data => {
             ultimaPaginaComics = Math.floor(data.data.total / 20)
+            totalResults = data.data.total;
+            resultadosTotalesComics.innerHTML = `<p>Resultados: ${totalResults}</p>`;
             listaDeComicsHTML(data.data.results)
             asignarClickTarjetaComics()
             const tarjetas = document.querySelectorAll(".tarjeta-comic")
@@ -453,6 +457,8 @@ const busquedaComicPorNombre = (nombre) => {
                 imprimirBusquedaSinResultados(contenedorTarjetasComics)
             }
             else {
+                totalResults = data.data.total;
+                resultadosTotalesComics.innerHTML = `<p>Resultados: ${totalResults}</p>`;
                 ultimaPaginaComics = Math.floor(data.data.total / 20)
                 botonesPaginadoComicsBusquedaInput.classList.remove("ocultar")
                 listaDeComicsHTML(data.data.results)
